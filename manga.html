@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="koyu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> · Mushoku Tensei Ansiklopedisi</title>
+<meta name="description" content="">
+<meta name="author" content="Mushoku Tensei Ansiklopedisi (hayran projesi)">
+<meta property="og:type" content="website">
+<meta property="og:title" content=" · Mushoku Tensei Ansiklopedisi">
+<meta property="og:description" content="">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#070c16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='16' r='9' fill='none' stroke='%23d9a441' stroke-width='1.6'/%3E%3Ccircle cx='19' cy='16' r='9' fill='none' stroke='%2357bdd4' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Marcellus&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+
+<div class="ilerleme" role="presentation"></div>
+
+<div class="omurga" aria-hidden="true">
+  <div class="omurga-marka">漫画</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-yazi">Manga</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-sayfa"></div>
+</div>
+
+<header class="ust">
+  <div class="defter ust-ic">
+    <a class="marka" href="index.html" aria-label="Ana sayfa">
+      <svg class="altin" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+      <span class="marka-yazi">
+        <b>Mushoku Tensei</b>
+        <span>Ansiklopedi · Fan Arşivi</span>
+      </span>
+    </a>
+
+    <nav class="gezinme" aria-label="Ana gezinme">
+      <a class="gez " href="index.html">Ana Sayfa</a>
+      <a class="gez " href="anime.html">Anime</a>
+      <a class="gez aktif" href="manga.html">Manga</a>
+      <a class="gez " href="novel.html">Novel</a>
+      <a class="gez " href="karakterler.html">Karakterler</a>
+      <a class="gez " href="dunya.html">Dünya</a>
+      <a class="gez " href="yaylar.html">Yaylar</a>
+      <a class="gez " href="analiz.html">Analiz</a>
+      <a class="gez " href="rehber.html">Rehber</a>
+      <a class="gez " href="medya-eklenti.html">Ek Medya</a>
+      <a class="gez " href="hakkinda.html">Hakkında</a>
+    </nav>
+
+    <div class="ust-eylem">
+      <button class="dugme" type="button" data-arama-ac aria-label="Ara (Ctrl+K)" title="Ara · Ctrl+K">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      </button>
+      <button class="dugme" type="button" data-tema-dugme aria-label="Temayı değiştir" title="Temayı değiştir">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ay"></use></svg>
+      </button>
+      <button class="dugme menu-dugme" type="button" aria-expanded="false" aria-label="Menü" data-menu>
+        <svg class="ikon" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="arama-kat" id="arama-kat" role="dialog" aria-modal="true" aria-label="Arama">
+  <div class="arama-kutu">
+    <div class="arama-girdi">
+      <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      <input id="arama-girdi" type="search" placeholder="Karakter, bölüm, cilt, kavram ara…" autocomplete="off" spellcheck="false">
+      <button class="dugme" type="button" data-arama-kapat aria-label="Kapat">
+        <svg class="ikon" aria-hidden="true"><use href="#i-kapat"></use></svg>
+      </button>
+    </div>
+    <div class="arama-sonuc" id="arama-sonuc"></div>
+    <div class="arama-alt">
+      <span><kbd>↑</kbd><kbd>↓</kbd> gez</span>
+      <span><kbd>Enter</kbd> aç</span>
+      <span><kbd>Esc</kbd> kapat</span>
+      <span style="margin-left:auto">62 bölüm · 23 yay · 25 manga cilti · 26 novel cildi</span>
+    </div>
+  </div>
+</div>
+
+<main id="icerik">
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Manga</b> — uyarlama kolu</span>
+    <span>Yuka Fujikawa · Shirotaka (karakter tasarımı)</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <div class="masthead-alt">
+      <div>
+        <p class="no">§ M · Çizgi roman</p>
+        <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Manga</h1>
+        <p class="giris" style="margin-top:1rem;max-width:54ch" id="manga-ozet">
+          Manga uyarlaması 2014'te <em>Monthly Comic Flapper</em>'da başladı ve
+          hâlâ sürüyor. Anime'nin aksine manga kaynak metne çok daha sadık;
+          özellikle ilk yılların olay sırası neredeyse birebir.
+        </p>
+      </div>
+      <div>
+        <svg class="altin altin-yesil" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+        <dl class="olcu" id="manga-olcu" style="margin-top:1rem"></dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FARKLAR ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ M.1 · Karşılaştırma</p>
+      <h2>Manga, novel ve anime arasında</h2>
+      <p>Üç kol aynı olayları anlatıyor ama hiçbiri diğerinin yerine geçmiyor.
+         Kısa bir karşılaştırma:</p>
+    </div>
+
+    <div class="tablo-kap">
+      <table>
+        <caption>Manga / Novel / Anime — hangisi ne zaman?</caption>
+        <thead>
+          <tr>
+            <th class="no">Ölçüt</th>
+            <th>Manga</th>
+            <th>Novel</th>
+            <th>Anime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="no">Başlangıç</td>
+            <td>Haziran 2014 sayısından itibaren</td>
+            <td>Web: Kasım 2012 · Cilt: Ocak 2014</td>
+            <td>Ocak 2021</td>
+          </tr>
+          <tr>
+            <td class="no">Kapsam</td>
+            <td>En az 25 cilt, devam ediyor</td>
+            <td>26 cilt</td>
+            <td>62 bölüm, devam ediyor</td>
+          </tr>
+          <tr>
+            <td class="no">4. bölüm meselesi</td>
+            <td>Kaynak metinle uyumlu</td>
+            <td>Kaynak</td>
+            <td>Sahne animasyonu yapılmadı, olay değiştirildi</td>
+          </tr>
+          <tr>
+            <td class="no">Çizim</td>
+            <td>Fujikawa / Shirotaka</td>
+            <td>Shirotaka (kapaklar)</td>
+            <td>Kazutaka Sugiyama (tasarım)</td>
+          </tr>
+          <tr>
+            <td class="no">En güçlü yanı</td>
+            <td>Erken yılların sadakati, Roxy'nin paralel çizgisi</td>
+            <td>Tamamlanmış tek metin</td>
+            <td>Rita'nın determinizm hikâyesi, görsel durum tasarımı</td>
+          </tr>
+          <tr>
+            <td class="no">En zayıf yanı</td>
+            <td>Sonraki ciltlerde tempo düşüyor</td>
+            <td>Uzun ara bölümler</td>
+            <td>1. sezon ortasında ani ton değişimi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota mana" style="margin-top:1rem">
+      <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-bilgi"></use></svg>
+      <div>Öneri: Tamamlanmış ve tutarlı bir metin istiyorsan novel.
+      Karakterlerin iç dünyasını görmek istiyorsan manga (özellikle
+      <em>Roxy Gets Serious</em>). Ani, vurucu sahneler ve müzik istiyorsan anime.</div>
+    </div>
+  </section>
+
+  <!-- ============================ CİLT LİSTELERİ ============================ -->
+  <section class="bolum">
+    <div class="sekmeler" role="tablist" aria-label="Manga kolu seçimi">
+      <button class="sekme aktif" type="button" data-sekme="mg-ana" role="tab" aria-selected="true">Ana seri</button>
+      <button class="sekme" type="button" data-sekme="mg-roxy" role="tab" aria-selected="false">Roxy Gets Serious</button>
+      <button class="sekme" type="button" data-sekme="mg-4koma" role="tab" aria-selected="false">4-Koma</button>
+      <button class="sekme" type="button" data-sekme="mg-gaiden" role="tab" aria-selected="false">Eris Gaiden</button>
+      <button class="sekme" type="button" data-sekme="mg-dep" role="tab" aria-selected="false">Depressed Magician</button>
+      <button class="sekme" type="button" data-sekme="mg-ant" role="tab" aria-selected="false">Antoloji</button>
+    </div>
+
+    <div data-panel="mg-ana" role="tabpanel">
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        Ana manga dizisi. Çizgi roman kahramanı değil, bir aileyi anlatıyor —
+        Rudeus'un çocukluktan düşen kalkanının nasıl kalktığını.
+      </p>
+      <div id="mg-ana" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-roxy" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        <em>ロキシーだって本気です</em> — Roxy'nin kendi hikâyesi. Ana dizinin
+        göremediği yerleri anlatıyor: Migurd köyünden ayrılışı, yalnızlığı,
+        bir öğretmen olarak kendini kurma süreci. Dizi en çok seven çizgi roman
+        hâlâ bu.
+      </p>
+      <div id="mg-roxy" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-4koma" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        <em>4コマになっても本気だす</em> — dört karelik komedi. Aynı ciddiyet
+        vaadi burada gülünç sonuç veriyor. Üç cilt.
+      </p>
+      <div id="mg-4koma" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-gaiden" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        <em>エリスは本気で牙を砥ぐ</em> — Eris'in kılıç eğitimi, tek cilt.
+        Eris'in sahneden kaybolduğu o boşlukta ne olduğunu gösterir.
+      </p>
+      <div id="mg-gaiden" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-dep" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        <em>失意の魔術師編</em> — "Kırık Büyücü" hikâyesi. Yedi ciltlik light novel'ın
+        tamamen özgün olan bölümünün çizgi roman uyarlaması.
+      </p>
+      <div id="mg-dep" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-ant" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        Antoloji ciltleri: <em>Side: Roxy</em>, <em>Side: Eris</em>,
+        <em>Side: Sylphy</em>. Ana hikâyeye girmeyen, o üç kadının
+        perspektifinden kısa hikâyeler.
+      </p>
+      <div id="mg-ant" class="sira-kap"></div>
+    </div>
+  </section>
+
+  <!-- ============================ KARŞI KOLON ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ M.2 · Diğer kolonlar</p>
+      <h2>Diğer uyarlamalar</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="anime.html"><span class="dizin-ad">Anime<small>Studio Bind · 3 sezon, 62 bölüm</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="novel.html"><span class="dizin-ad">Novel<small>Web novel ve 26 cilt · asıl kaynak</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="karakterler.html"><span class="dizin-ad">Karakterler<small>Kim bu çizgi romanın kahramanı, soru değil</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg></span></a></li>
+    </ul>
+  </section>
+
+</div>
+</main>
+
+<footer class="alt">
+  <div class="defter">
+    <div class="alt-izgara">
+      <div>
+        <h4>Bu arşiv ne</h4>
+        <p style="font-size:.9rem;color:var(--soluk);max-width:44ch">
+          <em>Mushoku Tensei: ~Isekai Ittara Honki Dasu~</em> üzerine Türkçe bir hayran ansiklopedisi.
+          Bölüm, cilt ve kavram verileri Mushoku Tensei Wiki'den çekilmiş; tematik okumalar ve
+          yorumlar bu sitenin kendi çalışmasıdır.
+        </p>
+        <p class="kanitler" style="margin-top:1rem">
+          <span class="kanit">Yazar: Rifujin na Magonote</span>
+          <span class="kanit mana">Çizim: Shirotaka</span>
+        </p>
+      </div>
+      <div><h4>Medya</h4><ul>
+        <li><a href="anime.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg> Anime</a></li>
+        <li><a href="manga.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg> Manga</a></li>
+        <li><a href="novel.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg> Novel</a></li>
+        <li><a href="medya-eklenti.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-disk"></use></svg> Ek medya</a></li>
+      </ul></div>
+      <div><h4>Araştır</h4><ul>
+        <li><a href="karakterler.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg> Karakterler</a></li>
+        <li><a href="dunya.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg> Dünya & sistemler</a></li>
+        <li><a href="yaylar.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg> Yaylar</a></li>
+        <li><a href="analiz.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg> Tematik analiz</a></li>
+      </ul></div>
+      <div><h4>Rehber</h4><ul>
+        <li><a href="rehber.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-hedef"></use></svg> Nereden başlamalı</a></li>
+        <li><a href="hakkinda.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-belge"></use></svg> Hakkında & kaynakça</a></li>
+        <li><a href="404.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kapat"></use></svg> 404</a></li>
+      </ul></div>
+    </div>
+    <div class="alt-son">
+      <span>© 2026 · hayran projesi. <strong>Resmî değildir</strong> — tüm haklar Rifujin na Magonote, Shirotaka,
+      Media Factory, Studio Bind ve ilgili yapımlara aittir. Resim/kapak kullanılmaz; veriler alıntıdır.</span>
+      <span class="mono">Veri: mushokutensei.fandom.com · Sürüm 0.1.0</span>
+    </div>
+  </div>
+</footer>
+
+<button class="yukari" type="button" aria-label="Yukarı çık">
+  <svg class="ikon" aria-hidden="true"><use href="#i-yukari"></use></svg>
+</button>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/veri.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  MT_VERI.manga().then(function (v) {
+    if (!v) return;
+
+    /* özet metni */
+    var o = document.getElementById("manga-ozet");
+    if (o && v.ozet) o.textContent = v.ozet;
+
+    /* kovaları doldur */
+    var gruplar = {
+      "mg-ana": function (c) { return /^Cilt /.test(c.baslik); },
+      "mg-roxy": function (c) { return /^Roxy Gets Serious/.test(c.baslik); },
+      "mg-4koma": function (c) { return /^4-Koma/.test(c.baslik); },
+      "mg-gaiden": function (c) { return /^Eris Gaiden/.test(c.baslik); },
+      "mg-dep": function (c) { return /^Depressed Magician/.test(c.baslik); },
+      "mg-ant": function (c) { return /^Anthology/.test(c.baslik); },
+    };
+
+    Object.keys(gruplar).forEach(function (id) {
+      var kap = document.getElementById(id);
+      if (!kap) return;
+      var liste = v.yan.filter(gruplar[id]).concat(v.ana.filter(gruplar[id]));
+      liste.sort(function (a, b) {
+        var na = parseFloat(a.no) || 0, nb = parseFloat(b.no) || 0;
+        return na - nb;
+      });
+      bolumListesi(kap, liste, { onebaslik: true, ozet: id === "mg-ana", kanitlar: false });
+    });
+
+    /* sayaç */
+    var s = document.getElementById("manga-olcu");
+    if (s) {
+      var yanSeri = v.yan.filter(function (c) { return !/^Anthology/.test(c.baslik); }).length;
+      [["Ana cilt", v.ana.length], ["Yan seri cilt", yanSeri], ["Antoloji", 3],
+       ["İlk cilt", "2014"]].forEach(function (c) {
+        var d = document.createElement("div");
+        d.innerHTML = "<dt>" + c[0] + "</dt><dd>" + c[1] + "</dd>";
+        s.appendChild(d);
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+@baslik:Novel
+@aciklama:Mushoku Tensei novel kolu — Shōsetsuka ni Narō'da web novel (2012–2015), MF Books'ta 26 cilt light novel, ek ciltler, drama CD ve uyarlama farkları.
+@folio:A-3
+@ekstra-script:
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  MT_VERI.novel().then(function (v) {
+    if (!v) return;
+
+    var o = document.getElementById("ln-ozet");
+    if (o && v.ozet) o.textContent = v.ozet;
+
+    bolumListesi(document.getElementById("ln-cilt"), v.lightNovel, { onebaslik: true });
+    bolumListesi(document.getElementById("ln-web"), v.webNovel, { onebaslik: true, kanitlar: false });
+    bolumListesi(document.getElementById("ln-ekstra"), v.ekstra, { onebaslik: true });
+
+    var s = document.getElementById("ln-olcu");
+    if (s) {
+      [["Light novel cilt", v.lightNovel.length],
+       ["Web novel bölüm", "4 cilt hacim"],
+       ["Ek cilt", v.ekstra.length],
+       ["Yazar", "Rifujin na Magonote"]].forEach(function (c) {
+        var d = document.createElement("div");
+        d.innerHTML = "<dt>" + c[0] + "</dt><dd>" + c[1] + "</dd>";
+        s.appendChild(d);
+      });
+    }
+  });
+});
+</script>
+@icerik:
+
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Novel</b> — asıl kaynak</span>
+    <span>Shōsetsuka ni Narō → MF Books</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <div class="masthead-alt">
+      <div>
+        <p class="no">§ N · Kaynak metin</p>
+        <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Novel</h1>
+        <p class="giris" style="margin-top:1rem;max-width:54ch" id="ln-ozet">
+          Her şey buradan başladı. Yazar, reddedildikten sonra
+          <em>Shōsetsuka ni Narō</em>'da yayımlamaya karar verdi ve o sitede
+          <strong>dizi sıralamalarında uzun süre birinciyi korudu</strong>.
+          Bugün elimizdeki metnin tamamı bu web novel'den türedi.
+        </p>
+      </div>
+      <div>
+        @altin:altin altin-bakir@
+        <dl class="olcu" id="ln-olcu" style="margin-top:1rem"></dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ NASIL DOĞDU ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ N.1 · Tarihçe</p>
+      <h2>Bir reddedilmeden doğdu</h2>
+    </div>
+
+    <div class="metin">
+      <p>Rifujin na Magonote üniversiteden mezun olduktan sonra
+      yayınevi denemelerine girdi ve hiçbirinden yanıt alamadı. Bir süre sonra
+      bırakmayı düşündü. Sonra Kenkiru Kogitsune'un <em>Re:Monster</em>'ını
+      okudu ve <em>Shōsetsuka ni Narō</em>'da web novel yayımlanabileceğini
+      öğrendi — kimsenin yazınızı küçümsemeyeceği bir yer.</p>
+
+      <p>İlk yazdığı şey "başka bir dünyaya düşmüş kahraman" değildi.
+      Amacı daha kişisel ve daha rahatsız ediciydi: <strong>okulda başarısız
+      olmuş bir öğrencinin, hayatına ikinci kez başlama isteğini anlatmak</strong>.
+      Yazar bunu bizzat söyledi — ve bu yüzden dizi, türünün en dürüst
+      metinlerinden biri.</p>
+
+      <div class="kutu gold">
+        <h4>Yazarın kendi ifadesi</h4>
+        <p style="font-style:italic;color:var(--mürekkep)">
+          "Dizinin mesajı şu: herkes hata yapabilir."
+        </p>
+      </div>
+
+      <h3>Web novel mi, light novel mi?</h3>
+      <p>Web bölümler 2012 Kasım'da açıldı ve 2015 Nisan'da kapandı.
+      Ardından Media Factory ciltlere taşıdı. Işte burada bir ayrım var:
+      <strong>Yedi cilt</strong> tamamen yeni ve özgün bir hikâyedir —
+      <em>Kayıp Beden / Depressed Magician</em> bölümü. Web'de olmayan bu
+      parça, ciltlerde sonradan ortaya çıktı ve sonradan manga uyarlamasını da
+      buldu.</p>
+
+      <h3>Yerelleştirme meselesi</h3>
+      <p>İngilizce yayıncı Seven Seas, bazı yerlerde metni yumuşattı: Rudeus'un
+      cinselliğini çekti, tecavüz referanslarını kaldırdı. Sonradan bu
+      kararları "yeniden değerlendirdiklerini" açıkladılar. Yani
+      <strong>Türkçe okur için metin, İngilizce okurdan farklı olabilir</strong>
+      — hangi çeviriyi okuduğunuzu bilmek önemli.</p>
+
+      <div class="nota">
+        @ikon:uyari@
+        <div>Dizi, reşit olmayan karakterlerin cinselliğini konu alan bölümler
+        içeriyor. Bu, hem okur yorumlarının en sık dile getirilen
+        eleştirisi hem de yapımın (anime ve ilk çeviriler) en çok
+        müdahale ettiği nokta. Bkz. <a href="analiz.html#harem">analiz</a>.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ LİSTELER ============================ -->
+  <section class="bolum">
+    <div class="sekmeler" role="tablist" aria-label="Novel kolu seçimi">
+      <button class="sekme aktif" type="button" data-sekme="ln-liste" role="tab" aria-selected="true">Light novel ciltleri</button>
+      <button class="sekme" type="button" data-sekme="ln-webliste" role="tab" aria-selected="false">Web novel</button>
+      <button class="sekme" type="button" data-sekme="ln-ekstraliste" role="tab" aria-selected="false">Ek kitaplar</button>
+    </div>
+
+    <div data-panel="ln-liste" role="tabpanel">
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        26 cilt, 2014 Ocak – 2022 Kasım. Her cilt hangi yayı kapsadığıyla
+        listelenir. Yedi numaralı cilt özgündür ve ana hikâyeden ayrıdır.
+      </p>
+      <div id="ln-cilt" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="ln-webliste" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        Orijinal web yayını. Ciltlerde birleştirilmiş hali değil; ham sürüm.
+        Bölüm araları, olay sırası ve bazı sahneler burada farklı.
+      </p>
+      <div id="ln-web" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="ln-ekstraliste" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        Ana serinin dışında yayımlanan ek ciltler: <em>Redundant Reincarnation</em>
+        (蛇足編, hikâre sonrası kısa hikâyeler) ve <em>Extra Edition</em> serisi.
+        Bunları okumak zorunda değilsiniz ama "dizi bitti mi?" sorusunun cevabı
+        burada.
+      </p>
+      <div id="ln-ekstra" class="sira-kap"></div>
+    </div>
+  </section>
+
+  <!-- ============================ SIRA ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ N.2 · Sıralama</p>
+      <h2>İkisi arasında nasıl seçilir</h2>
+    </div>
+
+    <div class="izanlama">
+      <div class="levha">
+        <div class="levha-ust"><div class="levha-ikon">@ikon:kalem@</div><h3>Light novel</h3></div>
+        <p>Sonu, baştan belli. Karakterlerin gelişimi zamanla yavaşlar ama
+        kapanışa ulaşır. <strong>Analiz yapmak istiyorsan</strong> bu kanaldan oku —
+        sayfa numarası ve bölüm referansı verebileceğin tek metin bu.</p>
+      </div>
+      <div class="levha">
+        <div class="levha-ust"><div class="levha-ikon mana">@ikon:sayfa@</div><h3>Web novel</h3></div>
+        <p>Daha kaba, daha uzun, daha çok ara sahne. Bazı sahneler
+        birebir buradadır. <strong>Kanıt göstermek istiyorsan</strong>
+        (örneğin "dizide böyle yazıyor") buraya bak.</p>
+      </div>
+      <div class="levha">
+        <div class="levha-ust"><div class="levha-ikon yesil">@ikon:kulaklik@</div><h3>Drama CD</h3></div>
+        <p><em>転移迷宮編</em> (2017). Hikâyeyi görmeden dinleyebileceğin
+        tek kanal. Rudeus'un sesini ilk kez burada duyuyorsun.</p>
+      </div>
+    </div>
+
+    <div class="kanitler" style="margin-top:1.2rem">
+      <span class="kanit">@ikon:belge@ <a href="medya-eklenti.html">Ek medya kanalına git</a></span>
+      <span class="kanit mana">@ikon:kitapacik@ <a href="manga.html">Manga kolu</a></span>
+      <span class="kanit">@ikon:film@ <a href="anime.html">Anime kolu</a></span>
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,139 @@
+@baslik:Yaylar
+@aciklama:Mushoku Tensei anlatı yayları — 23 yayın tam listesi ve özetleri. Hangi cilt hangi bölümü anlatıyor, hangi yay kaç cilde sığıyor.
+@folio:A-6
+@ekstra-script:
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  MT_VERI.yaylar().then(function (v) {
+    if (!v) return;
+    yayListesi(document.getElementById("yay-listesi"), v.yaylar);
+    var s = document.getElementById("yay-olcu");
+    if (s) {
+      var part = {};
+      v.yaylar.forEach(function (y) { part[y.part] = 1; });
+      [["Yay", v.yaylar.length], ["Ana bölüm", Object.keys(part).length],
+       ["En uzun yay", "Infancy Arc"], ["En gergin yay", "Human God Arc"]].forEach(function (c) {
+        var d = document.createElement("div");
+        d.innerHTML = "<dt>" + c[0] + "</dt><dd style='font-size:1rem'>" + c[1] + "</dd>";
+        s.appendChild(d);
+      });
+    }
+  });
+});
+</script>
+@icerik:
+
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Yaylar</b> — anlatı mimarisi</span>
+    <span>23 yay · 3 ana bölüm</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <div class="masthead-alt">
+      <div>
+        <p class="no">§ Y · Anlatı</p>
+        <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Yaylar</h1>
+        <p class="giris" style="margin-top:1rem;max-width:54ch">
+          <em>Mushoku Tensei</em> "isekai macera" değil, aslında bir
+          <strong>gelişim romanı</strong>. Bu yüzden yaylarıyla okunur: bebeklikten
+          kapanışa uzanan tek bir yay ve onun içine yerleşen on iki altı bölüm.
+        </p>
+      </div>
+      <div>
+        @altin:altin@
+        <dl class="olcu" id="yay-olcu" style="margin-top:1rem"></dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ NASIL OKUNUR ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ Y.1 · Okuma notu</p>
+      <h2>Bu dizide özetlemek işe yaramaz</h2>
+    </div>
+
+    <div class="metin">
+      <p>Çoğu uzun seri "bir cümleyle özetlenebilir". Bu dizi buna uygun değil.
+      Sebebi yapısal: <strong>asıl olaylar savaş meydanında değil, evde geçiyor.</strong>
+      Bölümler birbirinin devamı; birini atladığında sonrakisi anlamsızlaşıyor.</p>
+
+      <div class="kutu mana">
+        <h4>Pratik öneri</h4>
+        <p style="color:var(--mürekkep)">
+          Roman okuyacaksan bölüm atlamadan git. Anime izleyeceksen de aynı
+          şey geçerli — 1. sezonun ikinci yarısı, ilk yarının devamıdır, başı
+          değil.
+        </p>
+      </div>
+
+      <p>Ana bölüm yapısı üç parçadan oluşur: <strong>çocukluk</strong>,
+      <strong>gençlik</strong> ve <strong>sonrası</strong>. Aşağıdaki liste
+      bu yapıyı kaynak sayfadan birebir alır.</p>
+    </div>
+  </section>
+
+  <!-- ============================ YAY LİSTESİ ============================ -->
+  <section class="bolum">
+    <div class="bolum-basi">
+      <p class="no">§ Y.2 · Tam liste</p>
+      <h2>Yaylar</h2>
+      <p>Her yayı açtığında kaynak özetini görürsün.</p>
+    </div>
+    <div id="yay-listesi"></div>
+  </section>
+
+  <!-- ============================ EŞLEŞTİRME ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ Y.3 · Cilt eşleştirmesi</p>
+      <h2>Light novel ciltleri hangi yayı?</h2>
+      <p>Ciltler yayları farklı kesiyor; aynı yay iki cilde bölünebilir.</p>
+    </div>
+
+    <div class="tablo-kap">
+      <table>
+        <caption>Cilt → Yay</caption>
+        <thead><tr><th class="no">Cilt</th><th>Yay</th><th>Not</th></tr></thead>
+        <tbody>
+          <tr><td class="no">1</td><td>Infancy / Home Tutor</td><td>Doyum ve eğretilmiş baba anısı</td></tr>
+          <tr><td class="no">2–3</td><td>Entry-Level Adventurer</td><td>İlk macera kulübü, Sylphie'ye yaklaşma</td></tr>
+          <tr><td class="no">4–5</td><td>Voyage / Reunion</td><td>Işınlanma ve kayıp yıllar</td></tr>
+          <tr><td class="no">6</td><td>Homecoming</td><td>Eris'le dönüş, ayrılık</td></tr>
+          <tr><td class="no">7</td><td>—</td><td><strong>Tamamen özgün hikâye</strong> (Depressed Magician)</td></tr>
+          <tr><td class="no">8</td><td>Mid-Level Adventurer</td><td>Sadık Kulüp, yalnızlık</td></tr>
+          <tr><td class="no">9–10</td><td>University / Newlyweds</td><td>Akademi, evlilikler, ilk büyük kayıp</td></tr>
+          <tr><td class="no">11–12</td><td>Sisters</td><td>Zenith'i arama, aile</td></tr>
+          <tr><td class="no">13–14</td><td>Labyrinth</td><td>Hitogami ile hesaplaşma</td></tr>
+          <tr><td class="no">15+</td><td>Zanoba / Cliff / Human God</td><td>Aile genişlemesi ve kader</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota" style="margin-top:1rem">
+      @ikon:belge@
+      <div>Cilt numaraları bu tabloda <em>yaklaşık</em> kesişimlerdir; kaynak
+      cilt sayfalarında yay adı açıkça yazılmaz. Tam kesin eşleştirme için
+      <a href="novel.html">novel kolunun</a> cilt listesine bak.</div>
+    </div>
+  </section>
+
+  <!-- ============================ KARŞI KOLON ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ Y.4</p>
+      <h2>İlgili sayfalar</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="anime.html"><span class="dizin-ad">Anime bölümleri<small>Her bölümün hangi yaya ait olduğu listelenir</small></span>
+        <span class="dizin-sag">@ikon:film@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="rehber.html"><span class="dizin-ad">Nereden başlamalı<small>Medya seçimi ve spoiler sınırları</small></span>
+        <span class="dizin-sag">@ikon:hedef@</span></a></li>
+    </ul>
+  </section>
+
+</div>

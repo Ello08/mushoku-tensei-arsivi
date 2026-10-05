@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="koyu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> · Mushoku Tensei Ansiklopedisi</title>
+<meta name="description" content="">
+<meta name="author" content="Mushoku Tensei Ansiklopedisi (hayran projesi)">
+<meta property="og:type" content="website">
+<meta property="og:title" content=" · Mushoku Tensei Ansiklopedisi">
+<meta property="og:description" content="">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#070c16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='16' r='9' fill='none' stroke='%23d9a441' stroke-width='1.6'/%3E%3Ccircle cx='19' cy='16' r='9' fill='none' stroke='%2357bdd4' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Marcellus&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+
+<div class="ilerleme" role="presentation"></div>
+
+<div class="omurga" aria-hidden="true">
+  <div class="omurga-marka">無職転生</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-yazi">Ansiklopedi</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-sayfa"></div>
+</div>
+
+<header class="ust">
+  <div class="defter ust-ic">
+    <a class="marka" href="index.html" aria-label="Ana sayfa">
+      <svg class="altin" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+      <span class="marka-yazi">
+        <b>Mushoku Tensei</b>
+        <span>Ansiklopedi · Fan Arşivi</span>
+      </span>
+    </a>
+
+    <nav class="gezinme" aria-label="Ana gezinme">
+      <a class="gez aktif" href="index.html">Ana Sayfa</a>
+      <a class="gez " href="anime.html">Anime</a>
+      <a class="gez " href="manga.html">Manga</a>
+      <a class="gez " href="novel.html">Novel</a>
+      <a class="gez " href="karakterler.html">Karakterler</a>
+      <a class="gez " href="dunya.html">Dünya</a>
+      <a class="gez " href="yaylar.html">Yaylar</a>
+      <a class="gez " href="analiz.html">Analiz</a>
+      <a class="gez " href="rehber.html">Rehber</a>
+      <a class="gez " href="medya-eklenti.html">Ek Medya</a>
+      <a class="gez " href="hakkinda.html">Hakkında</a>
+    </nav>
+
+    <div class="ust-eylem">
+      <button class="dugme" type="button" data-arama-ac aria-label="Ara (Ctrl+K)" title="Ara · Ctrl+K">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      </button>
+      <button class="dugme" type="button" data-tema-dugme aria-label="Temayı değiştir" title="Temayı değiştir">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ay"></use></svg>
+      </button>
+      <button class="dugme menu-dugme" type="button" aria-expanded="false" aria-label="Menü" data-menu>
+        <svg class="ikon" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="arama-kat" id="arama-kat" role="dialog" aria-modal="true" aria-label="Arama">
+  <div class="arama-kutu">
+    <div class="arama-girdi">
+      <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      <input id="arama-girdi" type="search" placeholder="Karakter, bölüm, cilt, kavram ara…" autocomplete="off" spellcheck="false">
+      <button class="dugme" type="button" data-arama-kapat aria-label="Kapat">
+        <svg class="ikon" aria-hidden="true"><use href="#i-kapat"></use></svg>
+      </button>
+    </div>
+    <div class="arama-sonuc" id="arama-sonuc"></div>
+    <div class="arama-alt">
+      <span><kbd>↑</kbd><kbd>↓</kbd> gez</span>
+      <span><kbd>Enter</kbd> aç</span>
+      <span><kbd>Esc</kbd> kapat</span>
+      <span style="margin-left:auto">62 bölüm · 23 yay · 25 manga cilti · 26 novel cildi</span>
+    </div>
+  </div>
+</div>
+
+<main id="icerik">
+<!-- ============================ KAPAK ============================ -->
+<section class="bolum bolum-dar tut">
+  <div class="kosemakafa">
+    <span><b>Mushoku Tensei Ansiklopedisi</b></span>
+    <span>無職転生 〜異世界行ったら本気だす〜</span>
+  </div>
+
+  <div class="masthead-alt">
+    <div>
+      <p class="no">Cilt I · Giriş</p>
+      <h1 class="baslik" style="font-size:clamp(2.3rem,7vw,5rem)">Isıradan<br>başka bir hayat</h1>
+      <p class="jp jp-metni" style="font-size:clamp(.95rem,2vw,1.3rem);letter-spacing:.24em">無職転生 〜異世界行ったら本気だす〜</p>
+      <p class="giris" style="margin-top:1.2rem;max-width:56ch">
+        Bu dizi, birinci hayatını mahveden otuz dört yaşındaki adamın
+        ikinci hayatını anlatır. Gerisi — büyü, kılıç, devlet, tanrı —
+        süslemedir. Asıl mesele şudur: <strong>bir insan başka bir insana
+        ne kadar yaklaşabilir?</strong>
+      </p>
+    </div>
+
+    <div>
+      <svg class="altin altin-bakir" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+      <dl class="olcu" style="margin-top:1.2rem">
+        <div><dt>Web novel</dt><dd>2012<em>→</em>2015</dd></div>
+        <div><dt>Light novel</dt><dd>26 cilt</dd></div>
+        <div><dt>Manga</dt><dd>25 cilt <em>+</em> 5 yan seri</dd></div>
+        <div><dt>Anime</dt><dd>3 sezon · 62 bölüm</dd></div>
+        <div><dt>Yazar</dt><dd style="font-size:.95rem">Rifujin na Magonote</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<hr class="cizgi-noktali">
+
+<!-- ============================ TEZ ============================ -->
+<section class="bolum bolum-dar tut">
+  <div class="bolum-basi">
+    <p class="no">§ 01 · Tez</p>
+    <h2>Okumadan önce bilinmesi gereken tek şey</h2>
+  </div>
+
+  <div class="iki">
+    <div class="metin">
+      <p><em>Mushoku Tensei</em> isekai türünün en çok tartışılan, en çok sevilen
+      ve aynı zamanda en çok yanlış anlaşılan örneği. Yanlış anlaşılma şurada:
+      dizi "genç adam fantastik dünyaya düşer, kızları toplar" diye özetlenir.</p>
+
+      <p>Bu özet, <strong>yazarın bilerek reddettiği şeydir</strong>. Dizi bir
+      karakter dönüşümü üzerine kurulu; cinsellik ise onun en kaba, en
+      sorunlu ve en çok konuşulan aracı. Rudeus'un kazandığı şey yetenek değil,
+      <em>yakınlık</em>. Ve yakınlık bu dizide en pahalı şey.</p>
+
+      <p>Yazarın kendi ifadesiyle mesaj basit: <strong>"herkes hata yapabilir."</strong>
+      Ama bu cümle, dizinin bütün ahlaki ağırlığını taşıyan bir cümledir. Çünkü
+      buradaki "herkes" ile kastedilen, <em>sonuçlarından sorumlu olan herkes</em>.</p>
+    </div>
+
+    <aside>
+      <div class="nota mana">
+        <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-goz"></use></svg>
+        <div>
+          <strong style="color:var(--mürekkep)">Yazar ne dedi?</strong><br>
+          Rifujin na Magonote, <em>Kono Light Novel ga Sugoi!</em> sıralamasında
+          dizinin "süslü ama içi boş" olmadığını savunur. Anime hakkında yazdığı
+          blog yazılarında ise Rudeus'un tartışmalı kişiliğinin bilinçli bir seçim
+          olduğunu, okurun onu yargılamasını değil <em>anlamasını</em> istediğini
+          tekrarlar.
+        </div>
+      </div>
+
+      <div class="kanitler" style="margin-top:1rem">
+        <span class="kanit">Anime News Network · röportaj 2021</span>
+        <span class="kanit">Fantasia Bunko · cilt arka kapak notları</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================ DİZİN ============================ -->
+<section class="bolum tut">
+  <div class="bolum-basi">
+    <p class="no">§ 02 · Dizin</p>
+    <h2>Bu arşivde ne var</h2>
+    <p>Dizinin üç ayrı medya kolu, bir dünya sistemi ve bir inceleme blog'u.
+       Her bölüm veri katmanından beslenir; sayılar ve adlar kaynaktan gelir.</p>
+  </div>
+
+  <ul class="dizin">
+    <li><span class="dizin-no">01</span>
+      <a href="anime.html">
+        <span class="dizin-ad">Anime<small>3 sezon · 62 bölüm · açılış/kapanış müzikleri, senaryo, uyarlama kaynağı</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg> 62 bölüm</span>
+      </a>
+    </li>
+    <li><span class="dizin-no">02</span>
+      <a href="manga.html">
+        <span class="dizin-ad">Manga<small>Yuka Fujikawa uyarlaması · 25 cilt + 4-koma, Eris Gaiden, Roxy Gets Serious</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg> 25 cilt</span>
+      </a>
+    </li>
+    <li><span class="dizin-no">03</span>
+      <a href="novel.html">
+        <span class="dizin-ad">Novel<small>Web novel (2012–15) ve 26 ciltlik light novel · ek kitaplar ve drama CD</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg> 26 cilt</span>
+      </a>
+    </li>
+    <li><span class="dizin-no">04</span>
+      <a href="karakterler.html">
+        <span class="dizin-ad">Karakterler<small>66 kayıt · Greyrat ailesi, eski dostlar, Kılıç Kutsalı, Ranoa, düşmanlar</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg> 66 kişi</span>
+      </a>
+    </li>
+    <li><span class="dizin-no">05</span>
+      <a href="dunya.html">
+        <span class="dizin-ad">Dünya &amp; sistemler<small>Irklar, büyü, manya, kılıç stilleri, Yedi Büyük Güç, ışınlanma olayı</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg> 45 konu</span>
+      </a>
+    </li>
+    <li><span class="dizin-no">06</span>
+      <a href="yaylar.html">
+        <span class="dizin-ad">Yaylar<small>23 anlatı yayı · bebeklikten kapanışa, hangi cilt neyi anlatıyor</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg> 23 yay</span>
+      </a>
+    </li>
+    <li><span class="dizin-no">07</span>
+      <a href="analiz.html">
+        <span class="dizin-ad">Tematik analiz<small>İzolasyon, kader, rıza, yas, din, evrim, harem etiği — uzun okumalar</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg> 8 yazı</span>
+      </a>
+    </li>
+    <li><span class="dizin-no">08</span>
+      <a href="rehber.html">
+        <span class="dizin-ad">Rehber<small>Nereden başlamalı, spoiler sınırları, içerik uyarıları, medya karşılaştırması</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-hedef"></use></svg> rehber</span>
+      </a>
+    </li>
+  </ul>
+</section>
+
+<!-- ============================ HARİTA ============================ -->
+<section class="bolum bolum-dar tut">
+  <div class="bolum-basi">
+    <p class="no">§ 03 · Tema haritası</p>
+    <h2>Temalar birbirine bağlı</h2>
+    <p>Dizinin sekiz ana damarı birbirinden bağımsız değil. Aşağıdaki harita,
+       her temanın hangi bölümde açıldığını gösterir; bir düğüme tıklayınca
+       ilgili sayfaya gidersin.</p>
+  </div>
+
+  <div class="harita-sar tut">
+    <svg class="harita" viewBox="0 0 420 420" role="img" aria-labelledby="harita-bas harita-ac">
+      <title id="harita-bas">Mushoku Tensei tema haritası</title>
+      <desc id="harita-ac">İzolasyon, kader, sevgi, ölüm, din, evrim, adalet ve harem temalarının Altı Yüzlü Dünya merkezine bağlandığı diyagram.</desc>
+
+      <!-- dekoratif halkalar -->
+      <circle class="yol" cx="210" cy="210" r="196"/>
+      <circle class="bag" cx="210" cy="210" r="122"/>
+      <circle class="bag" cx="210" cy="210" r="52"/>
+
+      <!-- merkez: Altı Yüzlü Dünya -->
+      <g>
+        <circle class="yol" cx="197" cy="210" r="20"/>
+        <circle class="yol" cx="223" cy="210" r="20"/>
+        <text x="210" y="214" text-anchor="middle"
+              style="font-family:var(--f-mono);font-size:6.4px;letter-spacing:.16em;fill:var(--bakir)">DİZİ</text>
+      </g>
+
+      <!-- merkezden düğümlere bağlar -->
+      <path class="bag" d="M210 210 L210 88"/>
+      <path class="bag" d="M210 210 L296 124"/>
+      <path class="bag" d="M210 210 L332 210"/>
+      <path class="bag" d="M210 210 L296 296"/>
+      <path class="bag" d="M210 210 L210 332"/>
+      <path class="bag" d="M210 210 L124 296"/>
+      <path class="bag" d="M210 210 L88 210"/>
+      <path class="bag" d="M210 210 L124 124"/>
+
+      <!-- düğüm 01 · izolasyon -->
+      <a class="dügüm" href="analiz.html#izolasyon">
+        <circle cx="210" cy="88" r="26"/>
+        <svg class="ikon isaret" aria-hidden="true" focusable="false"><use href="#i-bariyer"></use></svg>
+        <text x="210" y="50">İZOLASYON</text>
+      </a>
+
+      <!-- düğüm 02 · kader -->
+      <a class="dügüm" href="analiz.html#kader">
+        <circle cx="296" cy="124" r="26"/>
+        <svg class="ikon isaret" aria-hidden="true" focusable="false"><use href="#i-saat"></use></svg>
+        <text x="316" y="103">KADER</text>
+      </a>
+
+      <!-- düğüm 03 · sevgi -->
+      <a class="dügüm" href="analiz.html#sevgi">
+        <circle cx="332" cy="210" r="26"/>
+        <svg class="ikon isaret" aria-hidden="true" focusable="false"><use href="#i-kalp"></use></svg>
+        <text x="372" y="213">SEVGİ</text>
+      </a>
+
+      <!-- düğüm 04 · ölüm -->
+      <a class="dügüm" href="analiz.html#olum">
+        <circle cx="296" cy="296" r="26"/>
+        <svg class="ikon isaret" aria-hidden="true" focusable="false"><use href="#i-kafatas"></use></svg>
+        <text x="316" y="322">ÖLÜM</text>
+      </a>
+
+      <!-- düğüm 05 · din -->
+      <a class="dügüm" href="analiz.html#din">
+        <circle cx="210" cy="332" r="26"/>
+        <svg class="ikon isaret" aria-hidden="true" focusable="false"><use href="#i-rakis"></use></svg>
+        <text x="210" y="374">DİN</text>
+      </a>
+
+      <!-- düğüm 06 · evrim -->
+      <a class="dügüm" href="analiz.html#evrim">
+        <circle cx="124" cy="296" r="26"/>
+        <svg class="ikon isaret" aria-hidden="true" focusable="false"><use href="#i-dna"></use></svg>
+        <text x="104" y="322">EVRİM</text>
+      </a>
+
+      <!-- düğüm 07 · adalet -->
+      <a class="dügüm" href="analiz.html#adalet">
+        <circle cx="88" cy="210" r="26"/>
+        <svg class="ikon isaret" aria-hidden="true" focusable="false"><use href="#i-terazi"></use></svg>
+        <text x="48" y="213">ADALET</text>
+      </a>
+
+      <!-- düğüm 08 · harem -->
+      <a class="dügüm" href="analiz.html#harem">
+        <circle cx="124" cy="124" r="26"/>
+        <svg class="ikon isaret" aria-hidden="true" focusable="false"><use href="#i-zincir"></use></svg>
+        <text x="104" y="103">HAREM</text>
+      </a>
+    </svg>
+  </div>
+
+  <div class="kanitler" style="margin-top:1rem">
+    <span class="kanit"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-bariyer"></use></svg> İzolasyon — Rudeus'un bariyeri</span>
+    <span class="kanit"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-saat"></use></svg> Kader ve irade</span>
+    <span class="kanit mana"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalp"></use></svg> Sevgi ve rıza</span>
+    <span class="kanit kizil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kafatas"></use></svg> Ölüm ve yas</span>
+    <span class="kanit mor"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-rakis"></use></svg> Din ve inanç mimarisi</span>
+    <span class="kanit yesil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-dna"></use></svg> Evrim ve süreklilik</span>
+    <span class="kanit"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-terazi"></use></svg> Hukuk ve pişmanlık</span>
+    <span class="kanit kizil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-zincir"></use></svg> Harem ve araçsallaştırma</span>
+  </div>
+</section>
+
+<!-- ============================ ÜÇ KOL ============================ -->
+<section class="bolum tut">
+  <div class="bolum-basi">
+    <p class="no">§ 04 · Medya</p>
+    <h2>Aynı hikâye, üç farklı uzunluk</h2>
+    <p>Üç uyarlama aynı olayları anlatır ama hiçbiri diğerinin yerine geçmez.
+       Aşağıdaki kutular ilgili bölümün tamamına giriyor.</p>
+  </div>
+
+  <div class="izanlama izanlama-3">
+    <a class="levha levha-tut" href="anime.html">
+      <div class="levha-ust">
+        <div class="levha-ikon"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg></div>
+        <div>
+          <h3>Anime</h3>
+          <span class="etiket mana"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ekran"></use></svg> 3 sezon · 62 bölüm</span>
+        </div>
+      </div>
+      <p>Studio Bind. 2021'de ilk yarı, aynı yılın sonunda ikinci yarı;
+         2023–24'te ikinci sezon; 2026'da üçüncü sezonun ilk bölümü.
+         En çok konuşulan uyarlama <strong>4. bölüm</strong>: kaynak metinde
+         var olan bir şiddet sahnesi çıkarıldı, yerine başka bir olay kondu.</p>
+      <span class="etiket bakir" style="margin-top:.7rem">Bölüm listesi <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ok"></use></svg></span>
+    </a>
+
+    <a class="levha levha-tut" href="manga.html">
+      <div class="levha-ust">
+        <div class="levha-ikon yesil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg></div>
+        <div>
+          <h3>Manga</h3>
+          <span class="etiket yesil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-tuz"></use></svg> Yuka Fujikawa · 25 cilt</span>
+        </div>
+      </div>
+      <p>2014'te <em>Monthly Comic Flapper</em>'da başladı, hâlâ sürüyor.
+         Karakter tasarımı Shirotaka'ya ait. Ayrıca 4-koma, <em>Eris Gaiden</em>,
+         <em>Roxy Gets Serious</em> ve antoloji serileri var — hepsi bu sitede.</p>
+      <span class="etiket bakir" style="margin-top:.7rem">Cilt listesi <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ok"></use></svg></span>
+    </a>
+
+    <a class="levha levha-tut" href="novel.html">
+      <div class="levha-ust">
+        <div class="levha-ikon"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg></div>
+        <div>
+          <h3>Novel</h3>
+          <span class="etiket"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-sayfa"></use></svg> 26 cilt</span>
+        </div>
+      </div>
+      <p>Asıl kaynak. 2012'de <em>Shōsetsuka ni Narō</em>'da bölüm bölüm yayımlandı,
+         2014'ten itibaren MF Books'ta ciltler halinde. Yedinci cilt tamamen özgün bir
+         hikâye. Anahtar ifade: <em>"herkes hata yapabilir."</em></p>
+      <span class="etiket bakir" style="margin-top:.7rem">Cilt listesi <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ok"></use></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============================ ALINTI ============================ -->
+<section class="bolum bolum-dar tut">
+  <div class="bolum-basi">
+    <p class="no">§ 05 · Tanıklar</p>
+    <h2>Seriden üç cümle</h2>
+  </div>
+
+  <div class="alinti-duvar" style="display:grid;gap:1rem">
+    <blockquote class="levha" style="border-left:2px solid var(--mana)">
+      <p class="jp jp-metni mana" style="font-size:.86rem">この度は本当にありがとうございました。</p>
+      <p class="giris" style="font-size:1.05rem">"Bu kez gerçekten teşekkür ederim."</p>
+      <footer class="mono" style="color:var(--faint);font-size:.64rem">Kapanış sahnelerinin tekrar motifi</footer>
+    </blockquote>
+
+    <blockquote class="levha" style="border-left:2px solid var(--kizil)">
+      <p class="jp jp-metni kizil" style="font-size:.86rem"> paranı nasıl kazandığımı anlatmak zorunda değilim.</p>
+      <p class="giris" style="font-size:1.05rem">"Paramı nasıl kazandığımı anlatmak zorunda değilim."</p>
+      <footer class="mono" style="color:var(--faint);font-size:.64rem">Rudeus'un kendini haklı çıkardığı en dürüst olmayan cümle</footer>
+    </blockquote>
+
+    <blockquote class="levha" style="border-left:2px solid var(--yesil)">
+      <p class="jp jp-metni yesil" style="font-size:.86rem"> おかえり。</p>
+      <p class="giris" style="font-size:1.05rem">"Hoş geldin."</p>
+      <footer class="mono" style="color:var(--faint);font-size:.64rem">Dizinin tek sözle anlatabileceği mutluluk</footer>
+    </blockquote>
+  </div>
+
+  <div class="nota" style="margin-top:1.2rem">
+    <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-bilgi"></use></svg>
+    <div>Alıntılar serinin Türkçe yayınlarından aktarılmış <em>çeviri değil</em>,
+    bağlamsallaştırılmış özetlerdir. Birebir metin için ilgili cilde bakın.</div>
+  </div>
+</section>
+
+<!-- ============================ UYARI ============================ -->
+<section class="bolum bolum-dar tut">
+  <div class="nota kizil">
+    <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-uyari"></use></svg>
+    <div>
+      <strong style="color:var(--mürekkep)">İçerik uyarısı.</strong>
+      Bu arşiv dizinin tamamını spoiler'sız tartışmak için var. Karakter sayfalarında
+      ölümler, sakatlanmalar ve cinsel içerik açıkça konuşulur; sayfanın başındaki
+      notu okumadan ilerlemeyin. Analiz bölümünde ağır <em>olay bazlı</em> spoiler'lar var
+      ve bunlar sayfa içinde kilitli.
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="alt">
+  <div class="defter">
+    <div class="alt-izgara">
+      <div>
+        <h4>Bu arşiv ne</h4>
+        <p style="font-size:.9rem;color:var(--soluk);max-width:44ch">
+          <em>Mushoku Tensei: ~Isekai Ittara Honki Dasu~</em> üzerine Türkçe bir hayran ansiklopedisi.
+          Bölüm, cilt ve kavram verileri Mushoku Tensei Wiki'den çekilmiş; tematik okumalar ve
+          yorumlar bu sitenin kendi çalışmasıdır.
+        </p>
+        <p class="kanitler" style="margin-top:1rem">
+          <span class="kanit">Yazar: Rifujin na Magonote</span>
+          <span class="kanit mana">Çizim: Shirotaka</span>
+        </p>
+      </div>
+      <div><h4>Medya</h4><ul>
+        <li><a href="anime.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg> Anime</a></li>
+        <li><a href="manga.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg> Manga</a></li>
+        <li><a href="novel.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg> Novel</a></li>
+        <li><a href="medya-eklenti.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-disk"></use></svg> Ek medya</a></li>
+      </ul></div>
+      <div><h4>Araştır</h4><ul>
+        <li><a href="karakterler.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg> Karakterler</a></li>
+        <li><a href="dunya.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg> Dünya & sistemler</a></li>
+        <li><a href="yaylar.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg> Yaylar</a></li>
+        <li><a href="analiz.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg> Tematik analiz</a></li>
+      </ul></div>
+      <div><h4>Rehber</h4><ul>
+        <li><a href="rehber.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-hedef"></use></svg> Nereden başlamalı</a></li>
+        <li><a href="hakkinda.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-belge"></use></svg> Hakkında & kaynakça</a></li>
+        <li><a href="404.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kapat"></use></svg> 404</a></li>
+      </ul></div>
+    </div>
+    <div class="alt-son">
+      <span>© 2026 · hayran projesi. <strong>Resmî değildir</strong> — tüm haklar Rifujin na Magonote, Shirotaka,
+      Media Factory, Studio Bind ve ilgili yapımlara aittir. Resim/kapak kullanılmaz; veriler alıntıdır.</span>
+      <span class="mono">Veri: mushokutensei.fandom.com · Sürüm 0.1.0</span>
+    </div>
+  </div>
+</footer>
+
+<button class="yukari" type="button" aria-label="Yukarı çık">
+  <svg class="ikon" aria-hidden="true"><use href="#i-yukari"></use></svg>
+</button>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/veri.js"></script>
+
+</body>
+</html>

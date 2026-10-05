@@ -1,0 +1,227 @@
+@baslik:Manga
+@aciklama:Mushoku Tensei manga uyarlaması — Yuka Fujikawa, Monthly Comic Flapper, 25 cilt. Ayrıca 4-Koma, Eris Gaiden, Roxy Gets Serious, Depressed Magician ve antoloji serileri.
+@folio:A-2
+@ekstra-script:
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  MT_VERI.manga().then(function (v) {
+    if (!v) return;
+
+    /* özet metni */
+    var o = document.getElementById("manga-ozet");
+    if (o && v.ozet) o.textContent = v.ozet;
+
+    /* kovaları doldur */
+    var gruplar = {
+      "mg-ana": function (c) { return /^Cilt /.test(c.baslik); },
+      "mg-roxy": function (c) { return /^Roxy Gets Serious/.test(c.baslik); },
+      "mg-4koma": function (c) { return /^4-Koma/.test(c.baslik); },
+      "mg-gaiden": function (c) { return /^Eris Gaiden/.test(c.baslik); },
+      "mg-dep": function (c) { return /^Depressed Magician/.test(c.baslik); },
+      "mg-ant": function (c) { return /^Anthology/.test(c.baslik); },
+    };
+
+    Object.keys(gruplar).forEach(function (id) {
+      var kap = document.getElementById(id);
+      if (!kap) return;
+      var liste = v.yan.filter(gruplar[id]).concat(v.ana.filter(gruplar[id]));
+      liste.sort(function (a, b) {
+        var na = parseFloat(a.no) || 0, nb = parseFloat(b.no) || 0;
+        return na - nb;
+      });
+      bolumListesi(kap, liste, { onebaslik: true, ozet: id === "mg-ana", kanitlar: false });
+    });
+
+    /* sayaç */
+    var s = document.getElementById("manga-olcu");
+    if (s) {
+      var yanSeri = v.yan.filter(function (c) { return !/^Anthology/.test(c.baslik); }).length;
+      [["Ana cilt", v.ana.length], ["Yan seri cilt", yanSeri], ["Antoloji", 3],
+       ["İlk cilt", "2014"]].forEach(function (c) {
+        var d = document.createElement("div");
+        d.innerHTML = "<dt>" + c[0] + "</dt><dd>" + c[1] + "</dd>";
+        s.appendChild(d);
+      });
+    }
+  });
+});
+</script>
+@icerik:
+
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Manga</b> — uyarlama kolu</span>
+    <span>Yuka Fujikawa · Shirotaka (karakter tasarımı)</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <div class="masthead-alt">
+      <div>
+        <p class="no">§ M · Çizgi roman</p>
+        <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Manga</h1>
+        <p class="giris" style="margin-top:1rem;max-width:54ch" id="manga-ozet">
+          Manga uyarlaması 2014'te <em>Monthly Comic Flapper</em>'da başladı ve
+          hâlâ sürüyor. Anime'nin aksine manga kaynak metne çok daha sadık;
+          özellikle ilk yılların olay sırası neredeyse birebir.
+        </p>
+      </div>
+      <div>
+        @altin:altin altin-yesil@
+        <dl class="olcu" id="manga-olcu" style="margin-top:1rem"></dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FARKLAR ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ M.1 · Karşılaştırma</p>
+      <h2>Manga, novel ve anime arasında</h2>
+      <p>Üç kol aynı olayları anlatıyor ama hiçbiri diğerinin yerine geçmiyor.
+         Kısa bir karşılaştırma:</p>
+    </div>
+
+    <div class="tablo-kap">
+      <table>
+        <caption>Manga / Novel / Anime — hangisi ne zaman?</caption>
+        <thead>
+          <tr>
+            <th class="no">Ölçüt</th>
+            <th>Manga</th>
+            <th>Novel</th>
+            <th>Anime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="no">Başlangıç</td>
+            <td>Haziran 2014 sayısından itibaren</td>
+            <td>Web: Kasım 2012 · Cilt: Ocak 2014</td>
+            <td>Ocak 2021</td>
+          </tr>
+          <tr>
+            <td class="no">Kapsam</td>
+            <td>En az 25 cilt, devam ediyor</td>
+            <td>26 cilt</td>
+            <td>62 bölüm, devam ediyor</td>
+          </tr>
+          <tr>
+            <td class="no">4. bölüm meselesi</td>
+            <td>Kaynak metinle uyumlu</td>
+            <td>Kaynak</td>
+            <td>Sahne animasyonu yapılmadı, olay değiştirildi</td>
+          </tr>
+          <tr>
+            <td class="no">Çizim</td>
+            <td>Fujikawa / Shirotaka</td>
+            <td>Shirotaka (kapaklar)</td>
+            <td>Kazutaka Sugiyama (tasarım)</td>
+          </tr>
+          <tr>
+            <td class="no">En güçlü yanı</td>
+            <td>Erken yılların sadakati, Roxy'nin paralel çizgisi</td>
+            <td>Tamamlanmış tek metin</td>
+            <td>Rita'nın determinizm hikâyesi, görsel durum tasarımı</td>
+          </tr>
+          <tr>
+            <td class="no">En zayıf yanı</td>
+            <td>Sonraki ciltlerde tempo düşüyor</td>
+            <td>Uzun ara bölümler</td>
+            <td>1. sezon ortasında ani ton değişimi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota mana" style="margin-top:1rem">
+      @ikon:bilgi@
+      <div>Öneri: Tamamlanmış ve tutarlı bir metin istiyorsan novel.
+      Karakterlerin iç dünyasını görmek istiyorsan manga (özellikle
+      <em>Roxy Gets Serious</em>). Ani, vurucu sahneler ve müzik istiyorsan anime.</div>
+    </div>
+  </section>
+
+  <!-- ============================ CİLT LİSTELERİ ============================ -->
+  <section class="bolum">
+    <div class="sekmeler" role="tablist" aria-label="Manga kolu seçimi">
+      <button class="sekme aktif" type="button" data-sekme="mg-ana" role="tab" aria-selected="true">Ana seri</button>
+      <button class="sekme" type="button" data-sekme="mg-roxy" role="tab" aria-selected="false">Roxy Gets Serious</button>
+      <button class="sekme" type="button" data-sekme="mg-4koma" role="tab" aria-selected="false">4-Koma</button>
+      <button class="sekme" type="button" data-sekme="mg-gaiden" role="tab" aria-selected="false">Eris Gaiden</button>
+      <button class="sekme" type="button" data-sekme="mg-dep" role="tab" aria-selected="false">Depressed Magician</button>
+      <button class="sekme" type="button" data-sekme="mg-ant" role="tab" aria-selected="false">Antoloji</button>
+    </div>
+
+    <div data-panel="mg-ana" role="tabpanel">
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        Ana manga dizisi. Çizgi roman kahramanı değil, bir aileyi anlatıyor —
+        Rudeus'un çocukluktan düşen kalkanının nasıl kalktığını.
+      </p>
+      <div id="mg-ana" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-roxy" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        <em>ロキシーだって本気です</em> — Roxy'nin kendi hikâyesi. Ana dizinin
+        göremediği yerleri anlatıyor: Migurd köyünden ayrılışı, yalnızlığı,
+        bir öğretmen olarak kendini kurma süreci. Dizi en çok seven çizgi roman
+        hâlâ bu.
+      </p>
+      <div id="mg-roxy" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-4koma" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        <em>4コマになっても本気だす</em> — dört karelik komedi. Aynı ciddiyet
+        vaadi burada gülünç sonuç veriyor. Üç cilt.
+      </p>
+      <div id="mg-4koma" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-gaiden" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        <em>エリスは本気で牙を砥ぐ</em> — Eris'in kılıç eğitimi, tek cilt.
+        Eris'in sahneden kaybolduğu o boşlukta ne olduğunu gösterir.
+      </p>
+      <div id="mg-gaiden" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-dep" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        <em>失意の魔術師編</em> — "Kırık Büyücü" hikâyesi. Yedi ciltlik light novel'ın
+        tamamen özgün olan bölümünün çizgi roman uyarlaması.
+      </p>
+      <div id="mg-dep" class="sira-kap"></div>
+    </div>
+
+    <div data-panel="mg-ant" role="tabpanel" hidden>
+      <p class="zayif" style="margin-bottom:1rem;max-width:64ch">
+        Antoloji ciltleri: <em>Side: Roxy</em>, <em>Side: Eris</em>,
+        <em>Side: Sylphy</em>. Ana hikâyeye girmeyen, o üç kadının
+        perspektifinden kısa hikâyeler.
+      </p>
+      <div id="mg-ant" class="sira-kap"></div>
+    </div>
+  </section>
+
+  <!-- ============================ KARŞI KOLON ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ M.2 · Diğer kolonlar</p>
+      <h2>Diğer uyarlamalar</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="anime.html"><span class="dizin-ad">Anime<small>Studio Bind · 3 sezon, 62 bölüm</small></span>
+        <span class="dizin-sag">@ikon:film@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="novel.html"><span class="dizin-ad">Novel<small>Web novel ve 26 cilt · asıl kaynak</small></span>
+        <span class="dizin-sag">@ikon:kalem@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="karakterler.html"><span class="dizin-ad">Karakterler<small>Kim bu çizgi romanın kahramanı, soru değil</small></span>
+        <span class="dizin-sag">@ikon:kilic@</span></a></li>
+    </ul>
+  </section>
+
+</div>

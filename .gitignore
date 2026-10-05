@@ -1,0 +1,10 @@
+# Ham veri (yeniden üretilebilir)
+tools/ham/
+raw/
+*.pyc
+__pycache__/
+
+# Yerel
+.DS_Store
+Thumbs.db
+node_modules/

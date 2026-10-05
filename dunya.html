@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="koyu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> · Mushoku Tensei Ansiklopedisi</title>
+<meta name="description" content="">
+<meta name="author" content="Mushoku Tensei Ansiklopedisi (hayran projesi)">
+<meta property="og:type" content="website">
+<meta property="og:title" content=" · Mushoku Tensei Ansiklopedisi">
+<meta property="og:description" content="">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#070c16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='16' r='9' fill='none' stroke='%23d9a441' stroke-width='1.6'/%3E%3Ccircle cx='19' cy='16' r='9' fill='none' stroke='%2357bdd4' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Marcellus&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+
+<div class="ilerleme" role="presentation"></div>
+
+<div class="omurga" aria-hidden="true">
+  <div class="omurga-marka">世界</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-yazi">Dünya</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-sayfa"></div>
+</div>
+
+<header class="ust">
+  <div class="defter ust-ic">
+    <a class="marka" href="index.html" aria-label="Ana sayfa">
+      <svg class="altin" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+      <span class="marka-yazi">
+        <b>Mushoku Tensei</b>
+        <span>Ansiklopedi · Fan Arşivi</span>
+      </span>
+    </a>
+
+    <nav class="gezinme" aria-label="Ana gezinme">
+      <a class="gez " href="index.html">Ana Sayfa</a>
+      <a class="gez " href="anime.html">Anime</a>
+      <a class="gez " href="manga.html">Manga</a>
+      <a class="gez " href="novel.html">Novel</a>
+      <a class="gez " href="karakterler.html">Karakterler</a>
+      <a class="gez aktif" href="dunya.html">Dünya</a>
+      <a class="gez " href="yaylar.html">Yaylar</a>
+      <a class="gez " href="analiz.html">Analiz</a>
+      <a class="gez " href="rehber.html">Rehber</a>
+      <a class="gez " href="medya-eklenti.html">Ek Medya</a>
+      <a class="gez " href="hakkinda.html">Hakkında</a>
+    </nav>
+
+    <div class="ust-eylem">
+      <button class="dugme" type="button" data-arama-ac aria-label="Ara (Ctrl+K)" title="Ara · Ctrl+K">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      </button>
+      <button class="dugme" type="button" data-tema-dugme aria-label="Temayı değiştir" title="Temayı değiştir">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ay"></use></svg>
+      </button>
+      <button class="dugme menu-dugme" type="button" aria-expanded="false" aria-label="Menü" data-menu>
+        <svg class="ikon" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="arama-kat" id="arama-kat" role="dialog" aria-modal="true" aria-label="Arama">
+  <div class="arama-kutu">
+    <div class="arama-girdi">
+      <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      <input id="arama-girdi" type="search" placeholder="Karakter, bölüm, cilt, kavram ara…" autocomplete="off" spellcheck="false">
+      <button class="dugme" type="button" data-arama-kapat aria-label="Kapat">
+        <svg class="ikon" aria-hidden="true"><use href="#i-kapat"></use></svg>
+      </button>
+    </div>
+    <div class="arama-sonuc" id="arama-sonuc"></div>
+    <div class="arama-alt">
+      <span><kbd>↑</kbd><kbd>↓</kbd> gez</span>
+      <span><kbd>Enter</kbd> aç</span>
+      <span><kbd>Esc</kbd> kapat</span>
+      <span style="margin-left:auto">62 bölüm · 23 yay · 25 manga cilti · 26 novel cildi</span>
+    </div>
+  </div>
+</div>
+
+<main id="icerik">
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Dünya</b> — kurgu sistemleri</span>
+    <span>Irklar · Büyü · Kılıç · Siyaset</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <div class="masthead-alt">
+      <div>
+        <p class="no">§ D · Kurgu</p>
+        <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Dünya</h1>
+        <p class="giris" style="margin-top:1rem;max-width:54ch">
+          <em>Mushoku Tensei</em> kurgusu türün alışkanlıklarından ayrılıyor.
+          Irklar "insan / elf / cüce" üçlüsüne indirgenmiyor; dev bir insan-cüce
+          savaşı geçmişte olmuş, kaybeden taraf ırk olarak lanetlenmiş.
+          Büyü ise bir dilden çok bir <strong>ekonomi</strong> gibi işliyor:
+          her büyücü bir <em>mana çemberi</em> kurmak zorunda.
+        </p>
+      </div>
+      <div>
+        <svg class="altin altin-mana" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+        <dl class="olcu" id="dunya-olcu" style="margin-top:1rem"></dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ALTYAPI ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ D.1 · Temel kurallar</p>
+      <h2>Önce şu dört kural</h2>
+      <p>Dizinin dünyasını anlamadan karakter motivasyonları anlaşılmaz.</p>
+    </div>
+
+    <div class="iki">
+      <div class="metin">
+        <h3>1. Büyü yazıyla yapılır — söylenmez</h3>
+        <p>Büyücüler büyüyü <em>ezberden okumaz</em>; çizer. Bir kutsal çember
+        kurar, içine isim ve şekil yazar, sonra o çemberi kapatır. Bu yüzden
+        dünyada "büyü kitapları" vardır — bunlar talimat sayfasıdır.
+        Söyleyerek büyü yapan nadir bir istisnadır.</p>
+
+        <h3>2. Manya sınırlıdır ve sınıfla ölçülür</h3>
+        <p>Bir büyücü aynı anda yalnızca belirli sayıda büyü çevirebilir.
+        Bu, dizideki tüm savaş sahnelerinin asıl motorudur: güç, "kim daha çok
+        hazır" meselesidir, hazırlık ve zaman meselesidir.</p>
+
+        <h3>3. Işınlanma her şeyi dağıttı</h3>
+        <p>Yüz binlerce insan ışınlandı; çoğu düştüğü yerde öldü.
+        Bu olay dönemin sonunu getirdi ve Fittoa bölgesini haritadan sildi.
+        Dizinin en önemli <em>tarihsel</em> olayı budur — ve herkes onu
+        yaşamış olduğu için kimse onu özel olarak anlatmaz.</p>
+
+        <h3>4. İnsan ve insan olmayan arasındaki çizgi siyasi</h3>
+        <p>Supard (dev) ırkı bir savaşta lanetlenmiş; yavruları
+        <em>öldürülebilir</em> hale gelmiş. Lanet kalktığında bile toplum
+        değişmiyor. Dizinin en sert eleştirisi budur: hukuk değişiyor,
+        önyargı değişmiyor.</p>
+      </div>
+
+      <aside>
+        <div class="levha" style="border-top:2px solid var(--mor)">
+          <span class="etiket mor"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-goz"></use></svg> Sıradışı durum</span>
+          <h3 style="margin-top:.5rem">Hitogami</h3>
+          <p style="margin-top:.6rem">
+            Rüyalarda beliren, "tanrı" diyen ama insan olmayan bir varlık.
+            Rudeus'a bilgi verir, doğruyu söyler ve tam da bu yüzden
+            güvenilmezdir: <strong>bildiği için yönlendirebilir</strong>.
+          </p>
+          <p style="margin-top:.6rem">
+            Dizinin en iyi bilgisi bu. Anahtar cümle: Hitogami'nin verdiği
+            bilgi asla yalan değildir; <em>seçtiği zaman</em> ve
+            <em>seçtiği bağlam</em> yanlıştır.
+          </p>
+        </div>
+
+        <div class="kutu mor" style="margin-top:1rem">
+          <h4>Neden önemli</h4>
+          <p>Hitogami olmasa dizi determinist bir kâhin anlatısı olurdu.
+          Onun varlığı, "kader" ile "yorum" arasındaki sınırı belirsiz
+          kılar — ve üçüncü sezonun bütün gerilimi buradan çıkar.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================ KAVRAMLAR ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ D.2 · Kavramlar</p>
+      <h2>Lore'un taşıyıcı kavramları</h2>
+      <p>Her kaydı açtığında kaynak sayfaya bağlanabilirsin.</p>
+    </div>
+    <div id="kavramlar"></div>
+  </section>
+
+  <!-- ============================ SİSTEMLER ============================ -->
+  <section class="bolum">
+    <div class="bolum-basi">
+      <p class="no">§ D.3 · Sistemler</p>
+      <h2>Dünya kayıtları</h2>
+      <p>Irklar, büyü dalları, kılıç stilleri, güç sıralamaları, siyasi yapılar
+         ve ışınlanmanın sonuçları. 45 kayıt.</p>
+    </div>
+    <div id="dunya-konular"></div>
+  </section>
+
+  <!-- ============================ SIRALAMA ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ D.4 · Güç sıralaması</p>
+      <h2>Kılıç hiyerarşisi</h2>
+      <p>Dizinin en net ölçeği budur ve savaş sahnelerinin çoğunu belirler.</p>
+    </div>
+
+    <div class="tablo-kap">
+      <table>
+        <caption>Sıralama → Derece</caption>
+        <thead><tr><th class="no">Sıra</th><th>Unvan</th><th>Ne anlama gelir</th></tr></thead>
+        <tbody>
+          <tr><td class="no">1</td><td>Kılıç Kralı / İlahı</td><td>Pratik olarak tek kişi. Bölgenin dışına çıkıp savaşamaz.</td></tr>
+          <tr><td class="no">2</td><td>Kılıç İmparatoru</td><td>Bir ülkenin en güçlü kılıç ustası.</td></tr>
+          <tr><td class="no">3</td><td>Kılıç Kralı</td><td>Üst düzey, kendi bölgesinde efsaneleşmiş.</td></tr>
+          <tr><td class="no">4</td><td>Kılıç Kutsalisi / Şövalye</td><td>Sahada üstünlük kurabilen profesyonel.</td></tr>
+          <tr><td class="no">5</td><td>İleri düzey</td><td>Vezir seviyesi. Macera-kulüplü düşmanın tipik gücü.</td></tr>
+          <tr><td class="no">6</td><td>Orta düzey</td><td>Ordunun eri. Ustaların altı.</td></tr>
+          <tr><td class="no">7</td><td>Yeniçi</td><td>Çoğu savaşçı burada.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota" style="margin-top:1rem">
+      <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-uyari"></use></svg>
+      <div>Sıralama "kim daha çok büyü çevirebilir" değil,
+      <strong>teknik yeterlilik</strong> üzerinden işler. Rudeus güçlü bir büyücü
+      ama zayıf bir kılıç ustasıdır; bu yüzden Orsted ile birebir savaşamaz.
+      Bu ayrım, yüzlerce sahnenin sebebidir.</div>
+    </div>
+  </section>
+
+  <!-- ============================ KARŞI KOLON ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ D.5</p>
+      <h2>İlgili sayfalar</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="yaylar.html"><span class="dizin-ad">Yaylar<small>Dünya olaylarının tarihi</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="analiz.html#kader"><span class="dizin-ad">Kader ve determinizm<small>Rita'nın hikâyesi ve Hitogami</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-saat"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="analiz.html#din"><span class="dizin-ad">Din ve inanç mimarisi<small>Hitogami, kutsal çemberler, ritüel</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-rakis"></use></svg></span></a></li>
+    </ul>
+  </section>
+
+</div>
+</main>
+
+<footer class="alt">
+  <div class="defter">
+    <div class="alt-izgara">
+      <div>
+        <h4>Bu arşiv ne</h4>
+        <p style="font-size:.9rem;color:var(--soluk);max-width:44ch">
+          <em>Mushoku Tensei: ~Isekai Ittara Honki Dasu~</em> üzerine Türkçe bir hayran ansiklopedisi.
+          Bölüm, cilt ve kavram verileri Mushoku Tensei Wiki'den çekilmiş; tematik okumalar ve
+          yorumlar bu sitenin kendi çalışmasıdır.
+        </p>
+        <p class="kanitler" style="margin-top:1rem">
+          <span class="kanit">Yazar: Rifujin na Magonote</span>
+          <span class="kanit mana">Çizim: Shirotaka</span>
+        </p>
+      </div>
+      <div><h4>Medya</h4><ul>
+        <li><a href="anime.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg> Anime</a></li>
+        <li><a href="manga.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg> Manga</a></li>
+        <li><a href="novel.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg> Novel</a></li>
+        <li><a href="medya-eklenti.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-disk"></use></svg> Ek medya</a></li>
+      </ul></div>
+      <div><h4>Araştır</h4><ul>
+        <li><a href="karakterler.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg> Karakterler</a></li>
+        <li><a href="dunya.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg> Dünya & sistemler</a></li>
+        <li><a href="yaylar.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg> Yaylar</a></li>
+        <li><a href="analiz.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg> Tematik analiz</a></li>
+      </ul></div>
+      <div><h4>Rehber</h4><ul>
+        <li><a href="rehber.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-hedef"></use></svg> Nereden başlamalı</a></li>
+        <li><a href="hakkinda.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-belge"></use></svg> Hakkında & kaynakça</a></li>
+        <li><a href="404.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kapat"></use></svg> 404</a></li>
+      </ul></div>
+    </div>
+    <div class="alt-son">
+      <span>© 2026 · hayran projesi. <strong>Resmî değildir</strong> — tüm haklar Rifujin na Magonote, Shirotaka,
+      Media Factory, Studio Bind ve ilgili yapımlara aittir. Resim/kapak kullanılmaz; veriler alıntıdır.</span>
+      <span class="mono">Veri: mushokutensei.fandom.com · Sürüm 0.1.0</span>
+    </div>
+  </div>
+</footer>
+
+<button class="yukari" type="button" aria-label="Yukarı çık">
+  <svg class="ikon" aria-hidden="true"><use href="#i-yukari"></use></svg>
+</button>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/veri.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  /* veri katmanından kavram kartları */
+  MT_VERI.temalar().then(function (v) {
+    if (!v) return;
+    konuListesi(document.getElementById("kavramlar"), v.kavramlar);
+  });
+
+  MT_VERI.dunya().then(function (v) {
+    if (!v) return;
+    var kap = document.getElementById("dunya-konular");
+    konuListesi(kap, v.konular);
+
+    var s = document.getElementById("dunya-olcu");
+    if (s) {
+      var irk = v.konular.filter(function (c) {
+        return ["Human", "Elf", "Beast Race", "Migurd", "Supard Tribe", "Dragon Tribe",
+                "Heaven Race", "Dwarf", "Ogre race", "Races"].indexOf(c.ad) >= 0;
+      }).length;
+      [["Irk başlığı", irk], ["Sistem", v.konular.length],
+       ["Dünya", "Altı Yüzlü Dünya"], ["Coğrafya", "3 kıta"]].forEach(function (c) {
+        var d = document.createElement("div");
+        d.innerHTML = "<dt>" + c[0] + "</dt><dd>" + c[1] + "</dd>";
+        s.appendChild(d);
+      });
+    }
+  });
+});
+</script>
+</body>
+</html>

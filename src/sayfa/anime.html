@@ -1,0 +1,215 @@
+@baslik:Anime
+@aciklama:Mushoku Tensei anime uyarlaması — Studio Bind, 3 sezon, 62 bölüm. Bölüm listesi, açılış ve kapanış müzikleri, senaryo ekibi, uyarlama kaynakları ve spoiler'lı özetler.
+@folio:A-1
+@ekstra-script:
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  /* sezon istatistikleri */
+  MT_VERI.anime().then(function (v) {
+    if (!v) return;
+    var kutu = document.getElementById("anime-olcu");
+    if (!kutu) return;
+    kutu.innerHTML = "";
+    var toplam = v.episodes.length;
+    [["Toplam bölüm", toplam], ["Sezon", v.seasons.length],
+     ["İlk yayın", "2021"], ["Üçüncü sezon", "2026"]].forEach(function (c) {
+      var d = document.createElement("div");
+      d.innerHTML = "<dt>" + c[0] + "</dt><dd>" + c[1] + "</dd>";
+      kutu.appendChild(d);
+    });
+
+    /* her sezon paneli */
+    v.seasons.forEach(function (s) {
+      var kap = document.getElementById("s" + s.key);
+      if (!kap) return;
+      bolumListesi(kap, s.bolumler, { onebaslik: true, ozet: s.key >= 3 });
+    });
+
+    /* manga/novel slotları için ayrıca sayaç */
+    ["manga", "novel"].forEach(function (t) {
+      MT_VERI[t]().then(function (d) {
+        if (!d) return;
+        var n = document.getElementById(t + "-adet");
+        if (n) n.textContent = (t === "manga" ? d.ana.length : d.lightNovel.length);
+      });
+    });
+  });
+
+  /* adres çubuğu ile doğrudan bölüme gitme */
+  var h = location.hash.replace("#", "");
+  if (h && document.getElementById(h)) {
+    setTimeout(function () {
+      document.getElementById(h).scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 250);
+  }
+});
+</script>
+@icerik:
+
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Anime</b> — uyarlama kolu</span>
+    <span>Studio Bind · Egg Firm · 2021→2026</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <div class="masthead-alt">
+      <div>
+        <p class="no">§ A · Uyarlama</p>
+        <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Anime</h1>
+        <p class="giris" style="margin-top:1rem;max-width:54ch">
+          Üç sezon, bir OVA ve devam eden üçüncü sezon. Anime, dizinin en çok
+          konuşulan uyarlaması çünkü <strong>4. bölümde kaynak metinden farklı
+          bir karar</strong> aldı. Aşağıda bölümlerin tamamı, tarihleri ve
+          uyarlama kaynaklarıyla var.
+        </p>
+      </div>
+      <div>
+        @altin:altin altin-mana@
+        <dl class="olcu" id="anime-olcu" style="margin-top:1rem">
+          <div><dt>Yükleniyor</dt><dd>…</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ UYARLAMA NOTLARI ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ A.1 · Uyarlama notları</p>
+      <h2>Kaynakla arasındaki farklar</h2>
+      <p>Anime bir sadakat yarışı değil; bazı yerlerde bilinçli olarak farklı
+         bir yol izliyor. En önemli iki nokta aşağıda.</p>
+    </div>
+
+    <div class="metin">
+      <h3>4. bölüm: çıkarılan sahne</h3>
+      <p>İlk iki uyarlamada (web ve light novel) Rudeus'un Eris'e karşı işlediği
+      ve ardından karşılığını ağır biçimde ödediği bir sahne vardır. Anime bu
+      sahnenin <strong>animasyonunu yapmayı reddetti</strong>; bölüm, aynı yere
+      gelen farklı bir olayla ilerliyor. Bu, yapımın en çok tartışılan
+      kararlarından biri ve sonraki uyarlamalarda manga ve light novel da aynı
+      yönde değişti.</p>
+
+      <div class="nota kizil">
+        @ikon:uyari@
+        <div>Bu, dizinin rıza ve şiddet temasının en doğrudan kırılma noktası.
+        Analiz bölümünde <a href="analiz.html#sevgi">«Sevgi, rıza ve şiddet»</a>
+        yazısında ayrıntılı ele alınıyor.</div>
+      </div>
+
+      <h3>Sezon yapısı</h3>
+      <p>Birinci sezon iki ayrı yayın dönemine bölündü (ilk yarı ve ikinci yarı),
+      ikinci sezon da aynı şekilde iki parçaya ayrıldı. Bu bölünmeler sadece
+      yayıncılık kararı değil: <strong>ikinci sezonun ikinci yarısı yönetmen
+      değişikliğiyle çekildi</strong> ve hikâyenin tonu da belirgin biçimde
+      değişti — daha az macera, daha çok ev ve yas.</p>
+
+      <h3>Bölüm sayıları</h3>
+      <ul>
+        <li><strong>Sezon 1</strong> — 23 bölüm + 1 OVA (<em>Eris the Goblin Slayer</em>, 16 Mart 2022)</li>
+        <li><strong>Sezon 2</strong> — 24 bölüm</li>
+        <li><strong>Sezon 3</strong> — ilk bölüm 4 Temmuz 2026; devam ediyor</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ SEZON PANELİ ============================ -->
+  <section class="bolum" data-sekmeler="false">
+    <div class="sekmeler" role="tablist" aria-label="Sezon seçimi">
+      <button class="sekme aktif" type="button" data-sekme="s1" role="tab" aria-selected="true">Sezon 1</button>
+      <button class="sekme" type="button" data-sekme="s2" role="tab" aria-selected="false">Sezon 2</button>
+      <button class="sekme" type="button" data-sekme="s3" role="tab" aria-selected="false">Sezon 3</button>
+    </div>
+
+    <!-- ---------- SEZON 1 ---------- -->
+    <div data-panel="s1" role="tabpanel">
+      <div class="iki" style="margin-bottom:1.6rem">
+        <div>
+          <p class="no">Sezon 1</p>
+          <h2>Makalenin çıkış noktası</h2>
+          <p class="zayif" style="margin-top:.6rem">
+            Otobot Roudersu Greyrat, iki dönem yayınlandı. İlk yarı bebeklik ve
+            çocukluk, ikinci yarı ışınlanma ve kayıp yıllar.
+          </p>
+        </div>
+        <dl class="olcu">
+          <div><dt>Yapım</dt><dd style="font-size:.9rem">Studio Bind</dd></div>
+          <div><dt>Yönetmen</dt><dd style="font-size:.9rem">Manabu Okamoto</dd></div>
+          <div><dt>Bölüm</dt><dd style="font-size:1.1rem">23 + 1 OVA</dd></div>
+          <div><dt>Durum</dt><dd style="font-size:1.1rem">Tamamlandı</dd></div>
+        </dl>
+      </div>
+      <div id="s1" class="sira-kap"></div>
+    </div>
+
+    <!-- ---------- SEZON 2 ---------- -->
+    <div data-panel="s2" role="tabpanel" hidden>
+      <div class="iki" style="margin-bottom:1.6rem">
+        <div>
+          <p class="no">Sezon 2</p>
+          <h2>Kayıp yılların sonu</h2>
+          <p class="zayif" style="margin-top:.6rem">
+            Ranoa Akademisi, evlilikler, Hitogami ile hesaplaşma. Tonu en ağır
+            bölüm; çoğu karakter burada kaybediliyor.
+          </p>
+        </div>
+        <dl class="olcu">
+          <div><dt>Yönetmen</dt><dd style="font-size:.9rem">Hiroki Hirano → Ryōsuke Shibuya</dd></div>
+          <div><dt>Bölüm</dt><dd style="font-size:1.1rem">24</dd></div>
+          <div><dt>Durum</dt><dd style="font-size:1.1rem">Tamamlandı</dd></div>
+        </dl>
+      </div>
+      <div id="s2" class="sira-kap"></div>
+    </div>
+
+    <!-- ---------- SEZON 3 ---------- -->
+    <div data-panel="s3" role="tabpanel" hidden>
+      <div class="nota mor" style="margin-bottom:1.4rem">
+        @ikon:uyari@
+        <div><strong>Yoğun spoiler.</strong> Üçüncü sezon özeti, dizinin
+        en trajik dönemlerini doğrudan ele verir. Listeyi bilerek aç.</div>
+      </div>
+
+      <div class="iki" style="margin-bottom:1.6rem">
+        <div>
+          <p class="no">Sezon 3</p>
+          <h2>Henüz tamamlanmadı</h2>
+          <p class="zayif" style="margin-top:.6rem">
+            İlk bölüm 4 Temmuz 2026'da yayınlandı ve bölümler devam ediyor.
+            Bu arşivdeki liste, şu an yayımlanmış bölümleri içerir.
+          </p>
+        </div>
+        <dl class="olcu">
+          <div><dt>Yönetmen</dt><dd style="font-size:.9rem">Ryōsuke Shibuya</dd></div>
+          <div><dt>Durum</dt><dd style="font-size:1.1rem">Yayınlanıyor</dd></div>
+        </dl>
+      </div>
+      <div id="s3" class="sira-kap"></div>
+    </div>
+  </section>
+
+  <!-- ============================ DİĞER MEDYA ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ A.2 · Komşu kolonlar</p>
+      <h2>Anime'nin yanında</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="manga.html"><span class="dizin-ad">Manga<small id="manga-adet">25 cilt</small></span>
+        <span class="dizin-sag">@ikon:kitap@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="novel.html"><span class="dizin-ad">Novel<small id="novel-adet">26 cilt</small></span>
+        <span class="dizin-sag">@ikon:kalem@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="medya-eklenti.html"><span class="dizin-ad">Drama CD, oyunlar, soundtrack<small>Anime dışı ek medya kanalı</small></span>
+        <span class="dizin-sag">@ikon:disk@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="yaylar.html"><span class="dizin-ad">Hangi bölüm hangi yayı anlatıyor<small>23 anlatı yayının tam listesi</small></span>
+        <span class="dizin-sag">@ikon:katlanir@</span></a></li>
+    </ul>
+  </section>
+
+</div>

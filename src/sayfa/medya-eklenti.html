@@ -1,0 +1,217 @@
+@baslik:Ek Medya
+@aciklama:Mushoku Tensei ek medya kanalı — drama CD (転移迷宮編), mobil oyun, Quest of Memories, soundtrack albümleri, Blu-ray ve Recoleciton kitapları.
+@folio:A-9
+@ekstra-script:
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  MT_VERI.ekMedya().then(function (v) {
+    if (!v) return;
+    konuListesi(document.getElementById("ek-medya"), v.kayitlar);
+  });
+
+  MT_VERI.novel().then(function (v) {
+    if (!v) return;
+    var kap = document.getElementById("ek-kitap");
+    bolumListesi(kap, v.ekstra, { onebaslik: true, kanitlar: false });
+  });
+
+  /* soundtrack listesi: anime sütunlarından türetilir */
+  MT_VERI.anime().then(function (v) {
+    if (!v) return;
+    var kap = document.getElementById("ek-muzik");
+    if (!kap) return;
+    var gorulen = {};
+    var ul = document.createElement("ul");
+    ul.className = "sira";
+    v.episodes.forEach(function (b) {
+      [["acilis", b.acilis], ["kapanis", b.kapanis]].forEach(function (c) {
+        if (!c[1] || gorulen[c[1]]) return;
+        gorulen[c[1]] = 1;
+        var li = document.createElement("li");
+        var no = document.createElement("div");
+        no.className = "sira-no";
+        no.textContent = c[0] === "acilis" ? "OP" : "ED";
+        li.appendChild(no);
+        var govde = document.createElement("div");
+        var ad = document.createElement("div");
+        ad.className = "sira-ad";
+        ad.textContent = c[1];
+        govde.appendChild(ad);
+        li.appendChild(govde);
+        var sag = document.createElement("div");
+        sag.className = "sira-sag";
+        sag.textContent = "S" + b.sezon;
+        li.appendChild(sag);
+        ul.appendChild(li);
+      });
+    });
+    kap.innerHTML = "";
+    if (ul.children.length) kap.appendChild(ul);
+  });
+});
+</script>
+@icerik:
+
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Ek medya</b> — yan kanallar</span>
+    <span>Ses · oyun · müzik · kitap</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <div class="masthead-alt">
+      <div>
+        <p class="no">§ E · Yan kanallar</p>
+        <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Ek medya</h1>
+        <p class="giris" style="margin-top:1rem;max-width:54ch">
+          Anime, manga ve novel dışında kalan her şey burada. Bu kanal
+          aslında en az bilineni ama en ilginç olan: <strong>dizi bir drama CD
+          ile başlamıştı</strong>, anime'ye on yıl sonra geldi.
+        </p>
+      </div>
+      <div>
+        @altin:altin altin-mor@
+        <div class="levha" style="border-top:2px solid var(--mor)">
+          <span class="etiket mor">@ikon:saat@ Zaman çizelgesi</span>
+          <p style="margin-top:.6rem;font-size:.88rem">
+            İlk uyarlama web novel'de <strong>2012</strong>. İlk ses kaydı
+            <strong>2017</strong>. İlk anime bölümü <strong>2021</strong>.
+            Arada dokuz yıl var ve o yıllarda dizi neredeyse hiç görünmüyordu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SES ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ E.1 · Ses</p>
+      <h2>Drama CD</h2>
+    </div>
+
+    <div class="iki">
+      <div class="metin">
+        <h3>転移迷宮編 — Işınlanma Labirenti</h3>
+        <p>Frontier Works tarafından 2017'de yayımlandı. Bu, dizinin ilk
+        <em>oynanabilir/ dinlenebilir</em> uyarlaması ve Rudeus'u ilk kez
+        duyacağın yer. Hikâye ana dizinin bir bölümünü yeniden anlatıyor:
+        ışınlanma sonrası labirentte geçen süreç.</p>
+
+        <p>Seslendirenler arasında <strong>Hiro Shimono</strong> (Rudeus) ve
+        <strong>Eiji Takemoto</strong> (Paul) var. İkisi de kaydı, diziyle
+        arasında uzun yıllar olan bir ekiple yapmış; prodüksiyonun
+        anlatıcılık tarafına ne kadar önem verdiğini gösteriyor.</p>
+
+        <div class="nota mana">
+          @ikon:bilgi@ Bilgi
+          <div>Anime'den farklı olarak drama CD, kaynak metne <em>bağlı</em>
+          kalır. 4. bölüm meselesi burada yoktur.</div>
+        </div>
+      </div>
+      <aside>
+        <div class="levha">
+          <span class="etiket mana">@ikon:kulaklik@ Neden önemli</span>
+          <p style="margin-top:.6rem">Dizinin ilk ses uyarlaması olması,
+          yapımın hikâyeyi bir "izleme" değil bir <em>deneyim</em> olarak
+          gördüğünü gösteriyor. 2017'de tam da o dönemin kültürel
+          baskısı düşünülünce bu oldukça cesur bir tercih.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================ OYUN ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ E.2 · Oyun</p>
+      <h2>Oyunlar</h2>
+    </div>
+
+    <div class="izanlama">
+      <div class="levha">
+        <div class="levha-ust"><div class="levha-ikon kizil">@ikon:oyun@</div><h3>Game ni Natte mo Honki Dasu</h3></div>
+        <p class="zayif mono" style="font-size:.7rem">2021 · Android / iOS</p>
+        <p style="margin-top:.6rem">Mobil oyun. 27 Mart 2021'de çıktı,
+        31 Ağustos 2022'de hizmeti sona erdi. Light novel illüstratörü
+        Shirotaka bu projede denetim görevindeydi — özellikle
+        <em>Paul Gaiden</em> bölümünde.</p>
+      </div>
+      <div class="levha">
+        <div class="levha-ust"><div class="levha-ikon yesil">@ikon:oyun@</div><h3>Quest of Memories</h3></div>
+        <p class="zayif mono" style="font-size:.7rem">2024 · PC / Switch / PS4 / PS5</p>
+        <p style="margin-top:.6rem">Lancarse geliştirdi, Bushiroad Games yayımladı.
+        Mobil oyunun aksine ayakta kalabildi — ve dizinin <em>en çok övülen</em>
+        oyun uyarlaması oldu. Hikâyeyi yeniden anlatmak yerine
+        mevcut karakterlerle oynama fikri var.</p>
+      </div>
+    </div>
+
+    <div class="nota" style="margin-top:1.2rem">
+      @ikon:belge@
+      <div>Mushoku Tensei karakterleri ayrıca <em>The Seven Deadly Sins: Grand Cross</em>
+      ve <em>Grand Summoners</em> gibi mobil oyunlarda da yer aldı.
+      Bu ortaklıklar, dizinin Japon mobil oyun ekonomisindeki yerini gösterir.</div>
+    </div>
+  </section>
+
+  <!-- ============================ KİTAP ============================ -->
+  <section class="bolum">
+    <div class="bolum-basi">
+      <p class="no">§ E.3 · Kitaplar</p>
+      <h2>Ek ciltler ve derlemeler</h2>
+      <p>Ana serinin dışında yayımlanan kitaplar. Bunlar "dizi bitti mi?"
+      sorusunun cevabı.</p>
+    </div>
+    <div id="ek-kitap" class="sira-kap"></div>
+  </section>
+
+  <!-- ============================ MÜZİK ============================ -->
+  <section class="bolum">
+    <div class="bolum-basi">
+      <p class="no">§ E.4 · Müzik</p>
+      <h2>Açılış ve kapanış parçaları</h2>
+      <p>Anime verisinden türetildi; her parçanın hangi sezonda
+         kullanıldığı listelenir.</p>
+    </div>
+    <div id="ek-muzik" class="sira-kap"></div>
+
+    <div class="nota mana" style="margin-top:1.4rem">
+      @ikon:muzik@
+      <div>Dizinin müzik kimliği sezonlarla değişiyor: ilk sezon daha
+      neşeli ve marş havasında, ikinci sezon daha içe dönük, üçüncü sezon
+      ise neredeyse enstrümantal bir boşluk. Müzik, hikâyenin tonundaki
+      bu kaymanın en dürüst tanığı.</div>
+    </div>
+  </section>
+
+  <!-- ============================ KAYITLAR ============================ -->
+  <section class="bolum">
+    <div class="bolum-basi">
+      <p class="no">§ E.5 · Kayıtlar</p>
+      <h2>Ek medya kayıtları</h2>
+    </div>
+    <div id="ek-medya"></div>
+  </section>
+
+  <!-- ============================ KARŞI KOLON ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ E.6</p>
+      <h2>Ana kanallar</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="anime.html"><span class="dizin-ad">Anime<small>62 bölüm, üç sezon</small></span>
+        <span class="dizin-sag">@ikon:film@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="manga.html"><span class="dizin-ad">Manga<small>25+ cilt ve yan seriler</small></span>
+        <span class="dizin-sag">@ikon:kitap@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="novel.html"><span class="dizin-ad">Novel<small>26 cilt + ek kitaplar</small></span>
+        <span class="dizin-sag">@ikon:kalem@</span></a></li>
+    </ul>
+  </section>
+
+</div>

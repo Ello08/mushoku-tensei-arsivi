@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="koyu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> · Mushoku Tensei Ansiklopedisi</title>
+<meta name="description" content="">
+<meta name="author" content="Mushoku Tensei Ansiklopedisi (hayran projesi)">
+<meta property="og:type" content="website">
+<meta property="og:title" content=" · Mushoku Tensei Ansiklopedisi">
+<meta property="og:description" content="">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#070c16">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='16' r='9' fill='none' stroke='%23d9a441' stroke-width='1.6'/%3E%3Ccircle cx='19' cy='16' r='9' fill='none' stroke='%2357bdd4' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Marcellus&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+
+<div class="ilerleme" role="presentation"></div>
+
+<div class="omurga" aria-hidden="true">
+  <div class="omurga-marka">断章</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-yazi">Hakkında</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-sayfa"></div>
+</div>
+
+<header class="ust">
+  <div class="defter ust-ic">
+    <a class="marka" href="index.html" aria-label="Ana sayfa">
+      <svg class="altin" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+      <span class="marka-yazi">
+        <b>Mushoku Tensei</b>
+        <span>Ansiklopedi · Fan Arşivi</span>
+      </span>
+    </a>
+
+    <nav class="gezinme" aria-label="Ana gezinme">
+      <a class="gez " href="index.html">Ana Sayfa</a>
+      <a class="gez " href="anime.html">Anime</a>
+      <a class="gez " href="manga.html">Manga</a>
+      <a class="gez " href="novel.html">Novel</a>
+      <a class="gez " href="karakterler.html">Karakterler</a>
+      <a class="gez " href="dunya.html">Dünya</a>
+      <a class="gez " href="yaylar.html">Yaylar</a>
+      <a class="gez " href="analiz.html">Analiz</a>
+      <a class="gez " href="rehber.html">Rehber</a>
+      <a class="gez " href="medya-eklenti.html">Ek Medya</a>
+      <a class="gez aktif" href="hakkinda.html">Hakkında</a>
+    </nav>
+
+    <div class="ust-eylem">
+      <button class="dugme" type="button" data-arama-ac aria-label="Ara (Ctrl+K)" title="Ara · Ctrl+K">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      </button>
+      <button class="dugme" type="button" data-tema-dugme aria-label="Temayı değiştir" title="Temayı değiştir">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ay"></use></svg>
+      </button>
+      <button class="dugme menu-dugme" type="button" aria-expanded="false" aria-label="Menü" data-menu>
+        <svg class="ikon" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="arama-kat" id="arama-kat" role="dialog" aria-modal="true" aria-label="Arama">
+  <div class="arama-kutu">
+    <div class="arama-girdi">
+      <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      <input id="arama-girdi" type="search" placeholder="Karakter, bölüm, cilt, kavram ara…" autocomplete="off" spellcheck="false">
+      <button class="dugme" type="button" data-arama-kapat aria-label="Kapat">
+        <svg class="ikon" aria-hidden="true"><use href="#i-kapat"></use></svg>
+      </button>
+    </div>
+    <div class="arama-sonuc" id="arama-sonuc"></div>
+    <div class="arama-alt">
+      <span><kbd>↑</kbd><kbd>↓</kbd> gez</span>
+      <span><kbd>Enter</kbd> aç</span>
+      <span><kbd>Esc</kbd> kapat</span>
+      <span style="margin-left:auto">62 bölüm · 23 yay · 25 manga cilti · 26 novel cildi</span>
+    </div>
+  </div>
+</div>
+
+<main id="icerik">
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Hakkında</b> — kapsam ve kaynakça</span>
+    <span>Fan projesi · resmî değildir</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <p class="no">§ H · Hakkında</p>
+    <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Bu arşiv nedir</h1>
+    <p class="giris" style="margin-top:1rem;max-width:58ch">
+      <em>Mushoku Tensei: ~Isekai Ittara Honki Dasu~</em> üzerine Türkçe bir
+      hayran ansiklopedisi. Amacı tek cümleyle: <strong>dizinin ne anlattığını,
+      ne yapmadığını ve neden yaptığını</strong> aynı yerde toplamak.
+    </p>
+  </section>
+
+  <!-- ============================ KAPSAM ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="iki">
+      <div class="metin">
+        <h2>Neyi kapsıyor</h2>
+        <ul>
+          <li><strong>Veri:</strong> anime bölümleri, manga ciltleri, novel
+          ciltleri, karakter kayıtları, dünya sistemleri, anlatı yayları ve
+          ek medya kayıtları.</li>
+          <li><strong>Yorum:</strong> sekiz tematik okuma — izolasyon, kader,
+          rıza, ölüm, din, süreklilik, hukuk ve harem etiği.</li>
+          <li><strong>Yol haritası:</strong> spoiler'sız rehber, medya
+          karşılaştırmaları ve yanlış yaygın inanışların düzeltilmesi.</li>
+        </ul>
+
+        <h2>Neyi kapsamıyor</h2>
+        <ul>
+          <li>Görsel: kapak görselleri, karakter resimleri ve afişler
+          <strong>kullanılmaz</strong>. Yerine geometrik mühürler ve ikonlar
+          konmuştur.</li>
+          <li>Metin alıntısı: kaynak sayfalardan uzun bölümler
+          <strong>aktarılmaz</strong>; yalnızca özet ve yapısal veri alınır.</li>
+          <li>Spoiler koruması: ağır sahneler sayfa içinde kilitlidir.</li>
+        </ul>
+      </div>
+
+      <aside>
+        <div class="levha" style="border-top:2px solid var(--bakir)">
+          <span class="etiket bakir"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-belge"></use></svg> Kaynak</span>
+          <p style="margin-top:.6rem">
+            <strong>mushokinensei.fandom.com</strong> üzerindeki
+            <em>Mushoku Tensei Wiki</em>'den otomatik olarak çekilmiştir.
+            Toplam <strong>1.247</strong> sayfa taranmış, bunların 419'u
+            yapısal veri için işlenmiştir.
+          </p>
+          <p style="margin-top:.6rem">
+            Yayın tarihi, cilt sayısı, ISBN ve bölüm eşleştirmeleri gibi
+            <strong>olgusal alanlar kaynaktan</strong> alınmıştır.
+            Tematik yazılar bu sitenin kendi çalışmasıdır.
+          </p>
+        </div>
+
+        <div class="kutu mana" style="margin-top:1rem">
+          <h4>Veri katmanı</h4>
+          <p>Bu site bir <strong>prototip</strong> olarak tasarlandı. Tüm
+          listeler <code class="mono">assets/data/*.json</code> dosyalarından
+          beslenir; HTML'de sabit kayıt yoktur. Yeni bir medya kolu eklemek
+          için: veri dosyası + sayfa şablonu + menü girdisi.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================ YÖNTEM ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ H.1 · Yöntem</p>
+      <h2>Veriler nasıl toplandı</h2>
+      <p>Şeffaflık için: bu arşivdeki her sayı bir yerden geldi.</p>
+    </div>
+
+    <div class="tablo-kap">
+      <table>
+        <caption>Veri kaynağı ve güvenilirlik</caption>
+        <thead>
+          <tr><th class="no">Alan</th><th>Kaynak</th><th>Güvenilirlik</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="no">Bölüm tarihleri</td><td>Wiki infobox</td><td>Yüksek — resmî duyurulara dayanıyor</td></tr>
+          <tr><td class="no">Cilt / sayfa sayıları</td><td>Wiki infobox</td><td>Yüksek</td></tr>
+          <tr><td class="no">ISBN</td><td>Wiki infobox</td><td>Yüksek</td></tr>
+          <tr><td class="no">Bölüm–yay eşleştirmesi</td><td>Wiki infobox</td><td>Yüksek</td></tr>
+          <tr><td class="no">Karakter özetleri</td><td>Wiki metni, kısaltıldı</td><td>Orta — topluluk metni</td></tr>
+          <tr><td class="no">Cilt–yay kesişimi</td><td>Tahmini</td><td>Düşük — yaklaşık tablo olarak işaretli</td></tr>
+          <tr><td class="no">Tematik yazılar</td><td>Bu sitede yazıldı</td><td>Görüş — tartışmaya açık</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota" style="margin-top:1rem">
+      <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-uyari"></use></svg>
+      <div>Düşük güvenilirlikle işaretli satır bilinçlidir. Bu arşivde
+      yanlış bilgiyi düzeltilmiş gibi sunmak yerine, nerede tahmin
+      yürütüldüğünü açıkça işaretlemek tercih edildi.</div>
+    </div>
+  </section>
+
+  <!-- ============================ TASARIM ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ H.2 · Tasarım notu</p>
+      <h2>Renkler nereden geliyor</h2>
+      <p>Palet keyfi seçilmedi. Her vurgu rengi dünyadaki bir şeye bağlı.</p>
+    </div>
+
+    <div class="izanlama izanlama-3">
+      <div class="levha" style="border-top:2px solid var(--mana)">
+        <span class="etiket mana"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg> Roxy</span>
+        <h3 style="margin-top:.5rem">Migurd mavisi</h3>
+        <p>Bilgi, öğrenme, açıklama. Sitede "olgu" taşıyan her şey bu tonda.</p>
+      </div>
+      <div class="levha" style="border-top:2px solid var(--kizil)">
+        <span class="etiket kizil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-alev"></use></svg> Eris</span>
+        <h3 style="margin-top:.5rem">Boreas kızılı</h3>
+        <p>Arzu, şiddet, uyarı. Tehlike ve içerik uyarıları bu tonda.</p>
+      </div>
+      <div class="levha" style="border-top:2px solid var(--yesil)">
+        <span class="etiket yesil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-rahat"></use></svg> Sylphie</span>
+        <h3 style="margin-top:.5rem">Büyük Orman yeşili</h3>
+        <p>Sıradan hayat, aile, sakinlik. Bağ kurma sahneleri.</p>
+      </div>
+      <div class="levha" style="border-top:2px solid var(--bakir)">
+        <span class="etiket bakir"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-sayfa"></use></svg> Paul</span>
+        <h3 style="margin-top:.5rem">Kılıç Tanrısı altını</h3>
+        <p>Yapı, kanıt, çerçeve. Navigasyon ve kaynak işaretleri.</p>
+      </div>
+      <div class="levha" style="border-top:2px solid var(--mor)">
+        <span class="etiket mor"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-goz"></use></svg> Hitogami</span>
+        <h3 style="margin-top:.5rem">Boşluk Dünyası moru</h3>
+        <p>Ölüm sonrası, kâhinlik, ağır spoiler. Kilitli içerikler bu tonda.</p>
+      </div>
+      <div class="levha" style="border-top:2px solid var(--kagit-4)">
+        <span class="etiket"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ay"></use></svg> Sharia</span>
+        <h3 style="margin-top:.5rem">Gece mavisi</h3>
+        <p>Zemin. Dünyanın geri kalanı bu karanlıkta geçiyor.</p>
+      </div>
+    </div>
+
+    <div class="nota mana" style="margin-top:1.4rem">
+      <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg> Motif
+      <div>Sitenin imza işareti <strong>Altı Yüzlü Dünya</strong>: iki üst üste
+      binen daire. Dizi, bu iki dünyanın kesişiminden bahsediyor ve sitenin
+      bütün grafik dili (logo, mühürler, arka plan halkaları) buradan türüyor.</div>
+    </div>
+  </section>
+
+  <!-- ============================ TELİF ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ H.3 · Haklar</p>
+      <h2>Telif ve kullanım</h2>
+    </div>
+
+    <div class="metin">
+      <p><em>Mushoku Tensei</em>, yazar <strong>Rifujin na Magonote</strong>,
+      illüstratör <strong>Shirotaka</strong>, hakları <strong>Media Factory</strong>
+      (MF Books) ve <strong>KADOKAWA</strong>'ya aittir. Anime uyarlaması
+      <strong>Studio Bind</strong> ve <strong>Egg Firm</strong> tarafından
+      üretilmiştir.</p>
+
+      <p>Bu site <strong>resmî değildir</strong>, taraftar çalışmasıdır ve
+      hiçbir ticari amaç taşımaz. Kapak görseli, afiş ve karakter resmi
+      kullanılmaz; tüm görseller bu site için üretilmiş geometrik
+      işaretlerdir.</p>
+
+      <p>Kaynak wikiden alınan veriler olgusal bilgidir (tarih, sayfa sayısı,
+      ISBN) ve bunların özetleri bağlantıyla verilmiştir. Uzun metin
+      alıntısı yapılmamıştır. Kaynakla ilgili bir sorun bildirilirse
+      kayıtlar kaldırılır.</p>
+
+      <div class="nota kizil">
+        <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-uyari"></use></svg>
+        <div>Bu site <em>Mushoku Tensei</em>'nin resmi bir sitesi,
+        onaylı bir topluluk veya yapım ekibiyle ilişkili değildir.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ BAĞLANTILAR ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ H.4</p>
+      <h2>Bağlantılar</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">↗</span>
+        <a href="https://mushokutensei.fandom.com/" target="_blank" rel="noopener noreferrer">
+          <span class="dizin-ad">Mushoku Tensei Wiki<small>Verilerin alındığı kaynak topluluğu</small></span>
+          <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-dis"></use></svg></span></a></li>
+      <li><span class="dizin-no">↗</span>
+        <a href="https://mushokutensei.jp/" target="_blank" rel="noopener noreferrer">
+          <span class="dizin-ad">Resmî anime sitesi<small> yayın bilgileri ve duyurular</small></span>
+          <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-dis"></use></svg></span></a></li>
+      <li><span class="dizin-no">↗</span>
+        <a href="https://en.wikipedia.org/wiki/Mushoku_Tensei" target="_blank" rel="noopener noreferrer">
+          <span class="dizin-ad">Wikipedia (İngilizce)<small>Yayın tarihleri ve seri istatistikleri için ikinci kaynak</small></span>
+          <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-dis"></use></svg></span></a></li>
+      <li><span class="dizin-no">↗</span>
+        <a href="https://en.wikipedia.org/wiki/List_of_Mushoku_Tensei_characters" target="_blank" rel="noopener noreferrer">
+          <span class="dizin-ad">Karakter listesi (Wikipedia)<small>Seslendirme bilgileri kontrolü için</small></span>
+          <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-dis"></use></svg></span></a></li>
+    </ul>
+  </section>
+
+  <!-- ============================ KULLANIM ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ H.5</p>
+      <h2>Bu siteyi nasıl kullanırsın</h2>
+    </div>
+
+    <div class="izanlama">
+      <div class="levha">
+        <div class="levha-ust"><div class="levha-ikon"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ara"></use></svg></div><h3>Arama</h3></div>
+        <p>Herhangi bir sayfada <kbd class="mono">Ctrl</kbd> + <kbd class="mono">K</kbd>
+        ya da <kbd class="mono">/</kbd>. Karakter, bölüm, cilt, kavram ve
+        kavram dizini tek havuzda aranır.</p>
+      </div>
+      <div class="levha">
+        <div class="levha-ust"><div class="levha-ikon"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ay"></use></svg></div><h3>Tema</h3></div>
+        <p>Üst bardaki düğme gece / parşömen arasında geçiş yapar.
+        Tercihin tarayıcında saklanır.</p>
+      </div>
+      <div class="levha">
+        <div class="levha-ust"><div class="levha-ikon kizil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalkan"></use></svg></div><h3>Spoiler koruması</h3></div>
+        <p>Analiz sayfasındaki ağır bölümler kilitlidir. Tıklamadan açılmaz;
+        <em>basınca</em> açılır — bilinçli bir engel.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="alt">
+  <div class="defter">
+    <div class="alt-izgara">
+      <div>
+        <h4>Bu arşiv ne</h4>
+        <p style="font-size:.9rem;color:var(--soluk);max-width:44ch">
+          <em>Mushoku Tensei: ~Isekai Ittara Honki Dasu~</em> üzerine Türkçe bir hayran ansiklopedisi.
+          Bölüm, cilt ve kavram verileri Mushoku Tensei Wiki'den çekilmiş; tematik okumalar ve
+          yorumlar bu sitenin kendi çalışmasıdır.
+        </p>
+        <p class="kanitler" style="margin-top:1rem">
+          <span class="kanit">Yazar: Rifujin na Magonote</span>
+          <span class="kanit mana">Çizim: Shirotaka</span>
+        </p>
+      </div>
+      <div><h4>Medya</h4><ul>
+        <li><a href="anime.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg> Anime</a></li>
+        <li><a href="manga.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg> Manga</a></li>
+        <li><a href="novel.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg> Novel</a></li>
+        <li><a href="medya-eklenti.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-disk"></use></svg> Ek medya</a></li>
+      </ul></div>
+      <div><h4>Araştır</h4><ul>
+        <li><a href="karakterler.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg> Karakterler</a></li>
+        <li><a href="dunya.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg> Dünya & sistemler</a></li>
+        <li><a href="yaylar.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg> Yaylar</a></li>
+        <li><a href="analiz.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg> Tematik analiz</a></li>
+      </ul></div>
+      <div><h4>Rehber</h4><ul>
+        <li><a href="rehber.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-hedef"></use></svg> Nereden başlamalı</a></li>
+        <li><a href="hakkinda.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-belge"></use></svg> Hakkında & kaynakça</a></li>
+        <li><a href="404.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kapat"></use></svg> 404</a></li>
+      </ul></div>
+    </div>
+    <div class="alt-son">
+      <span>© 2026 · hayran projesi. <strong>Resmî değildir</strong> — tüm haklar Rifujin na Magonote, Shirotaka,
+      Media Factory, Studio Bind ve ilgili yapımlara aittir. Resim/kapak kullanılmaz; veriler alıntıdır.</span>
+      <span class="mono">Veri: mushokutensei.fandom.com · Sürüm 0.1.0</span>
+    </div>
+  </div>
+</footer>
+
+<button class="yukari" type="button" aria-label="Yukarı çık">
+  <svg class="ikon" aria-hidden="true"><use href="#i-yukari"></use></svg>
+</button>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/veri.js"></script>
+
+</body>
+</html>

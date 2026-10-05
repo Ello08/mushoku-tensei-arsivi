@@ -1,0 +1,147 @@
+@baslik:Karakterler
+@aciklama:Mushoku Tensei karakterleri — 66 kayıt, gruba göre süzgeçlenebilir. Greyrat ailesi, eski dostlar, Ranoa Akademisi, Kılıç Kutsalı, Demon kabilesi ve düşmanlar.
+@folio:A-4
+@ekstra-script:
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  MT_VERI.karakterler().then(function (v) {
+    if (!v) return;
+    var sec = document.getElementById("kisi-suzgec");
+    karakterListesi(document.getElementById("karakter-listesi"), v.karakterler, sec);
+
+    var g = document.getElementById("karakter-grup");
+    if (g) {
+      var say = {};
+      v.karakterler.forEach(function (k) { say[k.grup] = (say[k.grup] || 0) + 1; });
+      g.textContent = v.karakterler.length;
+      /* süzgeç düğmelerini veriden üret */
+      var kap = document.querySelector(".suzgec");
+      if (kap) {
+        var s = document.createElement("button");
+        s.type = "button"; s.className = "aktif"; s.dataset.grup = "";
+        s.textContent = "Tümü";
+        kap.appendChild(s);
+        v.gruplar.forEach(function (ad) {
+          var b = document.createElement("button");
+          b.type = "button"; b.dataset.grup = ad;
+          b.textContent = ad + " (" + (say[ad] || 0) + ")";
+          kap.appendChild(b);
+        });
+        /* site.js dinleyicilerini yeni düğmelere bağla */
+        kap.querySelectorAll("button").forEach(function (d) {
+          d.addEventListener("click", function () {
+            kap.querySelectorAll("button").forEach(function (x) {
+              x.classList.toggle("aktif", x === d);
+            });
+            sec.value = d.dataset.grup || "";
+            karakterListesi(document.getElementById("karakter-listesi"), v.karakterler, sec);
+          });
+        });
+      }
+    }
+  });
+});
+</script>
+@icerik:
+
+<div class="defter">
+
+  <div class="kosemakafa">
+    <span><b>Karakterler</b> — kişi dizini</span>
+    <span><span id="karakter-grup">…</span> kayıt · gruba göre süz</span>
+  </div>
+
+  <section class="bolum bolum-dar">
+    <p class="no">§ K · Kişiler</p>
+    <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Karakterler</h1>
+    <p class="giris" style="margin-top:1rem;max-width:56ch">
+      Bu dizide karakterler hızlı gelir ve yavaş ölür. Aşağıdaki liste
+      <strong>ölümleri spoiler'sız</strong> göstermeye çalışır; bu yüzden
+      bazı özetler kasıtlı olarak yarım bırakılmıştır. Tam hâli istiyorsan
+      <a href="analiz.html">analiz</a> bölümüne git.
+    </p>
+  </section>
+
+  <section class="bolum bolum-dar">
+    <div class="nota kizil">
+      @ikon:uyari@
+      <div><strong>Spoiler uyarısı.</strong> Bu sayfa üçüncü sezon olaylarını
+      da içerir. Karakterlerin ölümleri ve ilişkileri açıkça yazılıdır.</div>
+    </div>
+  </section>
+
+  <section class="bolum bolum-dar">
+    <div class="suzgec" role="group" aria-label="Gruba göre süzgeç"></div>
+
+    <p class="mono soluk" style="margin-bottom:1rem">
+      <span id="kisi-sayac">yükleniyor…</span>
+    </p>
+
+    <select id="kisi-suzgec" class="sr-only" aria-hidden="true" tabindex="-1">
+      <option value="">tümü</option>
+    </select>
+
+    <div class="kişiler" id="karakter-listesi"></div>
+  </section>
+
+  <!-- ============================ İLİŞKİ HARİTASI ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ K.1 · Bağlantılar</p>
+      <h2>Üç eş, üç farklı ilişki</h2>
+      <p>Rudeus'un karısı üç kişi ve üçü de dizinin farklı bir yüzünü temsil ediyor.
+         Bu ayrım, analiz bölümündeki yazıların da temeli.</p>
+    </div>
+
+    <div class="izanlama izanlama-3">
+      <div class="levha" style="border-top:2px solid var(--mana)">
+        <span class="etiket mana">@ikon:buyut@ Bilgi</span>
+        <h3 style="margin-top:.5rem">Roxy Migurdia</h3>
+        <p>Öğretmen. Dizinin "öğrenme" ve "görme" tarafını temsil eder.
+        Migurd elflerinin telepati geleneğine uyamadığı için köyünden ayrılmış
+        biri olarak başlar. Onunla geçen yıl, Rudeus'un dışarı çıkma korkusunu
+        tedavi eden dönemdir.</p>
+      </div>
+      <div class="levha" style="border-top:2px solid var(--kizil)">
+        <span class="etiket kizil">@ikon:alev@ Arzu</span>
+        <h3 style="margin-top:.5rem">Eris Boreas Greyrat</h3>
+        <p>Öfke, hırs, sadakat. Kılıç Tanrısı yolunu seçer. Dizinin
+        "yapmak istediğini yapma" tarafı — ve aynı zamanda rıza temasının
+        en karmaşık düğümü.</p>
+      </div>
+      <div class="levha" style="border-top:2px solid var(--yesil)">
+        <span class="etiket yesil">@ikon:rahat@ Sıradanlık</span>
+        <h3 style="margin-top:.5rem">Sylphiette</h3>
+        <p>Çocukluk arkadaşı, ilk eş. Elf, sonra insan olmayı seçer. Dizin
+        "mutlu son" dediği şeyin ta kendisi: kimliğini yeniden kurmayı
+        seçen biri.</p>
+      </div>
+    </div>
+
+    <div class="kanitler" style="margin-top:1.4rem">
+      <span class="kanit">@ikon:kilic@ Orsted — aynı cinsten, tam zıt yönde</span>
+      <span class="kanit mor">@ikon:goz@ Hitogami — hiçbir bağ kurulamayan tek karakter</span>
+      <span class="kanit yesil">@ikon:kalp@ Ruijerd — düşman ırk olmaktan çıkıp dost olmayı deneyen</span>
+    </div>
+  </section>
+
+  <!-- ============================ KARŞI KOLON ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <p class="no">§ K.2</p>
+      <h2>İlgili sayfalar</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="analiz.html#sevgi"><span class="dizin-ad">Sevgi, rıza ve şiddet<small>Üç eş üzerinden ahlaki okuma</small></span>
+        <span class="dizin-sag">@ikon:kalp@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="dunya.html#"><span class="dizin-ad">Dünya &amp; sistemler<small>Irklar, büyü, kılıç stilleri</small></span>
+        <span class="dizin-sag">@ikon:harita@</span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="yaylar.html"><span class="dizin-ad">Yaylar<small>Bu karakterler hangi yayda?</small></span>
+        <span class="dizin-sag">@ikon:katlanir@</span></a></li>
+    </ul>
+  </section>
+
+</div>
