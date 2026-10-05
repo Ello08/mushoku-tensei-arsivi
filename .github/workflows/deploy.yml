@@ -48,6 +48,12 @@ jobs:
       - name: Veri katmanı duman testi
         run: node tools/test-veri.js
 
+      - name: Mobil denetimi (320–360px)
+        run: python3 tools/mobil-denetle.py
+
+      - name: CSS denetimi
+        run: python3 tools/css-denetle.py
+
       - name: Veri dosyaları yerinde mi
         run: |
           python3 - <<'PY'

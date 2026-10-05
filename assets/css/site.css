@@ -905,3 +905,194 @@ html[data-tema="gece"] .cember { opacity: .32; }
   body { background: #fff; color: #000; padding-left: 0; }
   body::before, body::after { display: none; }
 }
+/* ==========================================================================
+   MOBİL
+   Tasarım 620px üstü için yapıldı. Burada telefona gerçek bir geçiş var:
+   ölçek küçülmüyor, yapı değişiyor.
+   ========================================================================== */
+
+/* Dokunma geri bildirimi + uzun kelime koruması (tüm ekranlarda) */
+a, button, summary, .sekme, .suzgec button, .spoiler-blok, .basin {
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--altin) 25%, transparent);
+}
+body, p, li, dd, td, th, .metin, .sira-ad, .dizin-ad { overflow-wrap: break-word; }
+
+/* ---------------------------------------------------------- ≤ 780px: tablet dikey */
+@media (max-width: 780px) {
+  :root { --kenar: 1.15rem; --omurga: 0px; }
+
+  /* Üst bant: logo metnini daralt, sıkıştırma yapma */
+  .ust-ic { min-height: 3.25rem; gap: .6rem; }
+  .marka-yazi b { font-size: .76rem; letter-spacing: .04em; }
+  .marka-yazi span { font-size: .48rem; }
+  .marka svg { width: 1.4rem; height: 1.4rem; }
+  .gezinme { inset: 3.25rem 0 auto; max-height: calc(100dvh - 3.25rem); }
+  .dugme { width: 2.4rem; height: 2.4rem; }
+
+  /* Başlık ölçeği: 3.6rem tavanı telefonda çok büyük */
+  h1 { font-size: clamp(1.85rem, 7.5vw, 2.6rem); }
+  .baslik { line-height: 1.06; }
+
+  /* Ölçü listesi yatay iki sütuna geçsin, tek sütunda çok yer kaplıyor */
+  .olcu { grid-template-columns: 1fr 1fr; column-gap: 1rem; }
+  .olcu div:nth-last-child(-n+2) { border-bottom: 0; }
+
+  /* İki kolon → tek, dikey ritim normalleşsin */
+  .iki { gap: 1.6rem; }
+
+  /* Tablo: kart tipine dönüşmez ama yatay kaydırma gerekçesi belli olsun */
+  .tablo-kap { -webkit-overflow-scrolling: touch; }
+  .tablo-kap::after {
+    content: ""; display: block; height: 1px;
+  }
+  table { min-width: 26rem; font-size: .86rem; }
+  th, td { padding: .55rem .7rem; }
+
+  /* Tema diyagramı okunamıyor; liste devreye giriyor */
+  .harita-sar { padding: .5rem; }
+  .harita { display: none; }
+  .harita-sar .harita-yerine { display: block; }
+
+  /* Medya ızgarası */
+  .medya-orta, .medya-kisa { padding: 1.1rem; }
+
+  /* Kutu ve alıntı iç boşluğunu daralt */
+  .alinti { padding-left: 2rem; }
+  .alinti::before { left: .2rem; font-size: 2.4rem; }
+  .kutu, .nota { padding: 1rem 1.1rem; }
+
+  /* Uzun bölüm başlıklarında iç boşluk */
+  .metin h2 { margin-top: 2.2em; padding-top: 1.2rem; }
+}
+
+/* ---------------------------------------------------------- ≤ 560px: telefon */
+@media (max-width: 560px) {
+  :root { --kenar: .95rem; --bolum: 2.4rem; }
+
+  .ust-ic { min-height: 3rem; }
+  .gezinme { inset: 3rem 0 auto; max-height: calc(100dvh - 3rem); }
+  .marka-yazi span { display: none; }   /* alt satırı gizle, sıkışma olmasın */
+  .marka-yazi b { font-size: .72rem; }
+
+  h1 { font-size: clamp(1.7rem, 8vw, 2.2rem); }
+  h2 { font-size: 1.32rem; }
+  .giris { font-size: 1.02rem; }
+
+  /* Kırıntı navigasyonu tek satırda kalsın */
+  .kirinti { font-size: .6rem; gap: .25rem; }
+
+  .dizin > li { grid-template-columns: 2rem minmax(0, 1fr); gap: .5rem; }
+  .dizin-no { padding-top: 1.05rem; font-size: .66rem; }
+  .dizin-ad { font-size: 1.02rem; }
+  .dizin-ad small { font-size: .8rem; }
+
+  .sira > li { grid-template-columns: 2.2rem minmax(0, 1fr); gap: .7rem; padding: .8rem .2rem; }
+  .sira-no { font-size: .66rem; }
+  .sira-sag { grid-column: 2; text-align: left; margin-top: .3rem; }
+
+  /* Sekmeler yatay kaydırılsın, sarmasın */
+  .sekmeler {
+    flex-wrap: nowrap; overflow-x: auto;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    margin-inline: calc(var(--kenar) * -1); padding-inline: var(--kenar);
+  }
+  .sekmeler::-webkit-scrollbar { display: none; }
+  .sekme { flex: none; }
+
+  .suzgec {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    margin-inline: calc(var(--kenar) * -1); padding-inline: var(--kenar);
+  }
+  .suzgec::-webkit-scrollbar { display: none; }
+  .suzgec button { flex: none; }
+
+  /* Kişi ızgarası tek sütun */
+  .kişiler { grid-template-columns: 1fr; }
+
+  /* Arama katmanı: üstten biraz daha aşağı, sonuç alanı büyüsün */
+  .arama-kat { padding: 1rem .75rem 5rem; place-items: start center; }
+  .arama-girdi { padding: .8rem .9rem; }
+  .arama-sonuc { max-height: 58dvh; }
+  .arama-alt { flex-wrap: wrap; gap: .4rem .8rem; font-size: .58rem; }
+  .arama-alt span:last-child { display: none; }
+
+  /* Yukarı çık düğmesi içeriği kapatmasın */
+  .yukari { width: 2.6rem; height: 2.6rem; right: .7rem; bottom: .7rem; }
+
+  /* Ölçü listesi tek sütuna dön */
+  .olcu { grid-template-columns: 1fr; }
+  .olcu div:nth-last-child(2) { border-bottom: 1px dashed var(--cizgi); }
+
+  table { min-width: 22rem; }
+  th, td { padding: .5rem .55rem; font-size: .82rem; }
+
+  .perde > .kilit { padding: 1.4rem .8rem; }
+  .alinti { margin: 1.4rem 0; }
+  .metin > * + * { margin-top: .95em; }
+}
+
+/* ---------------------------------------------------------- ≤ 400px: küçük telefon */
+@media (max-width: 400px) {
+  :root { --kenar: .8rem; }
+
+  .marka-yazi b { font-size: .66rem; }
+  .dugme { width: 2.25rem; height: 2.25rem; }
+  .ust-eylem { gap: .2rem; }
+
+  h1 { font-size: clamp(1.55rem, 8.5vw, 1.95rem); }
+  h2 { font-size: 1.2rem; }
+  .giris { font-size: .98rem; }
+
+  .dizin-ad { font-size: .96rem; }
+  .dizin-ad small { font-size: .76rem; }
+
+  .kişi-ust { gap: .6rem; }
+  .mühür { width: 2.5rem; height: 2.5rem; font-size: .74rem; }
+
+  table { min-width: 19rem; }
+  .arama-girdi input { font-size: .92rem; }
+}
+
+/* ---------------------------------------------------------- alçak ekran (yatay telefon) */
+@media (max-height: 480px) and (orientation: landscape) {
+  .kahraman, .buyulu-blok { padding-top: 1.2rem; }
+  .gezinme { max-height: calc(100dvh - 3rem); }
+  .arama-kat { padding-top: .6rem; padding-bottom: .6rem; }
+  .arama-sonuc { max-height: 46dvh; }
+}
+
+/* ---------------------------------------------------------- baskı */
+@media print {
+  .harita-sar { display: none; }
+}
+
+/* Tema diyagramının mobil alternatifi.
+   Diyagram 460 birim geniş; 360px ekranda ölçek 0.74'e düşüyor ve
+   7px'lik SVG metni ~5px görünür — okunamaz. Bu yüzden SVG gizleniyor
+   ve aynı bilgi okunabilir bir liste olarak veriliyor. */
+.harita-liste { display: none; }
+@media (max-width: 780px) {
+  .harita-liste {
+    display: block; list-style: none; padding: .2rem 0; margin: 0;
+  }
+  .harita-liste li {
+    position: relative;
+    display: grid; gap: .1rem;
+    padding: .7rem .2rem;
+    border-bottom: 1px solid var(--cizgi);
+  }
+  .harita-liste li:last-child { border-bottom: 0; }
+  .harita-liste li.yan { padding-left: 1.1rem; }
+  .harita-liste li.yan::before {
+    content: ""; position: absolute;
+    left: .18rem; top: 1.05rem;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--cizgi-acik);
+  }
+  .harita-liste b {
+    font-family: var(--f-ara); font-weight: 700;
+    font-size: 1.02rem; color: var(--mürekkep);
+  }
+  .harita-liste li.yan b { font-weight: 400; font-size: .95rem; color: var(--mürekkep-2); }
+  .harita-liste span { font-size: .85rem; color: var(--soluk); }
+}
