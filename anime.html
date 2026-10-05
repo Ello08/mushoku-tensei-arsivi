@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="pargamen">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> · Mushoku Tensei Ansiklopedisi</title>
+<meta name="description" content="">
+<meta name="author" content="Mushoku Tensei Ansiklopedisi (hayran projesi)">
+<meta property="og:type" content="website">
+<meta property="og:title" content=" · Mushoku Tensei Ansiklopedisi">
+<meta property="og:description" content="">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#fff7e4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0d0a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='16' r='9' fill='none' stroke='%23d9a441' stroke-width='1.6'/%3E%3Ccircle cx='19' cy='16' r='9' fill='none' stroke='%2357bdd4' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+
+<div class="ilerleme" role="presentation"></div>
+
+<div class="omurga" aria-hidden="true">
+  <div class="omurga-marka">試写</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-yazi">Anime</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-sayfa"></div>
+</div>
+
+<header class="ust">
+  <div class="defter ust-ic">
+    <a class="marka" href="index.html" aria-label="Ana sayfa">
+      <svg class="altin" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+      <span class="marka-yazi">
+        <b>Mushoku Tensei</b>
+        <span>Ansiklopedi · Fan Arşivi</span>
+      </span>
+    </a>
+
+    <nav class="gezinme" aria-label="Ana gezinme">
+      <a class="gez " href="index.html">Ana Sayfa</a>
+      <a class="gez aktif" href="anime.html">Anime</a>
+      <a class="gez " href="manga.html">Manga</a>
+      <a class="gez " href="novel.html">Novel</a>
+      <a class="gez " href="karakterler.html">Karakterler</a>
+      <a class="gez " href="dunya.html">Dünya</a>
+      <a class="gez " href="yaylar.html">Yaylar</a>
+      <a class="gez " href="analiz.html">Analiz</a>
+      <a class="gez " href="rehber.html">Rehber</a>
+      <a class="gez " href="medya-eklenti.html">Ek Medya</a>
+      <a class="gez " href="hakkinda.html">Hakkında</a>
+    </nav>
+
+    <div class="ust-eylem">
+      <button class="dugme" type="button" data-arama-ac aria-label="Ara (Ctrl+K)" title="Ara · Ctrl+K">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      </button>
+      <button class="dugme" type="button" data-tema-dugme aria-label="Temayı değiştir" title="Temayı değiştir">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ay"></use></svg>
+      </button>
+      <button class="dugme menu-dugme" type="button" aria-expanded="false" aria-label="Menü" data-menu>
+        <svg class="ikon" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="arama-kat" id="arama-kat" role="dialog" aria-modal="true" aria-label="Arama">
+  <div class="arama-kutu">
+    <div class="arama-girdi">
+      <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      <input id="arama-girdi" type="search" placeholder="Karakter, bölüm, cilt, kavram ara…" autocomplete="off" spellcheck="false">
+      <button class="dugme" type="button" data-arama-kapat aria-label="Kapat">
+        <svg class="ikon" aria-hidden="true"><use href="#i-kapat"></use></svg>
+      </button>
+    </div>
+    <div class="arama-sonuc" id="arama-sonuc"></div>
+    <div class="arama-alt">
+      <span><kbd>↑</kbd><kbd>↓</kbd> gez</span>
+      <span><kbd>Enter</kbd> aç</span>
+      <span><kbd>Esc</kbd> kapat</span>
+      <span style="margin-left:auto">62 bölüm · 23 yay · 25 manga cilti · 26 novel cildi</span>
+    </div>
+  </div>
+</div>
+
+<main id="icerik" class="buyulu-blok">
+  <svg class="cember" viewBox="0 0 320 320" aria-hidden="true" focusable="false">
+      <g class="yavas" fill="none" stroke="currentColor" stroke-linecap="round">
+        <circle cx="160" cy="160" r="152" stroke-width="1" stroke-dasharray="1 7"/>
+        <circle cx="160" cy="160" r="138" stroke-width=".6" opacity=".55"/>
+        <circle cx="160" cy="160" r="104" stroke-width="1.4"/>
+        <circle cx="160" cy="160" r="96" stroke-width=".5" stroke-dasharray="14 6" opacity=".7"/>
+        <circle cx="160" cy="160" r="72" stroke-width=".9" opacity=".8"/>
+        <path d="M160 8 L291 244 L29 244 Z" stroke-width=".7" opacity=".45"/>
+        <path d="M160 312 L29 76 L291 76 Z" stroke-width=".7" opacity=".45"/>
+      </g>
+      <g class="ter" fill="none" stroke="currentColor" stroke-width=".7" opacity=".8">
+        <path d="M160 24 L284 268 L36 268 Z"/>
+        <circle cx="160" cy="160" r="58" stroke-dasharray="3 5"/>
+        <circle cx="160" cy="160" r="30" stroke-width="1.1"/>
+      </g>
+      <g class="nabiz" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".9">
+        <path d="M148 160 h24 M160 148 v24"/>
+      </g>
+    </svg>
+  <nav class="kirinti" aria-label="Konum">
+    <a href="index.html">Ansiklopedi</a>
+    <span class="ayrac">/</span>
+    <a href="index.html">Katalog</a>
+    <span class="ayrac">/</span>
+    <span class="simdi">Anime</span>
+  </nav>
+
+<div class="defter">
+
+  <section class="bolum bolum-dar">
+    <div class="masthead-alt">
+      <div>
+        <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Anime</h1>
+        <p class="giris" style="margin-top:1rem;max-width:54ch">
+          Üç sezon, bir OVA ve devam eden üçüncü sezon. Anime, dizinin en çok
+          konuşulan uyarlaması çünkü <strong>4. bölümde kaynak metinden farklı
+          bir karar</strong> aldı. Aşağıda bölümlerin tamamı, tarihleri ve
+          uyarlama kaynaklarıyla var.
+        </p>
+      </div>
+      <div>
+        <svg class="altin altin-altin" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+        <dl class="olcu" id="anime-olcu" style="margin-top:1rem">
+          <div><dt>Yükleniyor</dt><dd>…</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ UYARLAMA NOTLARI ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <h2>Kaynakla arasındaki farklar</h2>
+      <p>Anime bir sadakat yarışı değil; bazı yerlerde bilinçli olarak farklı
+         bir yol izliyor. En önemli iki nokta aşağıda.</p>
+    </div>
+
+    <div class="metin">
+      <h3>4. bölüm: çıkarılan sahne</h3>
+      <p>İlk iki uyarlamada (web ve light novel) Rudeus'un Eris'e karşı işlediği
+      ve ardından karşılığını ağır biçimde ödediği bir sahne vardır. Anime bu
+      sahnenin <strong>animasyonunu yapmayı reddetti</strong>; bölüm, aynı yere
+      gelen farklı bir olayla ilerliyor. Bu, yapımın en çok tartışılan
+      kararlarından biri ve sonraki uyarlamalarda manga ve light novel da aynı
+      yönde değişti.</p>
+
+      <div class="nota kizil">
+        <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-uyari"></use></svg>
+        <div>Bu, dizinin rıza ve şiddet temasının en doğrudan kırılma noktası.
+        Analiz bölümünde <a href="analiz.html#riza">«Sevgi, rıza ve şiddet»</a>
+        yazısında ayrıntılı ele alınıyor.</div>
+      </div>
+
+      <h3>Sezon yapısı</h3>
+      <p>Birinci sezon iki ayrı yayın dönemine bölündü (ilk yarı ve ikinci yarı),
+      ikinci sezon da aynı şekilde iki parçaya ayrıldı. Bu bölünmeler sadece
+      yayıncılık kararı değil: <strong>ikinci sezonun ikinci yarısı yönetmen
+      değişikliğiyle çekildi</strong> ve hikâyenin tonu da belirgin biçimde
+      değişti — daha az macera, daha çok ev ve yas.</p>
+
+      <h3>Bölüm sayıları</h3>
+      <ul>
+        <li><strong>Sezon 1</strong> — 23 bölüm + 1 OVA (<em>Eris the Goblin Slayer</em>, 16 Mart 2022)</li>
+        <li><strong>Sezon 2</strong> — 24 bölüm</li>
+        <li><strong>Sezon 3</strong> — ilk bölüm 4 Temmuz 2026; devam ediyor</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ SEZON PANELİ ============================ -->
+  <section class="bolum" data-sekmeler="false">
+    <div class="sekmeler" role="tablist" aria-label="Sezon seçimi">
+      <button class="sekme aktif" type="button" data-sekme="s1" role="tab" aria-selected="true">Sezon 1</button>
+      <button class="sekme" type="button" data-sekme="s2" role="tab" aria-selected="false">Sezon 2</button>
+      <button class="sekme" type="button" data-sekme="s3" role="tab" aria-selected="false">Sezon 3</button>
+    </div>
+
+    <!-- ---------- SEZON 1 ---------- -->
+    <div data-panel="s1" role="tabpanel">
+      <div class="iki" style="margin-bottom:1.6rem">
+        <div>
+          <p class="no">Sezon 1</p>
+          <h2>Makalenin çıkış noktası</h2>
+          <p class="zayif" style="margin-top:.6rem">
+            Otobot Roudersu Greyrat, iki dönem yayınlandı. İlk yarı bebeklik ve
+            çocukluk, ikinci yarı ışınlanma ve kayıp yıllar.
+          </p>
+        </div>
+        <dl class="olcu">
+          <div><dt>Yapım</dt><dd style="font-size:.9rem">Studio Bind</dd></div>
+          <div><dt>Yönetmen</dt><dd style="font-size:.9rem">Manabu Okamoto</dd></div>
+          <div><dt>Bölüm</dt><dd style="font-size:1.1rem">23 + 1 OVA</dd></div>
+          <div><dt>Durum</dt><dd style="font-size:1.1rem">Tamamlandı</dd></div>
+        </dl>
+      </div>
+      <div id="s1" class="sira-kap"></div>
+    </div>
+
+    <!-- ---------- SEZON 2 ---------- -->
+    <div data-panel="s2" role="tabpanel" hidden>
+      <div class="iki" style="margin-bottom:1.6rem">
+        <div>
+          <p class="no">Sezon 2</p>
+          <h2>Kayıp yılların sonu</h2>
+          <p class="zayif" style="margin-top:.6rem">
+            Ranoa Akademisi, evlilikler, Hitogami ile hesaplaşma. Tonu en ağır
+            bölüm; çoğu karakter burada kaybediliyor.
+          </p>
+        </div>
+        <dl class="olcu">
+          <div><dt>Yönetmen</dt><dd style="font-size:.9rem">Hiroki Hirano → Ryōsuke Shibuya</dd></div>
+          <div><dt>Bölüm</dt><dd style="font-size:1.1rem">24</dd></div>
+          <div><dt>Durum</dt><dd style="font-size:1.1rem">Tamamlandı</dd></div>
+        </dl>
+      </div>
+      <div id="s2" class="sira-kap"></div>
+    </div>
+
+    <!-- ---------- SEZON 3 ---------- -->
+    <div data-panel="s3" role="tabpanel" hidden>
+      <div class="nota mor" style="margin-bottom:1.4rem">
+        <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-uyari"></use></svg>
+        <div><strong>Yoğun spoiler.</strong> Üçüncü sezon özeti, dizinin
+        en trajik dönemlerini doğrudan ele verir. Listeyi bilerek aç.</div>
+      </div>
+
+      <div class="iki" style="margin-bottom:1.6rem">
+        <div>
+          <p class="no">Sezon 3</p>
+          <h2>Henüz tamamlanmadı</h2>
+          <p class="zayif" style="margin-top:.6rem">
+            İlk bölüm 4 Temmuz 2026'da yayınlandı ve bölümler devam ediyor.
+            Bu arşivdeki liste, şu an yayımlanmış bölümleri içerir.
+          </p>
+        </div>
+        <dl class="olcu">
+          <div><dt>Yönetmen</dt><dd style="font-size:.9rem">Ryōsuke Shibuya</dd></div>
+          <div><dt>Durum</dt><dd style="font-size:1.1rem">Yayınlanıyor</dd></div>
+        </dl>
+      </div>
+      <div id="s3" class="sira-kap"></div>
+    </div>
+  </section>
+
+  <!-- ============================ DİĞER MEDYA ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <h2>Anime'nin yanında</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="manga.html"><span class="dizin-ad">Manga<small id="manga-adet">25 cilt</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="novel.html"><span class="dizin-ad">Novel<small id="novel-adet">26 cilt</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="medya-eklenti.html"><span class="dizin-ad">Drama CD, oyunlar, soundtrack<small>Anime dışı ek medya kanalı</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-disk"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="yaylar.html"><span class="dizin-ad">Hangi bölüm hangi yayı anlatıyor<small>23 anlatı yayının tam listesi</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg></span></a></li>
+    </ul>
+  </section>
+
+</div>
+</main>
+
+<footer class="alt">
+  <div class="defter">
+    <div class="alt-izgara">
+      <div>
+        <h4>Bu arşiv ne</h4>
+        <p style="font-size:.9rem;color:var(--soluk);max-width:44ch">
+          <em>Mushoku Tensei: ~Isekai Ittara Honki Dasu~</em> üzerine Türkçe bir hayran ansiklopedisi.
+          Bölüm, cilt ve kavram verileri Mushoku Tensei Wiki'den çekilmiş; tematik okumalar ve
+          yorumlar bu sitenin kendi çalışmasıdır.
+        </p>
+        <p class="kanitler" style="margin-top:1rem">
+          <span class="kanit">Yazar: Rifujin na Magonote</span>
+          <span class="kanit mana">Çizim: Shirotaka</span>
+        </p>
+      </div>
+      <div><h4>Medya</h4><ul>
+        <li><a href="anime.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg> Anime</a></li>
+        <li><a href="manga.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg> Manga</a></li>
+        <li><a href="novel.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg> Novel</a></li>
+        <li><a href="medya-eklenti.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-disk"></use></svg> Ek medya</a></li>
+      </ul></div>
+      <div><h4>Araştır</h4><ul>
+        <li><a href="karakterler.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg> Karakterler</a></li>
+        <li><a href="dunya.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg> Dünya & sistemler</a></li>
+        <li><a href="yaylar.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg> Yaylar</a></li>
+        <li><a href="analiz.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg> Tematik analiz</a></li>
+      </ul></div>
+      <div><h4>Rehber</h4><ul>
+        <li><a href="rehber.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-hedef"></use></svg> Nereden başlamalı</a></li>
+        <li><a href="hakkinda.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-belge"></use></svg> Hakkında & kaynakça</a></li>
+        <li><a href="404.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kapat"></use></svg> 404</a></li>
+      </ul></div>
+    </div>
+    <div class="alt-son">
+      <span>© 2026 · hayran projesi. <strong>Resmî değildir</strong> — tüm haklar Rifujin na Magonote, Shirotaka,
+      Media Factory, Studio Bind ve ilgili yapımlara aittir. Resim/kapak kullanılmaz; veriler alıntıdır.</span>
+      <span class="mono">Veri: mushokutensei.fandom.com · Sürüm 0.4.0</span>
+    </div>
+  </div>
+</footer>
+
+<button class="yukari" type="button" aria-label="Yukarı çık">
+  <svg class="ikon" aria-hidden="true"><use href="#i-yukari"></use></svg>
+</button>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/veri.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  /* sezon istatistikleri */
+  MT_VERI.anime().then(function (v) {
+    if (!v) return;
+    var kutu = document.getElementById("anime-olcu");
+    if (!kutu) return;
+    kutu.innerHTML = "";
+    var toplam = v.episodes.length;
+    [["Toplam bölüm", toplam], ["Sezon", v.seasons.length],
+     ["İlk yayın", "2021"], ["Üçüncü sezon", "2026"]].forEach(function (c) {
+      var d = document.createElement("div");
+      d.innerHTML = "<dt>" + c[0] + "</dt><dd>" + c[1] + "</dd>";
+      kutu.appendChild(d);
+    });
+
+    /* her sezon paneli */
+    v.seasons.forEach(function (s) {
+      var kap = document.getElementById("s" + s.key);
+      if (!kap) return;
+      bolumListesi(kap, s.bolumler, { onebaslik: true, ozet: s.key >= 3 });
+    });
+
+    /* manga/novel slotları için ayrıca sayaç */
+    ["manga", "novel"].forEach(function (t) {
+      MT_VERI[t]().then(function (d) {
+        if (!d) return;
+        var n = document.getElementById(t + "-adet");
+        if (n) n.textContent = (t === "manga" ? d.ana.length : d.lightNovel.length);
+      });
+    });
+  });
+
+  /* adres çubuğu ile doğrudan bölüme gitme */
+  var h = location.hash.replace("#", "");
+  if (h && document.getElementById(h)) {
+    setTimeout(function () {
+      document.getElementById(h).scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 250);
+  }
+});
+</script>
+</body>
+</html>

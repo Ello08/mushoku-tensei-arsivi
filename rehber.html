@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="tr" data-tema="pargamen">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> · Mushoku Tensei Ansiklopedisi</title>
+<meta name="description" content="">
+<meta name="author" content="Mushoku Tensei Ansiklopedisi (hayran projesi)">
+<meta property="og:type" content="website">
+<meta property="og:title" content=" · Mushoku Tensei Ansiklopedisi">
+<meta property="og:description" content="">
+<meta property="og:locale" content="tr_TR">
+<meta name="theme-color" content="#fff7e4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0d0a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='13' cy='16' r='9' fill='none' stroke='%23d9a441' stroke-width='1.6'/%3E%3Ccircle cx='19' cy='16' r='9' fill='none' stroke='%2357bdd4' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+
+<div class="ilerleme" role="presentation"></div>
+
+<div class="omurga" aria-hidden="true">
+  <div class="omurga-marka">案内</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-yazi">Rehber</div>
+  <div class="omurga-cizgi"></div>
+  <div class="omurga-sayfa"></div>
+</div>
+
+<header class="ust">
+  <div class="defter ust-ic">
+    <a class="marka" href="index.html" aria-label="Ana sayfa">
+      <svg class="altin" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+      <g class="doner">
+        <circle cx="46" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <circle cx="74" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1.1"/>
+        <path d="M46 30a30 30 0 000 60 30 30 0 000-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+        <path d="M74 30a30 30 0 010 60 30 30 0 010-60z" fill="none" stroke="currentColor" stroke-width=".7" opacity=".55"/>
+      </g>
+      <g class="isik">
+        <circle cx="60" cy="60" r="5.5" fill="currentColor" opacity=".8"/>
+      </g>
+      <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width=".6"
+              stroke-dasharray="2 6" opacity=".6"/>
+    </svg>
+      <span class="marka-yazi">
+        <b>Mushoku Tensei</b>
+        <span>Ansiklopedi · Fan Arşivi</span>
+      </span>
+    </a>
+
+    <nav class="gezinme" aria-label="Ana gezinme">
+      <a class="gez " href="index.html">Ana Sayfa</a>
+      <a class="gez " href="anime.html">Anime</a>
+      <a class="gez " href="manga.html">Manga</a>
+      <a class="gez " href="novel.html">Novel</a>
+      <a class="gez " href="karakterler.html">Karakterler</a>
+      <a class="gez " href="dunya.html">Dünya</a>
+      <a class="gez " href="yaylar.html">Yaylar</a>
+      <a class="gez " href="analiz.html">Analiz</a>
+      <a class="gez aktif" href="rehber.html">Rehber</a>
+      <a class="gez " href="medya-eklenti.html">Ek Medya</a>
+      <a class="gez " href="hakkinda.html">Hakkında</a>
+    </nav>
+
+    <div class="ust-eylem">
+      <button class="dugme" type="button" data-arama-ac aria-label="Ara (Ctrl+K)" title="Ara · Ctrl+K">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      </button>
+      <button class="dugme" type="button" data-tema-dugme aria-label="Temayı değiştir" title="Temayı değiştir">
+        <svg class="ikon" aria-hidden="true"><use href="#i-ay"></use></svg>
+      </button>
+      <button class="dugme menu-dugme" type="button" aria-expanded="false" aria-label="Menü" data-menu>
+        <svg class="ikon" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="arama-kat" id="arama-kat" role="dialog" aria-modal="true" aria-label="Arama">
+  <div class="arama-kutu">
+    <div class="arama-girdi">
+      <svg class="ikon" aria-hidden="true"><use href="#i-ara"></use></svg>
+      <input id="arama-girdi" type="search" placeholder="Karakter, bölüm, cilt, kavram ara…" autocomplete="off" spellcheck="false">
+      <button class="dugme" type="button" data-arama-kapat aria-label="Kapat">
+        <svg class="ikon" aria-hidden="true"><use href="#i-kapat"></use></svg>
+      </button>
+    </div>
+    <div class="arama-sonuc" id="arama-sonuc"></div>
+    <div class="arama-alt">
+      <span><kbd>↑</kbd><kbd>↓</kbd> gez</span>
+      <span><kbd>Enter</kbd> aç</span>
+      <span><kbd>Esc</kbd> kapat</span>
+      <span style="margin-left:auto">62 bölüm · 23 yay · 25 manga cilti · 26 novel cildi</span>
+    </div>
+  </div>
+</div>
+
+<main id="icerik" class="buyulu-blok">
+  <svg class="cember" viewBox="0 0 320 320" aria-hidden="true" focusable="false">
+      <g class="yavas" fill="none" stroke="currentColor" stroke-linecap="round">
+        <circle cx="160" cy="160" r="152" stroke-width="1" stroke-dasharray="1 7"/>
+        <circle cx="160" cy="160" r="138" stroke-width=".6" opacity=".55"/>
+        <circle cx="160" cy="160" r="104" stroke-width="1.4"/>
+        <circle cx="160" cy="160" r="96" stroke-width=".5" stroke-dasharray="14 6" opacity=".7"/>
+        <circle cx="160" cy="160" r="72" stroke-width=".9" opacity=".8"/>
+        <path d="M160 8 L291 244 L29 244 Z" stroke-width=".7" opacity=".45"/>
+        <path d="M160 312 L29 76 L291 76 Z" stroke-width=".7" opacity=".45"/>
+      </g>
+      <g class="ter" fill="none" stroke="currentColor" stroke-width=".7" opacity=".8">
+        <path d="M160 24 L284 268 L36 268 Z"/>
+        <circle cx="160" cy="160" r="58" stroke-dasharray="3 5"/>
+        <circle cx="160" cy="160" r="30" stroke-width="1.1"/>
+      </g>
+      <g class="nabiz" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".9">
+        <path d="M148 160 h24 M160 148 v24"/>
+      </g>
+    </svg>
+  <nav class="kirinti" aria-label="Konum">
+    <a href="index.html">Ansiklopedi</a>
+    <span class="ayrac">/</span>
+    <a href="index.html">Katalog</a>
+    <span class="ayrac">/</span>
+    <span class="simdi">Rehber</span>
+  </nav>
+
+<div class="defter">
+
+  <section class="bolum bolum-dar">
+    <h1 class="baslik" style="font-size:clamp(2.1rem,6vw,4rem)">Nereden başlamalı</h1>
+    <p class="giris" style="margin-top:1rem;max-width:56ch">
+      Bu sayfa bilerek spoiler'sız yazıldı. Ne izleyeceğine, ne okuyacağına
+      ve neye hazırlanman gerektiğine dair pratik bir yol haritası.
+    </p>
+  </section>
+
+  <!-- ============================ KARAR ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <h2>Önce şu soruyu sor</h2>
+      <p>"Güzel bir dizi izlemek istiyorum" demek yeterli değil. Dizinin
+         uzunluğu ve tonu ciddi; kanal seçimi deneyimi belirliyor.</p>
+    </div>
+
+    <div class="suzgec" style="border:0;padding:0;margin:0 0 1.4rem">
+      <button class="aktif" type="button" data-kanal="novel">Novel</button>
+      <button type="button" data-kanal="anime">Anime</button>
+      <button type="button" data-kanal="manga">Manga</button>
+    </div>
+
+    <div data-kanal-panel="novel">
+      <div class="iki">
+        <div class="levha">
+          <div class="levha-ust"><div class="levha-ikon"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg></div><h3>Novel — tamamlanmış tek metin</h3></div>
+          <p>Diziyi bilmek istiyorsan bu. 26 cilt, ama biri bitmiş; bölüm
+          atlamak anlamını bozuyor. İngilizce çeviriler bazı sahneleri
+          değiştirdiği için Türkçe okur için metin biraz farklı olabilir.</p>
+          <p style="margin-top:.8rem"><strong>Süre:</strong> uzun. <strong>Dil:</strong> ağır çeviri.
+          <strong>Önerilen:</strong> zamanınız varsa.</p>
+        </div>
+        <div class="levha">
+          <span class="etiket mana"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-hedef"></use></svg> Kimler</span>
+          <ul style="margin-top:.8rem;display:grid;gap:.5rem;padding-left:1.1rem">
+            <li>Metni tartışmak isteyenler</li>
+            <li>Kaynak göstermek isteyenler</li>
+            <li>Hikâyeyi doğru yere kadar yaşamak isteyenler</li>
+          </ul>
+          <a class="levha-bas" href="novel.html" style="display:block;margin-top:1rem;border:0;padding:.6rem 0 0;border-top:1px solid var(--cizgi)">
+            <span class="etiket bakir">Cilt listesi <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ok"></use></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div data-kanal-panel="anime" hidden>
+      <div class="iki">
+        <div class="levha">
+          <div class="levha-ust"><div class="levha-ikon mana"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg></div><h3>Anime — en kolay giriş</h3></div>
+          <p>62 bölüm, üç sezon. İlk sezon iki ayrı dönemde yayınlandı;
+          aradaki boşlukta hikâyeyi unutmuş olabilirsin. İkinci sezonun
+          tonu belirgin biçimde daha ağır.</p>
+          <p style="margin-top:.8rem"><strong>Süre:</strong> makul. <strong>Dil:</strong> dub yok,
+          altyazıyla. <strong>Önerilen:</strong> ilk kez tanışıyorsan.</p>
+        </div>
+        <div class="levha">
+          <div class="nota kizil" style="margin-top:0">
+            <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-uyari"></use></svg>
+            <div><strong>4. bölüm notu.</strong> İlk ciltte animasyonu yapılmayan
+            bir şiddet sahnesi var. Bu sayfanın
+            <a href="analiz.html#riza">analiz yazısında</a> ne anlama geldiği
+            anlatılıyor. Spoiler'sız izleyeceksen bu bölümü
+            <em>atlamanız önerilmez</em>; bölümün akışı bozuluyor.</div>
+          </div>
+          <a class="levha-bas" href="anime.html" style="display:block;margin-top:1rem;border:0;padding:.6rem 0 0;border-top:1px solid var(--cizgi)">
+            <span class="etiket bakir">Bölüm listesi <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ok"></use></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div data-kanal-panel="manga" hidden>
+      <div class="iki">
+        <div class="levha">
+          <div class="levha-ust"><div class="levha-ikon yesil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg></div><h3>Manga — karakter odaklı okur için</h3></div>
+          <p>25 cilt ve devam ediyor. Kaynak metne en sadel olan bu kol;
+          özellikle ilk yılların olay sırası birebir. <em>Roxy Gets Serious</em>
+          ayrı bir deneyim: Roxy'nin hikâyesini <em>onun gözünden</em> anlatıyor.</p>
+        </div>
+        <div class="levha">
+          <span class="etiket yesil"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-tuz"></use></svg> Kaç cilt</span>
+          <p style="margin-top:.6rem">Ana seri 25+ cilt. Yan seriler ayrı
+          gruplar hâlinde: 4-Koma (3), Roxy Gets Serious (12), Eris Gaiden (1),
+          Depressed Magician (3), Antoloji (3).</p>
+          <a class="levha-bas" href="manga.html" style="display:block;margin-top:1rem;border:0;padding:.6rem 0 0;border-top:1px solid var(--cizgi)">
+            <span class="etiket bakir">Cilt listesi <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-ok"></use></svg></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ UYARILAR ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <h2>Bilmen gereken içerik uyarıları</h2>
+      <p>Spoiler vermeden, yine de bilmen gerekenler.</p>
+    </div>
+
+    <div class="tablo-kap">
+      <table>
+        <caption>İçerik uyarıları</caption>
+        <thead><tr><th class="no">Konu</th><th>Nerede</th><th>Kapsam</th></tr></thead>
+        <tbody>
+          <tr><td class="no">Cinsel içerik</td><td>1. sezon, ilk cilt</td><td>Reşit olmayan karakterlerle ilgili sahneler var; kaynak metinde olduğu gibi, uyarlamalarda değiştirildi.</td></tr>
+          <tr><td class="no">Şiddet</td><td>Tümü</td><td>Savaş sahneleri, işkence, ölümler. Toplu ölüm özellikle ağır.</td></tr>
+          <tr><td class="no">Karakter kaybı</td><td>1. sezon 2. yarı</td><td>Dizinin ana ailesinden kayıplar. Sonrasına devam etmeyi kolaylaştırmaz.</td></tr>
+          <tr><td class="no">Travma</td><td>2. sezon</td><td>Sözlü ve fiziksel istismar içerikli sahneler var.</td></tr>
+          <tr><td class="no">Çocuk ölümü</td><td>2. sezon sonrası</td><td>En sarsıcı bölümlerden biri. Bu dizi hafif izlenen bir şey değil.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota" style="margin-top:1rem">
+      <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-bilgi"></use></svg>
+      <div>Bu dizi, 2010'ların isekai dalgalarının aksine
+      <strong>konusunun ağırlığını hiç düşürmüyor</strong>. "Bir günlük hafta
+      sonluk izlemesi" değil. Buna hazır olmadan başlama.</div>
+    </div>
+  </section>
+
+  <!-- ============================ YANLIŞLAR ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <h2>Diziye dair sık tekrarlanan hatalar</h2>
+      <p>Bunları duymuşsundur. Yanlış olanları ayıklayalım.</p>
+    </div>
+
+    <div class="metin">
+      <h3>"Rudeus otistik, bu yüzden başarılı"</h3>
+      <p><strong>Yanlış.</strong> Dizi otizmi bir yetenek kaynağı olarak
+      kullanmaz; izolasyonu bir <em>sonuç</em> olarak gösterir. Karakterin
+      sosyal zorluğu bir yetenek değil, engeldir ve dizi bunu çözmez.
+      "Otistik karakter" etiketini ödül gibi kullanmak, dizinin tam tersini
+      söylemek.</p>
+
+      <h3>"Sonu kötü bitiyor"</h3>
+      <p><strong>Yanlış.</strong> Bitiş açık uçludur ve acıdır ama
+      "kötü" değildir. Dizi kapanışta kapanmadığını iddia etmez; yaşlanmanın
+      ve kaybetmenin bir süreç olduğunu söyler. Bu, "kötü son" ile
+      "kasıtlı belirsizlik" arasındaki farktır.</p>
+
+      <h3>"Anime tamamen uyarlama"</h3>
+      <p><strong>Kısmen doğru.</strong> Yapım birçok yerde kaynaktan ayrıldı
+      ve en çok tartışılan değişiklik 4. bölümdeydi. Ama anime, özellikle
+      determinizm sahnesinde, metinden daha güçlü bir anlatı. Detaylar için
+      <a href="anime.html">anime sayfasına</a> bak.</p>
+
+      <h3>"Sadece harem dizisi"</h3>
+      <p><strong>Yanlış ve zararlı.</strong> Harem bu dizinin bir kolu, özü
+      değil. Diziyi bu çerçeveyle okumak tam da onun sorunlu tarafını
+      görmeyi kolaylaştırır. <a href="analiz.html#harem">Ayrıntılı okuma</a>
+      bu yazıda.</p>
+
+      <h3>"Yazar, Rudeus'un davranışını savunuyor"</h3>
+      <p><strong>Doğru değil.</strong> Yazar karakterin bilinçli biçimde
+      tartışmalı olduğunu savunuyor, ancak davranışı meşrulaştırdığını
+      söylemiyor. Aradaki fark önemli: bir karakterin karanlık yanlarını
+      yazmak ile o yanları onaylamak farklı şeylerdir.</p>
+    </div>
+  </section>
+
+  <!-- ============================ ZAMAN ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <h2>Ne kadar sürer?</h2>
+    </div>
+
+    <dl class="olcu">
+      <div><dt>Anime 1. sezon</dt><dd style="font-size:1.2rem">23 bölüm + OVA</dd></div>
+      <div><dt>Anime 2. sezon</dt><dd style="font-size:1.2rem">24 bölüm</dd></div>
+      <div><dt>Anime 3. sezon</dt><dd style="font-size:1.2rem">14+ bölüm, devam ediyor</dd></div>
+      <div><dt>Novel</dt><dd style="font-size:1.2rem">26 cilt</dd></div>
+      <div><dt>Manga</dt><dd style="font-size:1.2rem">25+ cilt</dd></div>
+    </dl>
+
+    <div class="nota" style="margin-top:1.2rem">
+      <svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-saat"></use></svg>
+      <div>Bir bölüm yaklaşık 24 dakika. Yani anime'de üç sezon
+      <strong>yaklaşık 25 saatlik</strong> bir deneyim — bu ciddiye alınacak
+      bir süre. Roman tarafında ciltler daha uzun.</div>
+    </div>
+  </section>
+
+  <!-- ============================ SONRA ============================ -->
+  <section class="bolum bolum-dar">
+    <div class="bolum-basi">
+      <h2>Sonrasında</h2>
+    </div>
+    <ul class="dizin">
+      <li><span class="dizin-no">→</span>
+        <a href="analiz.html"><span class="dizin-ad">Tematik analiz<small>Sekiz uzun okuma</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="karakterler.html"><span class="dizin-ad">Karakterler<small>Kim bu, sonra ne oldu?</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="dunya.html"><span class="dizin-ad">Dünya &amp; sistemler<small>Büyü, ırk, kılıç hiyerarşisi</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg></span></a></li>
+      <li><span class="dizin-no">→</span>
+        <a href="yaylar.html"><span class="dizin-ad">Yaylar<small>23 anlatı bölümü</small></span>
+        <span class="dizin-sag"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg></span></a></li>
+    </ul>
+  </section>
+
+</div>
+</main>
+
+<footer class="alt">
+  <div class="defter">
+    <div class="alt-izgara">
+      <div>
+        <h4>Bu arşiv ne</h4>
+        <p style="font-size:.9rem;color:var(--soluk);max-width:44ch">
+          <em>Mushoku Tensei: ~Isekai Ittara Honki Dasu~</em> üzerine Türkçe bir hayran ansiklopedisi.
+          Bölüm, cilt ve kavram verileri Mushoku Tensei Wiki'den çekilmiş; tematik okumalar ve
+          yorumlar bu sitenin kendi çalışmasıdır.
+        </p>
+        <p class="kanitler" style="margin-top:1rem">
+          <span class="kanit">Yazar: Rifujin na Magonote</span>
+          <span class="kanit mana">Çizim: Shirotaka</span>
+        </p>
+      </div>
+      <div><h4>Medya</h4><ul>
+        <li><a href="anime.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-film"></use></svg> Anime</a></li>
+        <li><a href="manga.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kitap"></use></svg> Manga</a></li>
+        <li><a href="novel.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kalem"></use></svg> Novel</a></li>
+        <li><a href="medya-eklenti.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-disk"></use></svg> Ek medya</a></li>
+      </ul></div>
+      <div><h4>Araştır</h4><ul>
+        <li><a href="karakterler.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kilic"></use></svg> Karakterler</a></li>
+        <li><a href="dunya.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-harita"></use></svg> Dünya & sistemler</a></li>
+        <li><a href="yaylar.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-katlanir"></use></svg> Yaylar</a></li>
+        <li><a href="analiz.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-buyut"></use></svg> Tematik analiz</a></li>
+      </ul></div>
+      <div><h4>Rehber</h4><ul>
+        <li><a href="rehber.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-hedef"></use></svg> Nereden başlamalı</a></li>
+        <li><a href="hakkinda.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-belge"></use></svg> Hakkında & kaynakça</a></li>
+        <li><a href="404.html"><svg class="ikon" aria-hidden="true" focusable="false"><use href="#i-kapat"></use></svg> 404</a></li>
+      </ul></div>
+    </div>
+    <div class="alt-son">
+      <span>© 2026 · hayran projesi. <strong>Resmî değildir</strong> — tüm haklar Rifujin na Magonote, Shirotaka,
+      Media Factory, Studio Bind ve ilgili yapımlara aittir. Resim/kapak kullanılmaz; veriler alıntıdır.</span>
+      <span class="mono">Veri: mushokutensei.fandom.com · Sürüm 0.4.0</span>
+    </div>
+  </div>
+</footer>
+
+<button class="yukari" type="button" aria-label="Yukarı çık">
+  <svg class="ikon" aria-hidden="true"><use href="#i-yukari"></use></svg>
+</button>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/veri.js"></script>
+
+</body>
+</html>
