@@ -1,4 +1,10 @@
-name: Yayınla
+name: Denetim
+
+# Yayınlama artık Actions'a bağlı değil.
+# GitHub Pages, gh-pages dalından yayınlıyor (build_type: legacy).
+# Gerekçe: 2026-10-06'da GitHub Actions ve Pages derleme altyapısı
+# "degraded_performance" durumundaydı ve işler hiç başlamıyordu.
+# Bu iş yalnızca doğrulama yapar; yayınlamak için bkz. tools/yayinla.sh
 
 on:
   push:
@@ -7,12 +13,9 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Aynı dal için yalnızca son committen yayın yap
 concurrency:
-  group: pages
+  group: denetim
   cancel-in-progress: true
 
 jobs:
@@ -33,16 +36,15 @@ jobs:
       - name: Sayfaları üret
         run: python3 tools/kur.py
 
-      - name: Çıktının depodaki sürümle aynı olduğunu denetle
+      - name: Üretilen HTML depodaki sürümle aynı mı
         run: |
           if ! git diff --quiet -- '*.html'; then
-            echo "::error::Üretilen HTML, depoda yazan sürümden farklı."
-            echo "Yerelde 'python3 tools/kur.py' çalıştırıp çıktıyı commit edin."
+            echo "::error::Üretilen HTML depoda yazan sürümden farklı."
             git --no-pager diff --stat -- '*.html'
             exit 1
           fi
 
-      - name: Bağlantı / çapa / HTML denetimi
+      - name: Bağlantı / çapa / HTML / ikon denetimi
         run: python3 tools/dogrula.py
 
       - name: Veri katmanı duman testi
@@ -64,41 +66,9 @@ jobs:
               y = f"assets/data/{ad}.json"
               if not os.path.exists(y):
                   eksik.append(y); continue
-              try:
-                  d = json.load(open(y, encoding="utf-8"))
-                  n = sum(len(v) for v in d.values() if isinstance(v, list))
-                  print(f"  {ad:14s} {n:5d} kayıt")
-              except Exception as e:
-                  eksik.append(f"{y} ({e})")
+              d = json.load(open(y, encoding="utf-8"))
+              n = sum(len(v) for v in d.values() if isinstance(v, list))
+              print(f"  {ad:14s} {n:5d} kayıt")
           if eksik:
               print("::error::Eksik/geçersiz veri:", *eksik, sep="\n  "); sys.exit(1)
           PY
-
-  yayinla:
-    name: GitHub Pages
-    needs: dogrula
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          path: kaynak
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Sayfaları üret
-        working-directory: kaynak
-        run: python3 tools/kur.py
-
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: kaynak
-
-      - id: deploy
-        uses: actions/deploy-pages@v4
