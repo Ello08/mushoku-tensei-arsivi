@@ -87,8 +87,32 @@ def altin_svg(sinif="altin", donerli=True):
     </svg>"""
 
 
+def buyulu_cember(sinif="cember", uretecegimiz=False):
+    """Rudeus'un büyü çemberi: iç içe daireler, yazı sıraları, altıgen."""
+    kimlik = "c" if uretecegimiz else ""
+    return f"""<svg class="{sinif}" viewBox="0 0 320 320" aria-hidden="true" focusable="false">
+      <g class="yavas" fill="none" stroke="currentColor" stroke-linecap="round">
+        <circle cx="160" cy="160" r="152" stroke-width="1" stroke-dasharray="1 7"/>
+        <circle cx="160" cy="160" r="138" stroke-width=".6" opacity=".55"/>
+        <circle cx="160" cy="160" r="104" stroke-width="1.4"/>
+        <circle cx="160" cy="160" r="96" stroke-width=".5" stroke-dasharray="14 6" opacity=".7"/>
+        <circle cx="160" cy="160" r="72" stroke-width=".9" opacity=".8"/>
+        <path d="M160 8 L291 244 L29 244 Z" stroke-width=".7" opacity=".45"/>
+        <path d="M160 312 L29 76 L291 76 Z" stroke-width=".7" opacity=".45"/>
+      </g>
+      <g class="ter" fill="none" stroke="currentColor" stroke-width=".7" opacity=".8">
+        <path d="M160 24 L284 268 L36 268 Z"/>
+        <circle cx="160" cy="160" r="58" stroke-dasharray="3 5"/>
+        <circle cx="160" cy="160" r="30" stroke-width="1.1"/>
+      </g>
+      <g class="nabiz" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".9">
+        <path d="M148 160 h24 M160 148 v24"/>
+      </g>
+    </svg>"""
+
+
 SABLON = """<!DOCTYPE html>
-<html lang="tr" data-tema="koyu">
+<html lang="tr" data-tema="pargamen">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -217,6 +241,7 @@ def temizle(s):
 
     s = re.sub(r"@ikon:([\w-]+)(?:\(([\w \-]*)\))?@", ikon_deg, s)
     s = re.sub(r"@altin:([\w \-]*)@", lambda m: altin_svg(m.group(1) or "altin"), s)
+    s = re.sub(r"@cember:([\w \-]*)@", lambda m: buyulu_cember(m.group(1) or "cember"), s)
     return s
 
 
@@ -268,6 +293,7 @@ def kur():
             "BOLUM_AD": bolum_ad,
             "FOLYO": e.get("folio", ""),
             "MUHUR": altin_svg("altin"),
+            "CEMBER": buyulu_cember("cember"),
             "ALT_MENU": alt_menu(),
             "YIL": "2026",
             "SURUM": surum,

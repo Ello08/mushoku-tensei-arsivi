@@ -8,21 +8,27 @@
   const $$ = (s, k) => Array.from((k || document).querySelectorAll(s));
 
   /* ---------------------------------------------------------- 1. Tema */
+  /* Dizinin gündüz görünümü varsayılan: açık, pastel, Roxy'nin mavisi.
+     Koyu seçenek "gece" — Sharia'nın gündüzü değil, gecesi. */
   const ANAHTAR = "mt-tema";
+  const ACIK = "pargamen";
+  const KOYU = "gece";
+
   function temaUygula(t) {
     document.documentElement.setAttribute("data-tema", t);
     $$("[data-tema-dugme]").forEach((b) => {
-      const koyu = t === "koyu";
-      b.querySelector("use").setAttribute("href", koyu ? "#i-ay" : "#i-gunes");
-      b.setAttribute("aria-label", koyu ? "Açık temaya geç" : "Koyu temaya geç");
+      const gece = t === KOYU;
+      b.querySelector("use").setAttribute("href", gece ? "#i-ay" : "#i-gunes");
+      b.setAttribute("aria-label", gece ? "Gündüz temasına geç" : "Gece temasına geç");
+      b.setAttribute("title", gece ? "Gündüz · Sharia" : "Gece · Sharia");
     });
-    $$("[data-tema-metin]").forEach((e) => (e.textContent = t === "koyu" ? "Gece" : "Parşömen"));
+    $$("[data-tema-metin]").forEach((e) => (e.textContent = t === KOYU ? "Gece" : "Gündüz"));
   }
   function temaTers() {
-    return document.documentElement.getAttribute("data-tema") === "koyu" ? "pargamen" : "koyu";
+    return document.documentElement.getAttribute("data-tema") === KOYU ? ACIK : KOYU;
   }
   const kayitli = (() => { try { return localStorage.getItem(ANAHTAR); } catch (e) { return null; } })();
-  temaUygula(kayitli || "koyu");
+  temaUygula(kayitli === KOYU ? KOYU : ACIK);
 
   document.addEventListener("DOMContentLoaded", () => {
     $$("[data-tema-dugme]").forEach((b) =>

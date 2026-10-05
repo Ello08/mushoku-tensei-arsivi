@@ -16,41 +16,75 @@
       Greyrat→ Sharia'nın gece mavisi          (zemin, gölge, dünya)
     ─ Grafik dil: Altı Yüzlü Dünya (vesica piscis) + büyü halkaları */
 
+/*  SERİNİN GERÇEK GÖRSEL DİLİ
+    Dizinin görünümü karanlık bir noir dosya değil. MF Books kapaklarında,
+    Comic Flapper panellerinde ve Sharia'nın gündüz göğünde gördüğümüz şey:
+    yumuşak pastel yıkamalar, ince çizgi, bol beyaz alan, açık mavi gökyüzü.
+
+      Roxy    → Migurd elflerinin soluk su mavisi   ANA RENK
+      Eris    → Boreas saçının alev kızılı           vurgu
+      Sylphie → Büyük Orman'ın yeşili                ikincil
+      Paul    → macera kıyafetinin altını            sıcak vurgu
+      Hitogami→ Boşluk Dünyası'nın soluk moru         soğuk vurgu
+      Ranoa   → Akademi çatısının gök mavisi         zemin
+
+    Grafik dil: büyü çemberleri (zemin üzerinde ışıyan mavi daireler)
+    + Altı Yüzlü Dünya (iki üst üste binen daire). */
+
 :root {
-  --zemin:      #070c16;   /* Sharia gecesi */
-  --kagit:      #0b1220;
-  --kagit-2:    #101a2c;
-  --kagit-3:    #16233a;
-  --kagit-4:    #1e2f4b;
+  /* --- yüzey: krem kâğıt, hafif mavi yıkama --- */
+  --zemin:      #eef2f5;
+  --kagit:      #fbfaf6;
+  --kagit-2:    #f4f6f8;
+  --kagit-3:    #e9eef2;
+  --kagit-4:    #dde6ec;
 
-  --mürekkep:   #e9e4d8;   /* parşömen */
-  --mürekkep-2: #b5b2a6;
-  --soluk:      #7c8798;
-  --faint:      #4f5b6d;
+  /* --- metin: sıcak koyu kahve, soğuk mavi değil --- */
+  --mürekkep:   #1f2933;
+  --mürekkep-2: #43525f;
+  --soluk:      #6b7a88;
+  --faint:      #9aa8b4;
 
-  --bakir:      #d9a441;   /* Paul */
-  --bakir-2:    #e8bf7c;
-  --bakir-3:    #7a5518;
-  --mana:       #57bdd4;   /* Roxy */
-  --mana-2:     #9adfec;
-  --kizil:      #d24b3a;   /* Eris */
-  --kizil-2:    #f09183;
-  --yesil:      #7fb069;   /* Sylphie */
-  --yesil-2:    #a8cf98;
-  --mor:        #8f74c9;   /* Hitogami */
-  --mor-2:      #bfaee6;
+  /* --- Roxy: ana vurgu --- */
+  --bakir:      #2f9bb8;   /* kromatik aksan: mavi-cyan */
+  --bakir-2:    #1a7d99;
+  --altin-3:    #cfa14a;
+  --mana:       #3aa0c0;
+  --mana-2:     #6cc6de;
 
-  --cizgi:      #1d2a3d;
-  --cizgi-acik: #33465f;
+  /* --- Eris: kızıl --- */
+  --kizil:      #d0473c;
+  --kizil-2:    #e88b83;
+  --kizil-soluk:#f6d9d6;
 
-  --golge-1: 0 1px 0 rgba(255,255,255,.03), 0 14px 30px -22px #000;
-  --golge-2: 0 30px 70px -34px #000;
+  /* --- Sylphie: yeşil --- */
+  --yesil:      #5fa257;
+  --yesil-2:    #8cc784;
+  --yesil-soluk:#dcecd8;
+
+  /* --- Paul: altın (ikincil vurgu) --- */
+  --altin:      #d99b2e;
+  --altin-2:    #f0bc5c;
+  --altin-soluk:#f8e6c4;
+
+  /* --- Hitogami: soluk mor --- */
+  --mor:        #8371bd;
+  --mor-2:      #a897d8;
+  --mor-soluk:  #e3ddf2;
+
+  /* --- çizgiler: yumuşak, ince --- */
+  --cizgi:      #dbe3e9;
+  --cizgi-acik: #bfccd6;
+
+  --golge-1: 0 1px 2px rgba(63,86,105,.05), 0 6px 16px -10px rgba(63,86,105,.18);
+  --golge-2: 0 18px 40px -22px rgba(63,86,105,.30);
+  --haze:     rgba(120,180,205,.14);
 
   --genislik: 1400px;
   --metin: 70ch;
   --kenar: clamp(1.1rem, 3.2vw, 3rem);
-  --omurga: 4.25rem;
-  --bolum: clamp(3.2rem, 7.5vw, 6.5rem);
+  --omurga: 4rem;
+  --bolum: clamp(2.8rem, 6.5vw, 5.5rem);
 
   --f-baslik:  "Cinzel", Georgia, serif;
   --f-ara:     "Marcellus", Georgia, serif;
@@ -60,22 +94,54 @@
 
   --gecis: cubic-bezier(.2,.6,.3,1);
   --giden: cubic-bezier(.16,1,.3,1);
+  --yari: clamp(.7rem, 3vw, 1.5rem);   /* yumuşak yuvarlaklık */
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-/* Açık tema: light novel kapağındaki krem kâğıt + sıcak mürekkep */
-html[data-tema="pargamen"] {
-  --zemin: #ddd0b4;  --kagit: #f6f0e2;  --kagit-2: #f1e9d8;  --kagit-3: #e9dfc9;
-  --kagit-4: #dfd2b6;
-  --mürekkep: #1c1a15; --mürekkep-2: #423b2f; --soluk: #6a6152; --faint: #918876;
-  --bakir: #8a5c17; --bakir-2: #a5741c; --bakir-3: #c9a458;
-  --mana: #146a7c; --mana-2: #0b4a57; --kizil: #a5301f; --kizil-2: #7d1c17;
-  --yesil: #3f7149; --yesil-2: #2b5436; --mor: #6145ad; --mor-2: #422c78;
-  --cizgi: #c9bc9e; --cizgi-acik: #a89a79;
-  --golge-1: 0 1px 0 rgba(255,255,255,.5), 0 12px 26px -22px rgba(70,52,20,.45);
-  --golge-2: 0 26px 60px -34px rgba(70,52,20,.5);
-  color-scheme: light;
+/* "Sharia gecesi" — koyu tema: siyah değil, yumuşak gece mavisi */
+html[data-tema="gece"] {
+  --zemin:      #131b26;
+  --kagit:      #1a2432;
+  --kagit-2:    #1f2b3b;
+  --kagit-3:    #26344a;
+  --kagit-4:    #2f405a;
+
+  --mürekkep:   #e9edf1;
+  --mürekkep-2: #b6c2cd;
+  --soluk:      #8494a3;
+  --faint:      #5d6d7d;
+
+  --bakir:      #5cc0da;
+  --bakir-2:    #8fd8ec;
+  --altin-3:    #7a5a1e;
+  --mana:       #54b4d2;
+  --mana-2:     #8ad4e8;
+
+  --kizil:      #e2706a;
+  --kizil-2:    #f5a8a2;
+  --kizil-soluk:#3d2a2b;
+
+  --yesil:      #7dc074;
+  --yesil-2:    #a6d69e;
+  --yesil-soluk:#27362a;
+
+  --altin:      #e8b054;
+  --altin-2:    #f5cd8c;
+  --altin-soluk:#3a3226;
+
+  --mor:        #a797de;
+  --mor-2:      #c4b8ec;
+  --mor-soluk:  #2e2a42;
+
+  --cizgi:      #26334a;
+  --cizgi-acik: #35465f;
+
+  --golge-1: 0 1px 2px rgba(0,0,0,.22), 0 6px 16px -10px rgba(0,0,0,.4);
+  --golge-2: 0 20px 44px -24px rgba(0,0,0,.55);
+  --haze:     rgba(70,150,185,.14);
+
+  color-scheme: dark;
 }
 
 /* ---------------------------------------------------------------- 2. Reset */
@@ -97,22 +163,33 @@ body {
   padding-left: 0;
 }
 
-/* kâğıt dokusu: ince yatay cetveller + gürültü */
+/* Atmosfer: Sharia'nın açık göğü — yumuşak mavi/lavanta yıkama,
+   çok ince yatay cetveller (defter kâğıdı hissi), neredeyse görünmez gren. */
 body::before {
   content: "";
   position: fixed; inset: 0; z-index: -2; pointer-events: none;
   background:
-    radial-gradient(130% 60% at 78% -6%, rgba(192,138,62,.09), transparent 60%),
-    radial-gradient(90% 50% at 8% 104%, rgba(63,176,196,.06), transparent 62%),
-    repeating-linear-gradient(180deg, transparent 0 39px, rgba(255,255,255,.012) 39px 40px),
+    radial-gradient(120% 55% at 82% -8%,  var(--haze), transparent 62%),
+    radial-gradient(100% 45% at 6% 102%,  rgba(155,140,215,.10), transparent 60%),
+    radial-gradient(70% 40% at 50% 40%,   rgba(255,255,255,.55), transparent 70%),
     var(--zemin);
 }
+html[data-tema="gece"] body::before {
+  background:
+    radial-gradient(120% 55% at 82% -8%,  var(--haze), transparent 62%),
+    radial-gradient(100% 45% at 6% 102%,  rgba(140,120,200,.10), transparent 60%),
+    radial-gradient(70% 40% at 50% 40%,   rgba(255,255,255,.03), transparent 70%),
+    var(--zemin);
+}
+
+/* Çok ince gren: baskı hissini kırmak için, orta-efsaneye yakın */
 body::after {
   content: "";
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  opacity: .32; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.07'/%3E%3C/svg%3E");
+  opacity: .30; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
 }
+html[data-tema="gece"] body::after { opacity: .40; mix-blend-mode: overlay; }
 
 @media (min-width: 1100px) { body { padding-left: var(--omurga); } }
 
@@ -309,6 +386,7 @@ em { color: var(--bakir-2); }
   position: relative;
   background: var(--kagit-2);
   border: 1px solid var(--cizgi);
+  border-radius: var(--yari);
   padding: clamp(1.1rem, 2.4vw, 1.8rem);
   box-shadow: var(--golge-1);
   color: inherit;
@@ -393,6 +471,45 @@ a.levha:hover { color: inherit; }
 
 /* Başlıktaki yazı ölçeği yardımcıları */
 .h-xxl { font-size: clamp(2.8rem, 10vw, 7rem); }
+.h-lg  { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+
+/* Medya ızgarası — bilerek asimetrik.
+   Dizide bir kanon yok: anime devam ediyor, novel tamamlandı, manga
+   en uzunu. Üçünü eşit kutulara koymak bu gerçeği saklıyordu. */
+.medya-izgara {
+  display: grid; gap: 1px;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-areas: "orta uzun" "kisa kisa";
+  background: var(--cizgi);
+  border: 1px solid var(--cizgi);
+}
+.medya-orta, .medya-kisa {
+  display: grid; gap: .55rem; align-content: start;
+  padding: clamp(1.2rem, 2.6vw, 1.9rem);
+  background: var(--kagit);
+  color: inherit;
+  transition: background-color .3s var(--gecis);
+}
+.medya-orta { grid-area: orta; }
+.medya-uzun { grid-area: uzun; }
+.medya-kisa { grid-area: kisa; }
+.medya-orta:hover, .medya-kisa:hover { background: var(--kagit-2); color: inherit; }
+.medya-orta h3, .medya-kisa h3 { font-size: 1.35rem; }
+.medya-orta p, .medya-kisa p { font-size: .93rem; color: var(--soluk); }
+.medya-alt {
+  margin-top: .4rem;
+  font-family: var(--f-mono); font-size: .66rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--bakir);
+}
+.medya-orta::after {
+  content: ""; display: block; height: 3px; width: 2.2rem;
+  background: var(--bakir); border-radius: 2px; margin-top: .5rem;
+  transition: width .4s var(--giden);
+}
+.medya-orta:hover::after { width: 4rem; }
+@media (max-width: 780px) {
+  .medya-izgara { grid-template-columns: 1fr; grid-template-areas: "orta" "uzun" "kisa"; }
+}
 
 /* Aksiyon düğmeleri (404 gibi tek bağlantılı durumlarda) */
 .eylem-grup { display: flex; flex-wrap: wrap; gap: .6rem; }
@@ -558,6 +675,7 @@ caption + thead th { border-bottom: 1px solid var(--cizgi); }
   color: var(--mürekkep);
 }
 .mühür.bakir { color: var(--bakir); }
+.mühür.altin { color: var(--altin); }
 .mühür.mana { color: var(--mana); }
 .mühür.kizil { color: var(--kizil); }
 .mühür.yesil { color: var(--yesil); }
@@ -576,7 +694,7 @@ caption + thead th { border-bottom: 1px solid var(--cizgi); }
   border-bottom: 1px solid transparent;
   transition: background-color .3s var(--gecis), border-color .3s;
 }
-.ust.sikisik { background: color-mix(in srgb, var(--zemin) 88%, transparent); backdrop-filter: blur(14px); border-bottom-color: var(--cizgi); }
+.ust.sikisik { background: color-mix(in srgb, var(--kagit) 86%, transparent); backdrop-filter: blur(16px) saturate(1.2); border-bottom-color: var(--cizgi); }
 .ust-ic { display: flex; align-items: center; gap: 1rem; min-height: 4.2rem; }
 
 .marka { display: flex; align-items: center; gap: .6rem; color: var(--mürekkep); }
@@ -654,19 +772,41 @@ caption + thead th { border-bottom: 1px solid var(--cizgi); }
 .harita .dügüm:hover text { fill: var(--bakir-2); }
 .harita .isaret { width: 8px; height: 8px; margin-top: -12px; opacity: .85; }
 
+/* --- Büyü çemberi ---------------------------------------------------------
+   Dizinin en tanınık görseli: zemine çizilen, ışıyan mavi kutsal çember.
+   Rudeus her büyüyü böyle kuruyor. Sitenin ana dekoratif motifi. */
+.cember {
+  position: absolute; z-index: -1; pointer-events: none;
+  color: var(--bakir); width: clamp(15rem, 38vw, 32rem);
+  right: -6%; top: 50%; transform: translateY(-50%);
+  opacity: .16;
+}
+html[data-tema="gece"] .cember { opacity: .28; }
+.cember .yavas { transform-origin: 50% 50%; animation: don 90s linear infinite; }
+.cember .ter  { transform-origin: 50% 50%; animation: don 60s linear infinite reverse; }
+.cember .nabiz { transform-origin: 50% 50%; animation: nabizCember 6s ease-in-out infinite; }
+@keyframes don { to { transform: rotate(360deg); } }
+@keyframes nabizCember { 0%,100% { opacity: .45; } 50% { opacity: 1; } }
+
+.buyulu-blok { position: relative; overflow: hidden; }
+.buyulu-blok > .cember {
+  top: -18%; right: -12%; transform: none;
+  width: min(44rem, 68vw); opacity: .13;
+}
+
 /* --- Altı Yüzlü Dünya (vesica piscis) -------------------------------------
-   Dizinin dünyası iki üst üste binen daireden oluşur. Sitenin imza motifi. */
+   Dizinin dünyası iki üst üste binen daireden oluşur. */
 .altin {
   display: block; width: clamp(4.5rem, 9vw, 7.5rem); height: auto;
-  color: var(--cizgi-acik); flex: none;
+  color: var(--altin-3); flex: none;
 }
 .altin .doner { transform-origin: 50% 50%; animation: don 44s linear infinite; }
-.altin.altin-bakir { color: var(--bakir-3); }
-.altin.altin-mana { color: color-mix(in srgb, var(--mana) 45%, transparent); }
-.altin.altin-mor { color: color-mix(in srgb, var(--mor) 45%, transparent); }
-.altin.altin-yesil { color: color-mix(in srgb, var(--yesil) 45%, transparent); }
-.altin .isik { animation: isik 5.5s ease-in-out infinite; transform-origin: 50% 50%; }
-@keyframes isik { 0%,100% { opacity: .3; } 50% { opacity: .85; } }
+.altin .isik { animation: nabizCember 5.5s ease-in-out infinite; transform-origin: 50% 50%; }
+.altin.altin-mana { color: color-mix(in srgb, var(--mana) 55%, transparent); }
+.altin.altin-kizil { color: color-mix(in srgb, var(--kizil) 45%, transparent); }
+.altin.altin-mor { color: color-mix(in srgb, var(--mor) 50%, transparent); }
+.altin.altin-yesil { color: color-mix(in srgb, var(--yesil) 50%, transparent); }
+.altin.altin-altin { color: color-mix(in srgb, var(--altin) 60%, transparent); }
 
 /* dikey Japonik metin — omurga dışında, bölüm kenarında */
 .dikey {
@@ -692,7 +832,7 @@ caption + thead th { border-bottom: 1px solid var(--cizgi); }
   position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem); z-index: 65;
   width: 2.7rem; height: 2.7rem; display: grid; place-items: center;
   border: 1px solid var(--cizgi); color: var(--bakir);
-  background: color-mix(in srgb, var(--kagit) 90%, transparent); backdrop-filter: blur(6px);
+  background: color-mix(in srgb, var(--kagit) 92%, transparent); backdrop-filter: blur(8px);
   opacity: 0; visibility: hidden; transform: translateY(10px);
   transition: all .32s var(--gecis);
 }
