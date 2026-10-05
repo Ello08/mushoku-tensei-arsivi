@@ -265,6 +265,37 @@ def etiketleri_oku(kaynak):
     return cikti
 
 
+KIRINTI_AD = {
+    "index.html": None,   # ana sayfada gereksiz
+    "anime.html": ("Anime", None),
+    "manga.html": ("Manga", None),
+    "novel.html": ("Novel", None),
+    "karakterler.html": ("Karakterler", None),
+    "dunya.html": ("Dünya & Sistemler", None),
+    "yaylar.html": ("Yaylar", None),
+    "analiz.html": ("Tematik Analiz", None),
+    "rehber.html": ("Rehber", None),
+    "medya-eklenti.html": ("Ek Medya", None),
+    "hakkinda.html": ("Hakkında", None),
+    "404.html": None,
+}
+
+
+def kirinti_html(dosya):
+    """Wiki diline uygun kırıntı navigasyonu: Ana Sayfa / Bölüm / sayfa"""
+    ad = KIRINTI_AD.get(dosya, "—")
+    if not ad:
+        return ""
+    ana, _ = ad
+    dosya_adi = dosya.replace(".html", "")
+    geri_donus = dosya_adi not in ("index",)
+    parcalar = ['<a href="index.html">Ansiklopedi</a>', '<span class="ayrac">/</span>']
+    if geri_donus:
+        parcalar += ['<a href="index.html">Katalog</a>', '<span class="ayrac">/</span>']
+    parcalar.append(f'<span class="simdi">{ana}</span>')
+    return '  <nav class="kirinti" aria-label="Konum">\n    ' + "\n    ".join(parcalar) + "\n  </nav>\n"
+
+
 def kur():
     sablon = open(os.path.join(SRC, "sablon.html"), encoding="utf-8").read()
     surum = "0.1.0"
@@ -288,6 +319,7 @@ def kur():
             "EXTRA_KOPKA": e.get("ekstra-kopka", ""),
             "EXTRA_SCRIPT": e.get("ekstra-script", ""),
             "ICERIK": e.get("icerik", ""),
+            "KIRINTI": kirinti_html(dosya),
             "MENU": menu_html(dosya),
             "OMURGA_JP": omurga_jp,
             "BOLUM_AD": bolum_ad,

@@ -31,115 +31,136 @@
     Grafik dil: büyü çemberleri (zemin üzerinde ışıyan mavi daireler)
     + Altı Yüzlü Dünya (iki üst üste binen daire). */
 
+/*  PALET — Mushoku Tensei Wiki'nin gerçek tema değerlerinden
+    (--theme-* değişkenlerinden birebir)
+
+      #fff7e4  sayfa zemini      sıcak krem parşömen
+      #f2ebd9  ikincil zemin
+      #3a3a3a  metin            ılık koyu gri
+      #9d998f  soluk metin
+      #cec8ba  çizgi            sıcak gri
+      #c43d3d  gezinme çubuğu   derin kırmızı — Eris
+      #d47a26  vurgu            oker turuncu  — Paul
+      #eab985  açık vurgu        ten rengi
+      #bf0017  uyarı kırmızısı
+      #4d84ff  bağlantı mavisi — büyü
+
+    NOT: Dizinin büyü çemberleri mavi çizilir ama sitenin kimliği
+    mavi değil. Önceki denemede buradan yanılmıştık.
+
+    YAZI TİPLERİ
+    Orijinal başlık fontu Inknut Antiqua: tıknaz, eski, kaligrafik,
+    insana yakın. Ücretsiz karşılığı olarak Alegreya (gerçek
+    kaligrafik karakteri var, Cinzel'in Roma-inscriptional soğukluğu yok).  */
+
 :root {
-  /* --- yüzey: krem kâğıt, hafif mavi yıkama --- */
-  --zemin:      #eef2f5;
-  --kagit:      #fbfaf6;
-  --kagit-2:    #f4f6f8;
-  --kagit-3:    #e9eef2;
-  --kagit-4:    #dde6ec;
+  --zemin:      #fff7e4;
+  --kagit:      #fffdf8;
+  --kagit-2:    #f9f4e7;
+  --kagit-3:    #f2ebd9;
+  --kagit-4:    #e9e0c8;
 
-  /* --- metin: sıcak koyu kahve, soğuk mavi değil --- */
-  --mürekkep:   #1f2933;
-  --mürekkep-2: #43525f;
-  --soluk:      #6b7a88;
-  --faint:      #9aa8b4;
+  --mürekkep:   #2f2a23;
+  --mürekkep-2: #3a3a3a;
+  --soluk:      #9d998f;
+  --faint:      #b9b2a1;
 
-  /* --- Roxy: ana vurgu --- */
-  --bakir:      #2f9bb8;   /* kromatik aksan: mavi-cyan */
-  --bakir-2:    #1a7d99;
-  --altin-3:    #cfa14a;
-  --mana:       #3aa0c0;
-  --mana-2:     #6cc6de;
+  --cizgi:      #cec8ba;
+  --cizgi-acik: #b3ab97;
 
-  /* --- Eris: kızıl --- */
-  --kizil:      #d0473c;
-  --kizil-2:    #e88b83;
-  --kizil-soluk:#f6d9d6;
+  --bakir:      #c43d3d;   /* gezinme çubuğu kızılı — Eris */
+  --bakir-2:    #d96666;
+  --bakir-3:    #8e2626;
 
-  /* --- Sylphie: yeşil --- */
-  --yesil:      #5fa257;
-  --yesil-2:    #8cc784;
-  --yesil-soluk:#dcecd8;
+  --altin:      #d47a26;   /* vurgu okeri — Paul */
+  --altin-2:    #e8a765;
+  --altin-3:    #eab985;   /* açık vurgu */
+  --altin-soluk:#fbeeda;
 
-  /* --- Paul: altın (ikincil vurgu) --- */
-  --altin:      #d99b2e;
-  --altin-2:    #f0bc5c;
-  --altin-soluk:#f8e6c4;
+  --mana:       #4d84ff;   /* büyü mavisi */
+  --mana-2:     #7ba5ff;
+  --mana-soluk: #dfe8ff;
 
-  /* --- Hitogami: soluk mor --- */
-  --mor:        #8371bd;
-  --mor-2:      #a897d8;
-  --mor-soluk:  #e3ddf2;
+  --kizil:      #bf0017;   /* uyarı */
+  --kizil-2:    #e06a70;
+  --kizil-soluk:#f8dfe0;
 
-  /* --- çizgiler: yumuşak, ince --- */
-  --cizgi:      #dbe3e9;
-  --cizgi-acik: #bfccd6;
+  --yesil:      #6a8f3d;
+  --yesil-2:    #8fb35c;
+  --yesil-soluk:#e4edd6;
 
-  --golge-1: 0 1px 2px rgba(63,86,105,.05), 0 6px 16px -10px rgba(63,86,105,.18);
-  --golge-2: 0 18px 40px -22px rgba(63,86,105,.30);
-  --haze:     rgba(120,180,205,.14);
+  --mor:        #7a6a9e;
+  --mor-2:      #9d90bd;
+  --mor-soluk:  #e6e2ef;
+
+  --golge-1: 0 1px 2px rgba(90,70,40,.06), 0 4px 12px -8px rgba(90,70,40,.20);
+  --golge-2: 0 14px 32px -20px rgba(90,70,40,.34);
+  --haze:     rgba(212,122,38,.10);
 
   --genislik: 1400px;
   --metin: 70ch;
   --kenar: clamp(1.1rem, 3.2vw, 3rem);
-  --omurga: 4rem;
-  --bolum: clamp(2.8rem, 6.5vw, 5.5rem);
+  --omurga: 3.6rem;
+  --bolum: clamp(2.6rem, 6vw, 5rem);
 
-  --f-baslik:  "Cinzel", Georgia, serif;
-  --f-ara:     "Marcellus", Georgia, serif;
-  --f-govde:   "Spectral", Georgia, serif;
+  --f-baslik:  "Alegreya", Georgia, serif;
+  --f-ara:     "Alegreya", Georgia, serif;
+  --f-govde:   "Lora", Georgia, serif;
   --f-mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
   --f-jp:      "Noto Serif JP", "Hiragino Mincho ProN", serif;
 
   --gecis: cubic-bezier(.2,.6,.3,1);
   --giden: cubic-bezier(.16,1,.3,1);
-  --yari: clamp(.7rem, 3vw, 1.5rem);   /* yumuşak yuvarlaklık */
+  --yari: 5px;
 
   color-scheme: light;
 }
 
-/* "Sharia gecesi" — koyu tema: siyah değil, yumuşak gece mavisi */
+/* Gece: siyah gövde + krem metin, kırmızı çubuk kalır
+   (Fandom'un koyu varyantıyla aynı mantık) */
 html[data-tema="gece"] {
-  --zemin:      #131b26;
-  --kagit:      #1a2432;
-  --kagit-2:    #1f2b3b;
-  --kagit-3:    #26344a;
-  --kagit-4:    #2f405a;
+  --zemin:      #0f0d0a;
+  --kagit:      #16130f;
+  --kagit-2:    #1c1915;
+  --kagit-3:    #24201a;
+  --kagit-4:    #2f2a22;
 
-  --mürekkep:   #e9edf1;
-  --mürekkep-2: #b6c2cd;
-  --soluk:      #8494a3;
-  --faint:      #5d6d7d;
+  --mürekkep:   #f7f1e4;
+  --mürekkep-2: #e6ddcc;
+  --soluk:      #a79e8c;
+  --faint:      #7b7364;
 
-  --bakir:      #5cc0da;
-  --bakir-2:    #8fd8ec;
-  --altin-3:    #7a5a1e;
-  --mana:       #54b4d2;
-  --mana-2:     #8ad4e8;
+  --cizgi:      #2c2820;
+  --cizgi-acik: #3d382e;
 
-  --kizil:      #e2706a;
-  --kizil-2:    #f5a8a2;
-  --kizil-soluk:#3d2a2b;
+  --bakir:      #e05a5a;
+  --bakir-2:    #f08a8a;
+  --bakir-3:    #a83232;
 
-  --yesil:      #7dc074;
-  --yesil-2:    #a6d69e;
-  --yesil-soluk:#27362a;
+  --altin:      #e8944a;
+  --altin-2:    #f4b478;
+  --altin-3:    #c99a63;
+  --altin-soluk:#332715;
 
-  --altin:      #e8b054;
-  --altin-2:    #f5cd8c;
-  --altin-soluk:#3a3226;
+  --mana:       #6fa0ff;
+  --mana-2:     #9cbcff;
+  --mana-soluk: #1c2438;
 
-  --mor:        #a797de;
-  --mor-2:      #c4b8ec;
-  --mor-soluk:  #2e2a42;
+  --kizil:      #ff6b6b;
+  --kizil-2:    #ff9a9a;
+  --kizil-soluk:#3a1e1e;
 
-  --cizgi:      #26334a;
-  --cizgi-acik: #35465f;
+  --yesil:      #8fb35c;
+  --yesil-2:    #aecb80;
+  --yesil-soluk:#232a17;
 
-  --golge-1: 0 1px 2px rgba(0,0,0,.22), 0 6px 16px -10px rgba(0,0,0,.4);
-  --golge-2: 0 20px 44px -24px rgba(0,0,0,.55);
-  --haze:     rgba(70,150,185,.14);
+  --mor:        #a897d8;
+  --mor-2:      #c3b6e6;
+  --mor-soluk:  #262233;
+
+  --golge-1: 0 1px 2px rgba(0,0,0,.3), 0 4px 12px -8px rgba(0,0,0,.5);
+  --golge-2: 0 16px 36px -20px rgba(0,0,0,.6);
+  --haze:     rgba(232,148,74,.09);
 
   color-scheme: dark;
 }
@@ -219,10 +240,10 @@ li::marker { color: var(--bakir); }
   display: none;
   position: fixed; left: 0; top: 0; bottom: 0; z-index: 60;
   width: var(--omurga);
-  border-right: 1px solid var(--cizgi);
-  background: var(--kagit);
+  border-right: 2px solid var(--bakir);
+  background: var(--kagit-2);
   align-items: center; justify-content: space-between;
-  padding: 1.4rem 0;
+  padding: 4.6rem 0 1.4rem;
   flex-direction: column;
 }
 @media (min-width: 1100px) { .omurga { display: flex; } }
@@ -230,10 +251,13 @@ li::marker { color: var(--bakir); }
 .omurga-marka {
   writing-mode: vertical-rl; text-orientation: mixed;
   font-family: var(--f-jp); font-weight: 700;
-  font-size: .8rem; letter-spacing: .3em;
+  font-size: .82rem; letter-spacing: .32em;
   color: var(--mürekkep); white-space: nowrap;
 }
 .omurga-marka span { color: var(--bakir); }
+
+/* Altın figür: Inknut ruhunda, tıknaz eski tipografi hissi */
+.altin { filter: none; }
 
 .omurga-yazi {
   writing-mode: vertical-rl; text-orientation: mixed;
@@ -254,14 +278,16 @@ li::marker { color: var(--bakir); }
 /* ---------------------------------------------------------------- 4. Tipografi */
 
 h1, h2, h3, h4 { font-family: var(--f-ara); font-weight: 400; color: var(--mürekkep); line-height: 1.14; letter-spacing: -.01em; }
-h1 { font-size: clamp(2rem, 4.6vw, 3.5rem); }
-h2 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); }
-h3 { font-size: clamp(1.15rem, 1.9vw, 1.4rem); }
+h1 { font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -.02em; }
+h2 { font-size: clamp(1.55rem, 2.9vw, 2.15rem); font-weight: 700; }
+h3 { font-size: clamp(1.12rem, 1.9vw, 1.4rem); font-weight: 700; }
 
 .baslik {
   font-family: var(--f-baslik); font-weight: 700;
-  text-transform: uppercase; letter-spacing: .06em; line-height: .95;
+  letter-spacing: -.01em; line-height: 1.02;
 }
+/* Inknut Antiqua'nın tıknaz, eski tipografisine yakın dar başlık */
+.baslik.baslik-dar { font-weight: 500; letter-spacing: .01em; }
 
 .giris { font-size: clamp(1.08rem, .8rem + .75vw, 1.38rem); line-height: 1.58; color: var(--mürekkep); }
 .zayif { color: var(--soluk); }
@@ -531,6 +557,18 @@ a.levha:hover { color: inherit; }
 /* Sıra listesi kapsayıcı — JS doldurur, iskelet yer tutucu */
 .sira-kap { min-height: 3rem; }
 
+.kirinti {
+  display: flex; flex-wrap: wrap; gap: .35rem; align-items: center;
+  font-family: var(--f-mono); font-size: .66rem;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--faint);
+  padding-bottom: .7rem; margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--cizgi);
+}
+.kirinti a { color: var(--soluk); }
+.kirinti a:hover { color: var(--bakir); }
+.kirinti .ayrac { color: var(--faint); }
+.kirinti .simdi { color: var(--mürekkep); }
+
 /* ---------------------------------------------------------------- 12. Uzun içerik */
 
 .metin { max-width: var(--metin); }
@@ -600,7 +638,8 @@ th { font-family: var(--f-mono); font-size: .62rem; letter-spacing: .14em; text-
 td { color: var(--mürekkep-2); }
 td.no, th.no { font-family: var(--f-mono); color: var(--bakir); width: 4.5rem; }
 tbody tr:last-child td { border-bottom: 0; }
-tbody tr:hover { background: var(--kagit-2); }
+tbody tr:nth-child(even) { background: color-mix(in srgb, var(--kagit-2) 55%, transparent); }
+tbody tr:hover { background: color-mix(in srgb, var(--altin-soluk) 70%, transparent); }
 caption + thead th { border-bottom: 1px solid var(--cizgi); }
 
 /* ---------------------------------------------------------------- 13. Bölüm listesi (dizi/manga) */
@@ -689,52 +728,63 @@ caption + thead th { border-bottom: 1px solid var(--cizgi); }
 
 .ilerleme { position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 95; background: linear-gradient(90deg, var(--mana), var(--bakir), var(--kizil)); }
 
+/* Üst bant — wiki'nin en ayırt edici öğesi: derin kırmızı gezinme çubuğu.
+   Kaynak: --theme-sticky-nav-background-color: #c43d3d */
 .ust {
   position: sticky; top: 0; z-index: 70;
-  border-bottom: 1px solid transparent;
-  transition: background-color .3s var(--gecis), border-color .3s;
+  background: var(--bakir);
+  border-bottom: 1px solid var(--bakir-3);
+  color: #fff;
+  box-shadow: inset 0 -2px 0 var(--altin);
 }
-.ust.sikisik { background: color-mix(in srgb, var(--kagit) 86%, transparent); backdrop-filter: blur(16px) saturate(1.2); border-bottom-color: var(--cizgi); }
-.ust-ic { display: flex; align-items: center; gap: 1rem; min-height: 4.2rem; }
+html[data-tema="gece"] .ust { background: #2a1516; border-bottom-color: #46211f; box-shadow: inset 0 -2px 0 var(--altin); }
+.ust-ic { display: flex; align-items: center; gap: 1rem; min-height: 3.6rem; }
 
-.marka { display: flex; align-items: center; gap: .6rem; color: var(--mürekkep); }
-.marka:hover { color: var(--bakir-2); }
-.marka svg { width: 1.7rem; height: 1.7rem; color: var(--bakir); flex: none; }
-.marka-yazi b { font-family: var(--f-baslik); font-weight: 700; font-size: .8rem; letter-spacing: .13em; text-transform: uppercase; display: block; }
-.marka-yazi span { font-family: var(--f-mono); font-size: .55rem; letter-spacing: .2em; color: var(--faint); text-transform: uppercase; }
+.marka { display: flex; align-items: center; gap: .6rem; color: #fff; }
+.marka:hover { color: var(--altin-3); }
+.marka svg { width: 1.6rem; height: 1.6rem; color: var(--altin-2); flex: none; }
+.marka-yazi b {
+  font-family: var(--f-baslik); font-weight: 700; font-size: .84rem;
+  letter-spacing: .06em; display: block; line-height: 1.15;
+}
+.marka-yazi span {
+  font-family: var(--f-mono); font-size: .52rem; letter-spacing: .18em;
+  color: rgba(255,255,255,.62); text-transform: uppercase;
+}
 
 .gezinme { display: flex; margin-inline-start: auto; }
 .gez {
-  position: relative; padding: .45rem .6rem;
-  font-size: .84rem; color: var(--soluk); white-space: nowrap;
-  transition: color .2s;
+  position: relative; padding: .55rem .7rem;
+  font-size: .85rem; color: rgba(255,255,255,.82); white-space: nowrap;
+  border-radius: 3px 3px 0 0;
+  transition: background-color .2s, color .2s;
 }
-.gez:hover { color: var(--mürekkep); }
-.gez.aktif { color: var(--bakir-2); }
-.gez.aktif::after { content: ""; position: absolute; left: .6rem; right: .6rem; bottom: 0; height: 1px; background: var(--bakir); }
+.gez:hover { color: #fff; background: rgba(0,0,0,.16); }
+.gez.aktif { color: #fff; background: rgba(0,0,0,.26); box-shadow: inset 0 -2px 0 var(--altin); }
 
-.ust-eylem { display: flex; gap: .35rem; margin-inline-start: .4rem; }
+.ust-eylem { display: flex; gap: .3rem; margin-inline-start: .5rem; }
 .dugme {
-  width: 2.2rem; height: 2.2rem; display: grid; place-items: center;
-  border: 1px solid var(--cizgi); color: var(--soluk);
-  transition: all .22s;
+  width: 2.1rem; height: 2.1rem; display: grid; place-items: center;
+  border: 1px solid rgba(255,255,255,.22); color: rgba(255,255,255,.8);
+  border-radius: 3px;
+  transition: all .2s;
 }
-.dugme:hover { color: var(--bakir); border-color: var(--bakir); }
+.dugme:hover { color: var(--altin-2); border-color: var(--altin-2); background: rgba(0,0,0,.18); }
 .dugme .ikon { width: 1rem; height: 1rem; }
 .menu-dugme { display: none; }
 @media (max-width: 1000px) {
   .menu-dugme { display: grid; }
   .gezinme {
-    position: fixed; inset: 4.2rem 0 auto;
-    flex-direction: column; gap: 0; padding: .6rem var(--kenar) 1.4rem;
-    background: color-mix(in srgb, var(--zemin) 97%, transparent);
-    backdrop-filter: blur(16px); border-bottom: 1px solid var(--cizgi);
+    position: fixed; inset: 3.6rem 0 auto;
+    flex-direction: column; gap: 0; padding: .5rem var(--kenar) 1.2rem;
+    background: var(--bakir-3);
+    box-shadow: var(--golge-2);
     transform: translateY(-118%); transition: transform .4s var(--giden);
-    max-height: calc(100dvh - 4.2rem); overflow-y: auto;
+    max-height: calc(100dvh - 3.6rem); overflow-y: auto;
   }
   .gezinme.acik { transform: translateY(0); }
-  .gez { padding: .8rem .3rem; border-bottom: 1px solid var(--cizgi); font-size: .98rem; }
-  .gez.aktif::after { left: .3rem; right: auto; width: 16px; bottom: .5rem; }
+  .gez { padding: .75rem .4rem; border-bottom: 1px solid rgba(255,255,255,.12); font-size: .98rem; border-radius: 0; }
+  .gez.aktif { box-shadow: inset 3px 0 0 var(--altin); }
 }
 
 /* arama */
@@ -777,11 +827,11 @@ caption + thead th { border-bottom: 1px solid var(--cizgi); }
    Rudeus her büyüyü böyle kuruyor. Sitenin ana dekoratif motifi. */
 .cember {
   position: absolute; z-index: -1; pointer-events: none;
-  color: var(--bakir); width: clamp(15rem, 38vw, 32rem);
+  color: var(--altin); width: clamp(15rem, 38vw, 32rem);
   right: -6%; top: 50%; transform: translateY(-50%);
-  opacity: .16;
+  opacity: .20;
 }
-html[data-tema="gece"] .cember { opacity: .28; }
+html[data-tema="gece"] .cember { opacity: .32; }
 .cember .yavas { transform-origin: 50% 50%; animation: don 90s linear infinite; }
 .cember .ter  { transform-origin: 50% 50%; animation: don 60s linear infinite reverse; }
 .cember .nabiz { transform-origin: 50% 50%; animation: nabizCember 6s ease-in-out infinite; }

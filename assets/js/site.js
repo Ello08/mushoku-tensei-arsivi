@@ -50,7 +50,6 @@
     const y = window.scrollY || 0;
     const h = document.documentElement.scrollHeight - window.innerHeight;
     if (ilerleme) ilerleme.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
-    if (ust) ust.classList.toggle("sikisik", y > 12);
     if (yukari) yukari.classList.toggle("acik", y > 700);
     const yeni = Math.floor(y);
     if (Math.abs(yeni - sonYukleme) > 120) {
